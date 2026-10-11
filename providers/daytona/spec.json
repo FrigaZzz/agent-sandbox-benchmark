@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "provider": "daytona",
+  "reviewed_at": "2026-10-13",
+  "deployment": "managed_runtime",
+  "customization": {
+    "level": "custom_image_and_resources",
+    "summary": "Managed Sandboxes from OCI images, declarative builds or snapshots; configurable vCPU/RAM/disk and network policies. Default Linux containers, separate Linux/Windows VM and explicitly documented ephemeral GPU classes. Inspected adapter uses older daytona_sdk client.create(timeout=60) without selecting image/snapshot/resources/target; actual deployed configuration is not recorded. Customer-operated compute regions attach to Daytona's managed control plane; legacy public core is unmaintained."
+  },
+  "features": [
+    {"id": "custom_image", "support": "supported", "evidence": "documented", "notes": "Managed container sandbox creation from public OCI/Docker images with fixed tags/digests, declarative builds and snapshots. Direct image path rejects mutable latest/lts/stable tags. VM class is created from existing VM snapshots, not container declarative builds. Adapter leaves image/snapshot unset.", "source_ids": ["sandbox", "adapter"]},
+    {"id": "runtime_packages", "support": "supported", "evidence": "documented", "notes": "Official persistence guide demonstrates runtime pip installation retained across stop/start and captured in snapshots. Shell/package permissions and tier network policy apply. Legacy package_ecosystem stdout inventories pip/preinstalled libraries, not a verified new package installation.", "source_ids": ["persistence", "process", "network", "legacy-report"]},
+    {"id": "cpu_sizing", "support": "supported", "evidence": "documented", "notes": "Create resources CPU uses vCPU. Current general sandbox table defaults to 1, minimum 1, organization default maximum 4; GPU limits scale separately up to 16 vCPUs per GPU. Adapter supplies no CPU resource; documented default is not proof of legacy tested allocation.", "source_ids": ["sandbox", "adapter", "legacy-report"]},
+    {"id": "memory_sizing", "support": "supported", "evidence": "documented", "notes": "General resource table labels GiB, default/minimum 1, maximum 8 by default organization limits; GPU class up to 192 GB per GPU in prose. Adapter supplies no memory; legacy exit 137 does not establish OOM root cause or memory ceiling.", "source_ids": ["sandbox", "adapter", "legacy-report"]},
+    {"id": "gpu", "support": "conditional", "evidence": "documented", "notes": "Explicit managed GPU Sandbox resources gpu/gpu_type; ephemeral class up to 8 GPUs with NVIDIA H100/H200/B300/RTX PRO 6000/RTX 4090/RTX 5090 and AMD MI355X documented. Shared fleet uses logical Earth placement and ignores requested geographic target; on-demand quota/capacity or immediate spot failure/preemption apply. Not inferred from agent hosting. Adapter requests no GPU and none was tested.", "source_ids": ["sandbox", "regions", "adapter"]},
+    {"id": "network_policy", "support": "conditional", "evidence": "documented", "notes": "Tier 1/2 organization restrictions cannot be overridden by sandbox settings; Tier 3/4 default full egress and can set mutually exclusive CIDR/domain allowlists or block-all. Custom rules also restrict essential services. Runtime settings updates supported at higher tiers; upstream proxy is create-only. Adapter sets no policy; legacy HTTP block does not prove all egress is blocked.", "source_ids": ["network", "adapter", "legacy-report"]},
+    {"id": "persistent_storage", "support": "supported", "evidence": "documented", "notes": "Container disk survives stop/start/archive but memory does not; VM pause/resume retains memory and filesystem. Independent S3-backed Volumes and snapshots survive deletion. GPU sandboxes are deleted on stop and need external volumes for results. Adapter deletes sandbox at cleanup and does not test durable persistence.", "source_ids": ["persistence", "sandbox", "adapter"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "documented", "notes": "Get existing sandbox, process sessions and persistent Python interpreter contexts supported. Current adapter creates a fresh sandbox on every execute and does not declare supports_session_calls; legacy agent_multiturn is one script, not distinct API calls. No pause/resume or cross-call reuse measured.", "source_ids": ["sandbox", "process", "adapter", "legacy-fixture", "legacy-report"]},
+    {"id": "shell", "support": "supported", "evidence": "documented", "notes": "process.exec runs shell commands with cwd/env/timeout and supports persistent sessions/PTY via provider APIs. Adapter always uploads and runs a Python file, so shell-language requests are not implemented as a separate native route.", "source_ids": ["process", "adapter"]},
+    {"id": "file_transfer", "support": "supported", "evidence": "documented", "notes": "Provider byte upload/download, multiple-file and streaming APIs documented. Adapter uploads bytes but downloads only /tmp/transformed_output.txt, silently ignores failures and skips empty content. Legacy 6000-byte text result does not establish general binary, recursive or multi-file collection fidelity.", "source_ids": ["files", "adapter", "legacy-report"]},
+    {"id": "ports_preview", "support": "supported", "evidence": "documented", "notes": "HTTP service preview URLs for ports 1-65535. Private standard preview token is sandbox-wide and unrevocable while running; signed URL token is single-port, expiring and revocable. Public sandbox property removes preview authentication. Adapter generates no preview and tests no ports.", "source_ids": ["preview", "adapter"]},
+    {"id": "self_hosting", "support": "conditional", "evidence": "documented", "notes": "Current BYOC supports customer-managed runners/custom regions with Daytona control plane and region Helm charts. Public daytonaio/daytona README states core development moved private in June 2026 and repository is unmaintained; legacy code remains usable/forkable as-is. Neither proves current managed GPU/VM feature parity in a fully self-operated deployment.", "source_ids": ["byoc", "regions", "legacy-core"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "No managed Sandbox customer-KMS key binding/rotation/revocation contract verified in inspected sources. BYOC infrastructure control or independently encrypted object buckets is not a documented platform-wide CMEK guarantee. Adapter declares cmek_supported=False without testing key management.", "source_ids": ["byoc", "adapter"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Reserved vCPU/RAM/disk charges by lifecycle state, calculated per second; public base rates displayed hourly. GPU preemptible rates are a distinct schedule; on-demand amounts unavailable in retrieved page text.",
+    "rates": [
+      {"resource": "CPU", "unit": "vCPU-hour (billed per second)", "amount": 0.0504, "source_ids": ["pricing"]},
+      {"resource": "RAM", "unit": "GiB-hour (billed per second)", "amount": 0.0162, "source_ids": ["pricing"]},
+      {"resource": "Storage", "unit": "GiB-hour after first 5 free (billed per second)", "amount": 0.000108, "source_ids": ["pricing"]},
+      {"resource": "Windows OS displayed rate", "unit": "vCPU-hour; relationship to base compute not specified in retrieved pricing", "amount": 0.0858, "source_ids": ["pricing"]},
+      {"resource": "Preemptible NVIDIA B300", "unit": "GPU-hour (billed per second)", "amount": 4.08, "source_ids": ["pricing"]},
+      {"resource": "Preemptible NVIDIA B200", "unit": "GPU-hour (billed per second); pricing-only, not confirmed by inspected GPU type list", "amount": 3.59, "source_ids": ["pricing"]},
+      {"resource": "Preemptible AMD MI355X", "unit": "GPU-hour (billed per second)", "amount": 3.44, "source_ids": ["pricing"]},
+      {"resource": "Preemptible NVIDIA H200", "unit": "GPU-hour (billed per second)", "amount": 2.61, "source_ids": ["pricing"]},
+      {"resource": "Preemptible NVIDIA H100", "unit": "GPU-hour (billed per second)", "amount": 2.27, "source_ids": ["pricing"]},
+      {"resource": "Preemptible NVIDIA RTX PRO 6000", "unit": "GPU-hour (billed per second)", "amount": 1.74, "source_ids": ["pricing"]},
+      {"resource": "Preemptible NVIDIA RTX 5090", "unit": "GPU-hour (billed per second)", "amount": 0.74, "source_ids": ["pricing"]},
+      {"resource": "Preemptible NVIDIA RTX 4090", "unit": "GPU-hour (billed per second)", "amount": 0.57, "source_ids": ["pricing"]},
+      {"resource": "On-demand GPU schedule", "unit": "GPU-hour; amounts not available in retrieved official text", "amount": null, "source_ids": ["pricing"]},
+      {"resource": "Independent Volume/snapshot-specific storage schedule", "unit": "not explicitly priced in inspected sources", "amount": null, "source_ids": ["pricing", "billing", "persistence"]},
+      {"resource": "Standalone network egress rate", "unit": "not itemized in retrieved pricing", "amount": null, "source_ids": ["pricing"]},
+      {"resource": "Enterprise/BYOC contract", "unit": "contract plus customer infrastructure", "amount": null, "source_ids": ["pricing", "byoc"]}
+    ],
+    "limitations": "Public page retrieved 2026-10-13 carries publication metadata 2026-10-02; this is not a rate-change effective date. First-5-GiB allowance scope is not specified (do not assume per sandbox). Started and creating/starting/stopping/pausing reserve and bill resources; stopped/paused bill disk only, archived containers not billed, deleted sandbox not billed but retained snapshots can be. GPU free-credit exclusion is explicit in billing docs; advertised $200 free compute is not GPU entitlement. On-demand prices, GPU CPU/RAM additivity and independent volume tariff not verified. Pricing includes B200 but inspected sandbox supported-type list does not. Legacy fixed-rate report is not a metered invoice; no price-increase claim supported."
+  },
+  "sources": [
+    {"id": "sandbox", "url": "https://www.daytona.io/docs/en/sandboxes.md", "title": "Sandboxes, resources, VM and GPU classes", "accessed_at": "2026-10-13"},
+    {"id": "network", "url": "https://www.daytona.io/docs/en/network-limits.md", "title": "Network Limits (Firewall)", "accessed_at": "2026-10-13"},
+    {"id": "persistence", "url": "https://www.daytona.io/docs/en/persistence.md", "title": "Persistence by sandbox class", "accessed_at": "2026-10-13"},
+    {"id": "preview", "url": "https://www.daytona.io/docs/en/preview.md", "title": "Standard and signed preview URLs", "accessed_at": "2026-10-13"},
+    {"id": "process", "url": "https://www.daytona.io/docs/en/process-code-execution.md", "title": "Process and Code Execution", "accessed_at": "2026-10-13"},
+    {"id": "files", "url": "https://www.daytona.io/docs/en/file-system-operations.md", "title": "File System Operations", "accessed_at": "2026-10-13"},
+    {"id": "pricing", "url": "https://www.daytona.io/pricing", "title": "Daytona pricing (page publication metadata 2026-10-02)", "accessed_at": "2026-10-13"},
+    {"id": "billing", "url": "https://www.daytona.io/docs/en/billing.md", "title": "Reserved resource billing by lifecycle state", "accessed_at": "2026-10-13"},
+    {"id": "regions", "url": "https://www.daytona.io/docs/en/regions.md", "title": "Shared, Earth, dedicated and custom regions", "accessed_at": "2026-10-13"},
+    {"id": "byoc", "url": "https://www.daytona.io/docs/en/bring-your-own-compute.md", "title": "Bring Your Own Compute", "accessed_at": "2026-10-13"},
+    {"id": "legacy-core", "url": "https://raw.githubusercontent.com/daytonaio/daytona/main/README.md", "title": "Official legacy core README: unmaintained since June 2026", "accessed_at": "2026-10-13"},
+    {"id": "adapter", "url": "../../src/core/providers/daytona.py", "title": "Inspected working-tree Daytona adapter", "accessed_at": "2026-10-13"},
+    {"id": "legacy-report", "url": "../../reports/data/legacy/daytona_live.json", "title": "Legacy Daytona live report without evaluated provenance", "accessed_at": "2026-10-13"},
+    {"id": "legacy-fixture", "url": "../../src/bench/suites/agent_multiturn.py", "title": "Single-script multi-turn fixture", "accessed_at": "2026-10-13"}
+  ]
+}

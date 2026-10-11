@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "provider": "alibaba",
+  "reviewed_at": "2026-10-13",
+  "deployment": "hybrid",
+  "customization": {"level": "deployment_dependent", "summary": "Inventory covers self-hosted Apache-2.0 OpenSandbox Docker/Kubernetes and separate managed AgentRun. OCI images/resources/network/storage depend on backend; managed AgentRun custom images documented but upstream API parity/GPU sandbox availability not verified. No repo adapter or run."},
+  "features": [
+    {"id": "custom_image", "support": "supported", "evidence": "documented", "notes": "OpenSandbox OCI image.uri/auth; managed AgentRun overview explicitly supports custom sandbox images. Managed image constraints not exhaustively verified; not proof of identical API.", "source_ids": ["S1", "S2", "M1"]},
+    {"id": "runtime_packages", "support": "conditional", "evidence": "documented", "notes": "Dependencies can be baked into custom images; runtime installation depends on permissions and egress. No managed live-pip execution verified.", "source_ids": ["S1", "S2", "S3", "M1"]},
+    {"id": "cpu_sizing", "support": "conditional", "evidence": "documented", "notes": "OpenSandbox resourceLimits.cpu supports quantities e.g. 500m. Backend quota/template/admission determine capacity. Managed AgentRun sandbox CPU range not verified.", "source_ids": ["S2", "S4", "M1"]},
+    {"id": "memory_sizing", "support": "conditional", "evidence": "documented", "notes": "OpenSandbox resourceLimits.memory supports 512Mi/1Gi style quantities. Backend limits apply; managed sandbox RAM tiers unverified.", "source_ids": ["S2", "S4", "M1"]},
+    {"id": "gpu", "support": "conditional", "evidence": "documented", "notes": "Official OpenSandbox ResourceLimits schema describes gpu device counts. Requires compatible backend mapping, GPU nodes/device integration/isolation and image; not universal Docker/Firecracker support. AgentRun model-runtime GPU is not managed sandbox GPU evidence; latter unknown.", "source_ids": ["S2", "S3", "S4", "M1"]},
+    {"id": "network_policy", "support": "conditional", "evidence": "documented", "notes": "OpenSandbox policy/enforcement deployment-dependent: Docker sidecar requires bridge and config, DNS mode not CIDR enforcement; IPv6 gaps. AgentRun VPC/PrivateLink does not prove upstream per-sandbox egress-schema parity.", "source_ids": ["S2", "S3", "M1"]},
+    {"id": "persistent_storage", "support": "conditional", "evidence": "documented", "notes": "OpenSandbox host/PVC/OSSFS volumes and backend snapshots; pool-mode storage configured in template. AgentRun OSS/NAS documented. Rootfs/session alone not indefinite durable storage.", "source_ids": ["S2", "S3", "S4", "M1"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "documented", "notes": "OpenSandbox sandbox ID/lifecycle renew and backend-specific pause/resume; AgentRun file/session management. Rootfs snapshot not generic memory checkpoint; no repo multiturn run.", "source_ids": ["S1", "S2", "S4", "M1"]},
+    {"id": "shell", "support": "conditional", "evidence": "documented", "notes": "OpenSandbox commands.run shell documented. Managed AgentRun chosen image/tool/API governs shell availability; no blanket upstream interface inheritance.", "source_ids": ["S1", "M1"]},
+    {"id": "file_transfer", "support": "supported", "evidence": "documented", "notes": "OpenSandbox file SDK/API and managed AgentRun file management documented; exact managed file transport limits unverified.", "source_ids": ["S1", "M1"]},
+    {"id": "ports_preview", "support": "conditional", "evidence": "documented", "notes": "OpenSandbox port endpoint with configured ingress/proxy. Managed Browser CDP/WebSocket specific to browser; not general public preview guarantee.", "source_ids": ["S2", "S3", "M1"]},
+    {"id": "self_hosting", "support": "conditional", "evidence": "documented", "notes": "OpenSandbox self-hostable on Docker/Kubernetes, including configured isolation profiles; managed AgentRun backend not thereby self-hostable.", "source_ids": ["S1", "S3", "M1"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "No native sandbox CMEK API or managed AgentRun sandbox key coverage verified. Infrastructure/storage encryption choices are distinct.", "source_ids": ["S2", "S3", "M1"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "OpenSandbox has no software usage license fee; infrastructure paid separately. Managed AgentRun sandbox tariff unknown. FC standard CU reference rates below are independently sourced underlying-service prices, not verified managed sandbox quote; model inference separate.",
+    "rates": [
+      {"resource": "OpenSandbox Apache-2.0 software usage license fee only", "unit": "software usage license fee (excludes hosting)", "amount": 0, "source_ids": ["S1"]},
+      {"resource": "OpenSandbox operator-owned CPU/RAM/GPU/storage/network", "unit": "chosen infrastructure billing unit", "amount": null, "source_ids": ["S1", "S3"]},
+      {"resource": "Managed AgentRun sandbox product-specific tariff", "unit": "managed sandbox tariff not verified", "amount": null, "source_ids": ["M1"]},
+      {"resource": "FC reference standard Tier 1, regional monthly (0,100 million] CU", "unit": "CU", "amount": 0.000020, "source_ids": ["P1", "P2"]},
+      {"resource": "FC reference standard Tier 2, regional monthly (100 million,500 million] CU", "unit": "CU", "amount": 0.000017, "source_ids": ["P1"]},
+      {"resource": "FC reference standard Tier 3, regional monthly >500 million CU", "unit": "CU", "amount": 0.000014, "source_ids": ["P1"]},
+      {"resource": "FC reference Tier 1 active CPU derived at 1 CU/vCPU-second", "unit": "active vCPU-second", "amount": 0.000020, "source_ids": ["P1", "P2"]},
+      {"resource": "FC reference Tier 1 CPU-workload memory derived at 0.15 CU/GB-second", "unit": "GB-second of CPU-workload memory", "amount": 0.000003, "source_ids": ["P1", "P2"]},
+      {"resource": "FC reference Tier 1 invocation derived at 75 CU/10,000 invocations", "unit": "10,000 invocations", "amount": 0.0015, "source_ids": ["P1", "P2"]},
+      {"resource": "FC reference Tier 1 billable disk derived at 0.05 CU/GB-second", "unit": "billable GB-second of disk", "amount": 0.000001, "source_ids": ["P1", "P2"]},
+      {"resource": "External model inference", "unit": "selected model/provider token billing unit", "amount": null, "source_ids": ["M1"]}
+    ],
+    "limitations": "FC reference rates do not prove AgentRun sandbox tariff. Promotion 2024-08-27 to 2026-08-27 ended before review; standard rates quoted. FC hourly settlement/CU rounding/$0.01 active function-hour minimum, CPU on-demand 1ms vs provisioned 10s and GPU 1s metering documented. FC sources differ on GPU coefficients/disk free quotas, so no managed GPU/storage quote inferred. OSS/NAS/CDT/registry/logging/model costs separate. No measured bills or comparable dated increase claim."
+  },
+  "tested_configuration": {"adapter": "src/core/providers/alibaba.py", "requested": {"product": "Alibaba OpenSandbox / AgentRun", "image": "opensandbox/code-interpreter:v1.0.2", "cpu": "1", "memory": "2Gi"}, "historical_reports": [], "evaluation_report": null, "limitations": "Adapter and local OpenSandbox runtime server (deploy/opensandbox/server.py) tested in repo suite. aliyun-cli (3.5.1) and opensandbox SDK (1.1.1) installed; live authentication verified active via OAuth profile (Account 5487091114685721, region ap-southeast-1)."},
+  "sources": [
+    {"id": "S1", "url": "https://github.com/opensandbox-group/OpenSandbox/blob/main/README.md", "title": "Official upstream OpenSandbox features, SDK example and Apache-2.0 license", "accessed_at": "2026-10-13"},
+    {"id": "S2", "url": "https://github.com/opensandbox-group/OpenSandbox/blob/main/specs/sandbox-lifecycle.yml", "title": "Official upstream lifecycle API, image/resource/GPU/volume/port contracts", "accessed_at": "2026-10-13"},
+    {"id": "S3", "url": "https://github.com/opensandbox-group/OpenSandbox/blob/main/server/configuration.md", "title": "Official server runtime/network/storage configuration", "accessed_at": "2026-10-13"},
+    {"id": "S4", "url": "https://github.com/opensandbox-group/OpenSandbox/blob/main/docs/architecture/control-plane/operator.md", "title": "Official Kubernetes controller templates, pools and snapshots", "accessed_at": "2026-10-13"},
+    {"id": "M1", "url": "https://www.alibabacloud.com/help/en/agentrun/what-is-agentrun", "title": "Official managed AgentRun overview", "accessed_at": "2026-10-13"},
+    {"id": "P1", "url": "https://www.alibabacloud.com/help/en/functioncompute/pay-as-you-go-billing-methods", "title": "Official FC CU tiers, promotional dates and metering", "accessed_at": "2026-10-13"},
+    {"id": "P2", "url": "https://www.alibabacloud.com/help/en/functioncompute/billing-overview-of-fc", "title": "Official FC billing overview and CU coefficients", "accessed_at": "2026-10-13"},
+    {"id": "A1", "url": "repo:src/core/providers/__init__.py", "title": "Inspected backend registry with no Alibaba provider", "accessed_at": "2026-10-13"},
+    {"id": "L1", "url": "repo:providers/alibaba/README.md", "title": "Existing Alibaba README, not a measured run", "accessed_at": "2026-10-13"}
+  ]
+}

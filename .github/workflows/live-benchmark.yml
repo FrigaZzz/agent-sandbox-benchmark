@@ -1,0 +1,67 @@
+name: Protected live benchmark
+on:
+  workflow_dispatch:
+    inputs:
+      backend:
+        description: Account configured in the protected benchmark environment
+        type: choice
+        options: [e2b, modal, blaxel]
+        required: true
+      suite:
+        type: choice
+        options: [realistic, cold_start, runtime_inventory]
+        default: cold_start
+      budget:
+        description: Estimated campaign admission cap in USD (not an invoice cap)
+        default: '1.00'
+        required: true
+      attempt_allowance:
+        description: Conservative full-attempt allowance in USD; include retries/storage/fees
+        default: '0.05'
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: protected-live-benchmark
+  cancel-in-progress: false
+jobs:
+  benchmark:
+    if: github.ref == 'refs/heads/main'
+    environment: benchmark
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install '.[dev,modal,e2b,blaxel]'
+      - name: Run reviewed fixtures
+        env:
+          BACKEND: ${{ inputs.backend }}
+          SUITE: ${{ inputs.suite }}
+          BUDGET: ${{ inputs.budget }}
+          ALLOWANCE: ${{ inputs.attempt_allowance }}
+          E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          BL_API_KEY: ${{ secrets.BL_API_KEY }}
+          BL_WORKSPACE: ${{ vars.BL_WORKSPACE }}
+        run: python -m src.cli run --backend "$BACKEND" --suite "$SUITE" --repeats 5 --budget-cap-usd "$BUDGET" --budget-attempt-estimate-usd "$ALLOWANCE" --output reports/data/attempts/dispatch/runs.json
+      - if: always()
+        run: python -m src.cli specs
+      - if: always()
+        id: hygiene
+        run: python scripts/check_publication.py
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() && steps.hygiene.outcome == 'success' }}
+        with:
+          name: reviewed-campaign-candidate
+          path: |
+            reports/data/attempts/dispatch/
+            reports/data/campaigns/
+            reports/data/derived/specifications.json
+          retention-days: 30

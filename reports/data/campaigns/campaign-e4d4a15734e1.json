@@ -1,0 +1,14 @@
+{
+  "campaign_id": "campaign-e4d4a15734e1",
+  "report_path": "attempts/2026-10/databricks_mcp_evaluation.json",
+  "status": "completed",
+  "wall_seconds_including_warmups": 14.797656624985393,
+  "attempts": 1,
+  "warmup_attempts": 0,
+  "planned_attempts_including_warmups": 1,
+  "budget_skipped_jobs": 0,
+  "budget": null,
+  "passes": 0,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.0
+}

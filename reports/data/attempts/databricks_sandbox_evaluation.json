@@ -1,0 +1,112 @@
+[
+  {
+    "run_id": "bench-69ff9d171cac",
+    "suite": "runtime_inventory",
+    "provider": "databricks_sandbox",
+    "status": "failed",
+    "preparation": "success",
+    "execution": "failed",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "The requested API is not available",
+    "exit_code": null,
+    "artifacts": [],
+    "warnings": [
+      "databricks_sandbox_error: NotFound",
+      "Note: Ensure 'Databricks Sandboxes' preview is enabled in Workspace Settings -> Previews."
+    ],
+    "error": null,
+    "timings": {
+      "initialize_ms": 2820.369,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.403,
+      "execute_ms": 860.978,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.55,
+      "total_wall_clock_ms": 3682.836
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001326,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001326,
+      "billing_unit": "Databricks Serverless Sandbox MicroVM (4 vCPU / 8 GB)",
+      "details": {
+        "duration_seconds": 3.6828,
+        "rate_per_sec": 3.6e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:15:13.911751+00:00",
+    "workload_sha256": "461b55104fd725d2e6be181ce676e11e0e678b47245af6e1cb742ed5cf929436",
+    "evaluation": "fail",
+    "checks": {
+      "inventory_schema_version": false,
+      "execution_status": false,
+      "cleanup": true
+    },
+    "metrics": {},
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-0f4a6289973f",
+      "attempt": 0,
+      "warmup": false,
+      "concurrency": 1,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults"
+      },
+      "config_id": "39ed10c5d0c2",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "f79f492591b9d63a675c1615e134cdcc74cbcbbf8ce4fe0fbbcfe03872646b21",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "failed",
+        "stdout": "",
+        "stderr": "The requested API is not available",
+        "wall_ms": 860.921
+      }
+    ],
+    "teardown": "success"
+  }
+]

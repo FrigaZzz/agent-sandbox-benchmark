@@ -1,0 +1,124 @@
+[
+  {
+    "run_id": "bench-0598503acce3",
+    "suite": "runtime_inventory",
+    "provider": "databricks_mcp",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "Sandbox is still starting. Retry the sandbox call shortly; the same session will be reused.",
+    "stderr": "",
+    "exit_code": null,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 2096.217,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1.025,
+      "execute_ms": 12695.136,
+      "collect_ms": 0.0,
+      "cleanup_ms": 1.24,
+      "total_wall_clock_ms": 14794.184
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0,
+      "billing_unit": "unknown",
+      "details": {
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-14T02:18:59.351852+00:00",
+    "workload_sha256": "c9580ef6a4d47ec027a0db7a27e8de2594265da301f0dc0ab2bff039efd68735",
+    "evaluation_contract_sha256": "7b9c619e5d264104d80dc047be5db82ff8d4379e6d60582f3a51b91c09b8242d",
+    "evaluation": "fail",
+    "checks": {
+      "inventory_schema_version": false,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {},
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "e557a10c9994c10f7766da83f390b61b9dc6a5e3",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-e4d4a15734e1",
+      "attempt": 0,
+      "warmup": false,
+      "concurrency": 1,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "AI Gateway MCP system.ai.sandbox run_code",
+          "service": "system.ai.sandbox",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "session_mode": "ephemeral per execute"
+        }
+      },
+      "config_id": "e67c2c7c2bf1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "93b77fb0fd7fc9d323fac392382f44d4ba3f43f4d13e9d0ea4bcd93e7910ec15",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": null,
+        "version": "unrecorded CLI/SDK"
+      },
+      "stack_sha256": "578cdc6d53b412d165fd2041d05bca1d3856b11c644df0b657b659dadb29dc7f",
+      "capabilities_declared": {
+        "native_input_files": false,
+        "native_output_files": false,
+        "persistent_filesystem": false,
+        "shell_execution": true,
+        "supports_multiple_files": false,
+        "supports_direct_binary_transfer": false,
+        "has_internet_access": false,
+        "has_custom_packages": false,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "Sandbox is still starting. Retry the sandbox call shortly; the same session will be reused.",
+        "stderr": "",
+        "wall_ms": 12694.826
+      }
+    ],
+    "teardown": "success"
+  }
+]

@@ -1,0 +1,13 @@
+services:
+  bench:
+    build:
+      context: .
+      dockerfile: Dockerfile.runner
+      args:
+        EXTRAS: ${BENCH_EXTRAS:-dev}
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - ./reports/data:/bench/reports/data
+    command: [run, --backend, local, --suite, cold_start, --repeats, '5', --budget-cap-usd, '0.01']

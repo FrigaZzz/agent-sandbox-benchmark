@@ -1,0 +1,488 @@
+[
+  {
+    "run_id": "bench-d81d0cf0b74d",
+    "suite": "cold_start",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SANDBOX_READY\nPYTHON_VERSION:3.13.3\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.433,
+      "execute_ms": 2451.761,
+      "collect_ms": 0.0,
+      "cleanup_ms": 107.444,
+      "total_wall_clock_ms": 2559.762
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001843,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001843,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 2.5598,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-5a780056015c",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1379\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.41,
+      "execute_ms": 1998.298,
+      "collect_ms": 0.0,
+      "cleanup_ms": 111.759,
+      "total_wall_clock_ms": 2110.519
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.000152,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.000152,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 2.1105,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-3c14bfb229a9",
+    "suite": "mem_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "ALLOCATED_MB:50\nALLOCATED_MB:100\nALLOCATED_MB:250\nALLOCATED_MB:500\nALLOCATED_MB:1000\nALLOCATED_MB:2000\nMAX_ALLOCATION_REACHED:2000MB\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.79,
+      "execute_ms": 4053.359,
+      "collect_ms": 0.0,
+      "cleanup_ms": 111.633,
+      "total_wall_clock_ms": 4165.858
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0002999,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0002999,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 4.1659,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-62fdd4afaaab",
+    "suite": "disk_io",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SMALL_FILES_WRITE_SEC:0.0069\nLARGE_FILE_WRITE_SEC:0.0028\nLARGE_FILE_READ_SEC:0.0166\nINTEGRITY_MATCH:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.582,
+      "execute_ms": 1798.327,
+      "collect_ms": 0.0,
+      "cleanup_ms": 104.849,
+      "total_wall_clock_ms": 1903.85
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001371,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001371,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.9038,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-2695b682787d",
+    "suite": "net_isolation",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "DNS_STATUS:ALLOWED:104.20.23.154\nHTTP_EGRESS:ALLOWED:200\nMETADATA_ACCESS:BLOCKED_SECURE:URLError\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.493,
+      "execute_ms": 4364.562,
+      "collect_ms": 0.0,
+      "cleanup_ms": 113.973,
+      "total_wall_clock_ms": 4479.118
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0003225,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0003225,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 4.4791,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-c371f00f46ca",
+    "suite": "env_security",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "USER_ID:0:0\nIS_ROOT:True\nOS_SYSTEM:Linux:x86_64\nCONTAINER_FLAG:False\nPASSWORDLESS_SUDO:FALSE_OR_UNAVAILABLE\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1.255,
+      "execute_ms": 2338.099,
+      "collect_ms": 0.0,
+      "cleanup_ms": 105.959,
+      "total_wall_clock_ms": 2445.407
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001761,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001761,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 2.4454,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-0e3950eef519",
+    "suite": "timeout_handling",
+    "provider": "modal",
+    "status": "timed_out",
+    "preparation": "success",
+    "execution": "timed_out",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": null,
+    "artifacts": [],
+    "warnings": [
+      "Execution exceeded timeout threshold."
+    ],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.498,
+      "execute_ms": 7300.491,
+      "collect_ms": 0.0,
+      "cleanup_ms": 104.529,
+      "total_wall_clock_ms": 7405.718
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0005332,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0005332,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 7.4057,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-ba3f98e70e47",
+    "suite": "artifact_roundtrip",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "empty",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "INPUT_BYTES_READ:20\nOUTPUT_BYTES_WRITTEN:20\nOUTPUT_SHA:03f8b5a6985317bb443711cf59982832808ed02a2a2b2c2e7c07bd702ac081e9\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.812,
+      "execute_ms": 1797.916,
+      "collect_ms": 0.159,
+      "cleanup_ms": 115.467,
+      "total_wall_clock_ms": 1914.473
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001378,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001378,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.9145,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-2c507fd55184",
+    "suite": "agent_multiturn",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "MULTITURN_ITERATIONS:5\nTURN_1_INIT_MS:0.18\nTURN_2_INGEST_MS:2.01\nTURN_3_ANALYSIS_MS:1.00\nTURN_4_DECISION_MS:0.29\nTURN_5_VERIFY_MS:0.08\nTOTAL_MULTITURN_MS:3.57\nSTATE_CONTINUITY_SUCCESS:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.6,
+      "execute_ms": 1855.357,
+      "collect_ms": 0.0,
+      "cleanup_ms": 107.986,
+      "total_wall_clock_ms": 1964.031
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001414,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001414,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.964,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-bdc41cfa38d9",
+    "suite": "parallel_throughput",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PARALLEL_WORKERS:8\nBATCH_TASKS:200\nSERIAL_PROJECTED_SEC:0.0781\nPARALLEL_WALL_SEC:0.0873\nSPEEDUP_RATIO:0.89\nTHROUGHPUT_TASKS_PER_SEC:2292.1\nCONCURRENCY_TEST_PASSED:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.894,
+      "execute_ms": 1860.811,
+      "collect_ms": 0.0,
+      "cleanup_ms": 113.152,
+      "total_wall_clock_ms": 1975.0
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001422,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001422,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.975,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-8caeea6b9e25",
+    "suite": "package_ecosystem",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "CORE_STDLIB_COUNT:9/9\nPREINSTALLED_EXT_PACKAGES:['requests']\nPIP_AVAILABLE:True\nPIP_STATUS:pip 25.1.1 from /usr/local/lib/python3.13/site-packages/pip (python 3.13)\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.59,
+      "execute_ms": 2454.917,
+      "collect_ms": 0.0,
+      "cleanup_ms": 103.66,
+      "total_wall_clock_ms": 2559.241
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001843,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001843,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 2.5592,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05
+      }
+    }
+  }
+]

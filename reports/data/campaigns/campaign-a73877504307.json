@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-a73877504307",
+  "report_path": "gemini_tool_evaluation.json",
+  "wall_seconds_including_warmups": 137.5850632499787,
+  "attempts": 11,
+  "warmup_attempts": 0,
+  "passes": 4,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.029072923364743368
+}

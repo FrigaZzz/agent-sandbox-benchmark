@@ -1,0 +1,4 @@
+.benchmark-nav{display:flex!important;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 24px;margin:0!important;padding:12px 16px;background:#203943;color:#fff;font:600 14px/1.5 system-ui,sans-serif;border-bottom:1px solid #47606a;position:relative;z-index:2}
+.benchmark-nav a{color:#fff!important;padding:4px 0;text-decoration:none;border-bottom:2px solid transparent}
+.benchmark-nav a[aria-current=page]{border-color:#73d4c1}.benchmark-nav a:hover{text-decoration:underline}.benchmark-nav a:focus-visible{outline:3px solid #73d4c1;outline-offset:4px}
+@media print{.benchmark-nav{display:none!important}}

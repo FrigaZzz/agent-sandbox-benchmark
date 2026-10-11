@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "provider": "blaxel",
+  "reviewed_at": "2026-10-13",
+  "deployment": "managed_runtime",
+  "customization": {
+    "level": "custom_image_and_resources",
+    "summary": "Managed sandbox microVMs with custom images containing sandbox-api, memory-sized CPU, network/proxy options, volumes and previews. CPU is coupled to RAM. Current adapter requests a unique per-attempt name, py-app:latest, 4096 MB, us-pdx-1 and ttl=1h; options allow alternate image/memory/region/TTL. Exact requested settings and guest observations are recorded in tested-configurations.json. No GPU deployment tested."
+  },
+  "features": [
+    {"id": "custom_image", "support": "supported", "evidence": "documented", "notes": "Dockerfile/custom registry images must include sandbox-api; SDK ImageInstance injects the binary/default entrypoint. Generic unmodified Docker Hub images cannot directly act as sandbox images. Default slimming removes build-time compilers/caches; opt out where runtime builds need them. Adapter requests a mutable prebuilt py-app:latest tag.", "source_ids": ["templates", "deployment", "adapter"]},
+    {"id": "runtime_packages", "support": "supported", "evidence": "documented", "notes": "Official sandbox use cases describe autonomous package installation and process execution. Availability depends on image tools, writable RAM-backed filesystem and egress policy. Legacy package_ecosystem report establishes pip availability, not a verified package installation; no new evaluated installation report was available.", "source_ids": ["sandbox", "process", "legacy-report"]},
+    {"id": "cpu_sizing", "support": "conditional", "evidence": "documented", "notes": "CPU follows selected memory, not an independent CPU field in inspected SandboxRuntime. API description says memory MB/2048 (4096 MB=2 CPUs), while overview examples say 8 GB=4 cores and 16 GB=6 cores. Do not extrapolate a universal linear mapping or assign physical/vCPU equivalence without inventory. Adapter requests 4096 MB; actual existing-instance CPU is unknown.", "source_ids": ["sandbox", "api", "adapter"]},
+    {"id": "memory_sizing", "support": "supported", "evidence": "documented", "notes": "memory is documented in MB; limits depend on account tier, custom pricing advertises up to 256 GB. Image base is read-only EROFS with writable tmpfs layer sharing RAM, approximately 50% reserved when possible. memory=4096 is a requested creation value, not measured process-available RAM; create_if_not_exists does not reconfigure existing instances.", "source_ids": ["sandbox", "api", "quotas", "pricing", "adapter"]},
+    {"id": "gpu", "support": "unknown", "evidence": "unverified", "notes": "No GPU reservation field in the inspected sandbox API/runtime configuration or explicit managed Sandbox GPU offering verified. Agent Hosting, model integrations, CUDA_VISIBLE_DEVICES image examples, NVIDIA-branded tools and custom hardware marketing do not prove sandbox GPU access. No GPU requested or tested. Absence of documentation is not an explicit unsupported contract.", "source_ids": ["api", "deployment", "agents", "templates", "pricing", "adapter"]},
+    {"id": "network_policy", "support": "conditional", "evidence": "documented", "notes": "Public-preview proxy domain/method/path filters; environment-variable routing alone can be bypassed. Explicit firewall rulesets=[proxy] at creation enforces proxy egress, documented for Mark 3.0 not Carbon/3.1. API relocates allow/deny fields under network.proxy and has conflicting rule-precedence wording versus guide; verify exact version semantics before relying on overlap. Adapter configures no network restriction.", "source_ids": ["domains", "api", "adapter"]},
+    {"id": "persistent_storage", "support": "supported", "evidence": "documented", "notes": "Standby snapshots retain state; attached Volumes survive deletion. Current guide limits one volume per sandbox, same region, create-time attach. Adapter mounts no durable storage and deletes its owned sandbox during cleanup/teardown with errors propagated.", "source_ids": ["sandbox", "volumes", "api", "adapter"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "documented", "notes": "Named lookup/reuse and standby restore are documented. Adapter now uses a unique per-attempt sandbox and does not declare reusable session calls. Legacy single-script multi-turn is not separate-call or standby/resume evidence.", "source_ids": ["sandbox", "adapter", "legacy-report", "legacy-fixture"]},
+    {"id": "shell", "support": "supported", "evidence": "documented", "notes": "process.exec accepts arbitrary shell command strings; named process wait/kill supported. Adapter always runs an uploaded Python script and combines logs. Without keepAlive, documented timeout bounds waiting and does not auto-kill process; adapter reports timed_out on wait timeout but does not call process.kill.", "source_ids": ["process", "adapter"]},
+    {"id": "file_transfer", "support": "supported", "evidence": "documented", "notes": "Provider supports native binary read/write and multipart transfer (direct HTTP request cap 5 MB, SDK chunks larger writes). Current adapter instead UTF-8-decodes inputs with errors=ignore, text-writes, and text-reads only /tmp/transformed_output.txt. Legacy 6000-byte text roundtrip does not validate arbitrary binary or multi-file fidelity.", "source_ids": ["files", "adapter", "legacy-report"]},
+    {"id": "ports_preview", "support": "supported", "evidence": "documented", "notes": "Creation-time API ports and dynamic public/private token previews; preview URLs can use custom domains. API reserves 80/443/8080; preview guide explicitly forbids port 80. Bind to injected HOST; active WebSocket connections have timeout/reconnect constraints. Adapter exposes no ports/previews.", "source_ids": ["sandbox", "preview", "api", "adapter"]},
+    {"id": "self_hosting", "support": "conditional", "evidence": "documented", "notes": "Pricing describes bring-your-own-metal: customer bare metal in own VPC connected privately to Blaxel control plane, with quote/custom hardware. This is partial infrastructure control, not a verified wholly self-operated control plane/runtime distribution. Evaluated path remains managed cloud.", "source_ids": ["pricing"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "No provider-native customer KMS encryption-key binding/rotation/revocation contract for sandbox snapshots, volumes, images or logs verified in inspected sources. BYOM, encrypted secrets or ZDR assertions do not establish CMEK. Adapter declares cmek_supported=False without an encryption test.", "source_ids": ["api", "pricing", "adapter"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Active Sandbox compute billed by allocated GB RAM-second with CPU included; separate snapshot/image/volume storage while retained; standby has no compute charge.",
+    "rates": [
+      {"resource": "Sandbox active compute including CPU", "unit": "GB RAM-second", "amount": 0.0000115, "source_ids": ["pricing"]},
+      {"resource": "Sandbox snapshot storage", "unit": "GB-month", "amount": 0.20, "source_ids": ["pricing"]},
+      {"resource": "Sandbox image storage", "unit": "GB-month", "amount": 0.045, "source_ids": ["pricing"]},
+      {"resource": "Persistent Volume provisioned capacity", "unit": "GB-month, provisioned not used", "amount": 0.12, "source_ids": ["pricing"]},
+      {"resource": "Wildcard custom domain", "unit": "domain-month", "amount": 20, "source_ids": ["pricing"]},
+      {"resource": "Agent Drive data storage/operations", "unit": "free during beta; future rate unknown", "amount": 0, "source_ids": ["pricing"]},
+      {"resource": "Dedicated egress IP/gateway runtime", "unit": "free during beta; future rate unknown", "amount": 0, "source_ids": ["pricing"]},
+      {"resource": "Proxy data processed", "unit": "free during beta; future rate unknown", "amount": 0, "source_ids": ["pricing"]},
+      {"resource": "Internal/internet egress traffic", "unit": "included, no separate displayed charge", "amount": 0, "source_ids": ["pricing"]},
+      {"resource": "Fully-qualified non-wildcard custom domain", "unit": "coming soon; no published rate", "amount": null, "source_ids": ["pricing"]},
+      {"resource": "Custom/BYOM deployment", "unit": "contract", "amount": null, "source_ids": ["pricing"]},
+      {"resource": "Sandbox GPU rate", "unit": "not published; GPU availability unverified", "amount": null, "source_ids": ["pricing", "api"]}
+    ],
+    "limitations": "Official public rates retrieved 2026-10-13; GB labels are retained and not silently converted to GiB. Memory API uses MB; exact MB-to-billable-GB convention not established. Snapshot/image/volume charges can continue while idle. Quota top-ups are wallet prepayment, not flat plan fees; eligibility is rolling 30-day real-money top-ups, promo credits do not count. Up to $200 credits advertised, account entitlement unverified. Agent/MCP/Batch Jobs pricing is a different product and is excluded from Sandbox compute rate. Legacy report fixed rates/resources have no billing verification or dated rate provenance. No price-change conclusion supported."
+  },
+  "sources": [
+    {"id": "sandbox", "url": "https://docs.blaxel.ai/Sandboxes/Overview.md", "title": "Sandboxes overview and lifecycle", "accessed_at": "2026-10-13"},
+    {"id": "api", "url": "https://docs.blaxel.ai/api-reference/compute/create-sandbox.md", "title": "Create sandbox OpenAPI reference", "accessed_at": "2026-10-13"},
+    {"id": "templates", "url": "https://docs.blaxel.ai/Sandboxes/Templates.md", "title": "Build reusable sandbox images with Dockerfiles", "accessed_at": "2026-10-13"},
+    {"id": "deployment", "url": "https://docs.blaxel.ai/deployment-reference.md", "title": "blaxel.toml deployment configuration", "accessed_at": "2026-10-13"},
+    {"id": "domains", "url": "https://docs.blaxel.ai/Sandboxes/Proxy-domains.md", "title": "Domain filtering (public preview)", "accessed_at": "2026-10-13"},
+    {"id": "volumes", "url": "https://docs.blaxel.ai/Sandboxes/Volumes.md", "title": "Volumes for sandboxes", "accessed_at": "2026-10-13"},
+    {"id": "process", "url": "https://docs.blaxel.ai/Sandboxes/Processes.md", "title": "Process execution and timeout semantics", "accessed_at": "2026-10-13"},
+    {"id": "files", "url": "https://docs.blaxel.ai/Sandboxes/Filesystem.md", "title": "Sandbox file system and binary/multipart operations", "accessed_at": "2026-10-13"},
+    {"id": "preview", "url": "https://docs.blaxel.ai/Sandboxes/Preview-url.md", "title": "Real-time previews", "accessed_at": "2026-10-13"},
+    {"id": "quotas", "url": "https://docs.blaxel.ai/Security/Quotas.md", "title": "Usage and quotas", "accessed_at": "2026-10-13"},
+    {"id": "pricing", "url": "https://blaxel.ai/pricing", "title": "Blaxel pricing and deployment options", "accessed_at": "2026-10-13"},
+    {"id": "agents", "url": "https://docs.blaxel.ai/Agents/Overview.md", "title": "Agents Hosting (distinct product)", "accessed_at": "2026-10-13"},
+    {"id": "adapter", "url": "../../src/core/providers/blaxel.py", "title": "Inspected working-tree Blaxel adapter", "accessed_at": "2026-10-13"},
+    {"id": "legacy-report", "url": "../../reports/data/legacy/blaxel_live.json", "title": "Legacy Blaxel live report without evaluated provenance", "accessed_at": "2026-10-13"},
+    {"id": "legacy-fixture", "url": "../../src/bench/suites/agent_multiturn.py", "title": "Single-script multi-turn fixture", "accessed_at": "2026-10-13"}
+  ]
+}

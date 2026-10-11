@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-dfd74d54e772",
+  "report_path": "blaxel_evaluation.json",
+  "wall_seconds_including_warmups": 3.1693958330433816,
+  "attempts": 1,
+  "warmup_attempts": 0,
+  "passes": 1,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.3155175474057968
+}

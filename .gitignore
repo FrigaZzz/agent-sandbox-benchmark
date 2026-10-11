@@ -1,0 +1,35 @@
+__pycache__/
+*.pyc
+*.pyo
+.cache/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.env
+.env.*
+!.env.example
+.agent-sandbox.env
+.claude/
+.opencode/
+.venv/
+.venv-*/
+venv/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+.idea/
+.vscode/
+*.pem
+*.key
+# Private research checkouts, credential notes and publication drafts.
+/refs/
+/tasks/
+# Benchmark outputs in reports/ and sandbox-results/ are publication data.
+.DS_Store
+reports/**/*.lock
+reports/**/*.tmp
+/snapshots/
+/.pages/
+tasks/

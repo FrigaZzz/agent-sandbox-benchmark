@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "provider": "k8s_agent_sandbox",
+  "configurations": [
+    {
+      "schema_version": 1,
+      "provider": "k8s_agent_sandbox",
+      "config_id": "5ec993b27fcf",
+      "adapter_sha256": "b8704b7e87ef23fc407b811fb47007656cc04f8992c0d71527e933d8d2e39bf7",
+      "stack_sha256": "578cdc6d53b412d165fd2041d05bca1d3856b11c644df0b657b659dadb29dc7f",
+      "concurrency": 1,
+      "requested": {
+        "label": "live-rerun",
+        "requested": {
+          "product": "HTTP endpoint adapter",
+          "auto_spawn": true,
+          "deployment_attested": false
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": null,
+          "version": "unrecorded CLI/SDK"
+        }
+      },
+      "runtime_kind": "unattested_endpoint",
+      "attempt_ids": [
+        "bench-fa487d9ac9f0",
+        "bench-f3568cb0173d",
+        "bench-d7089b89165f",
+        "bench-f69673140d0b",
+        "bench-af7e24cfd9c7",
+        "bench-27434ef8ca01",
+        "bench-62f740405055",
+        "bench-66b203a50013",
+        "bench-5bd243ebbbcd",
+        "bench-b43185105d17",
+        "bench-3caadcec59b3",
+        "bench-0c32a4926f96",
+        "bench-c39e0b236667",
+        "bench-c08b57d57578",
+        "bench-76a46c6fbd94",
+        "bench-c71869a59943",
+        "bench-bd46ed9a0c5b",
+        "bench-5dc822755851",
+        "bench-cd30b34d333c",
+        "bench-63d80a45c298",
+        "bench-be57e80c1316",
+        "bench-a6c1672b6b2e",
+        "bench-564de52e2650",
+        "bench-22ecba5c0c02",
+        "bench-62b15c790fa6",
+        "bench-702d6a5832f8",
+        "bench-64fe1b49e86a",
+        "bench-317c0ae3a626",
+        "bench-7feefe9308dd",
+        "bench-7091e75db71b",
+        "bench-ce1023fa0c44",
+        "bench-1801916a61da"
+      ],
+      "suites": [
+        "agent_multiturn",
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "disk_io",
+        "env_security",
+        "error_recovery",
+        "mem_stress",
+        "net_isolation",
+        "output_fidelity",
+        "package_ecosystem",
+        "parallel_throughput",
+        "repository_task",
+        "runtime_inventory",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-f3568cb0173d",
+          "observed_at": "2026-10-13T16:21:34.861964+00:00",
+          "report_path": "data/attempts/k8s_agent_sandbox_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": "max 100000",
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-9",
+              "memory_limit_v1": null,
+              "memory_max": "max"
+            },
+            "cpu": {
+              "affinity_count": 10,
+              "model": null,
+              "visible_logical_cpus": 10
+            },
+            "disk": {
+              "filesystem_free_bytes": 442891505664,
+              "filesystem_total_bytes": 485473984512
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 1000
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 8217448448
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": "2.5.4",
+              "pandas": "3.0.6",
+              "pip": "25.0.1",
+              "requests": "2.34.2",
+              "scipy": "1.18.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "aarch64",
+              "implementation": "CPython",
+              "kernel": "6.12.54-linuxkit",
+              "os": "Linux",
+              "python": "3.12.15"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": false,
+              "git": true,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-317c0ae3a626",
+          "observed_at": "2026-10-13T16:26:44.244892+00:00",
+          "report_path": "data/attempts/k8s_agent_sandbox_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": "max 100000",
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-9",
+              "memory_limit_v1": null,
+              "memory_max": "max"
+            },
+            "cpu": {
+              "affinity_count": 10,
+              "model": null,
+              "visible_logical_cpus": 10
+            },
+            "disk": {
+              "filesystem_free_bytes": 442891010048,
+              "filesystem_total_bytes": 485473984512
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 1000
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 8217448448
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": "2.5.4",
+              "pandas": "3.0.6",
+              "pip": "25.0.1",
+              "requests": "2.34.2",
+              "scipy": "1.18.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "aarch64",
+              "implementation": "CPython",
+              "kernel": "6.12.54-linuxkit",
+              "os": "Linux",
+              "python": "3.12.15"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": false,
+              "git": true,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/k8s_agent_sandbox_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T16:26:44.965515+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    }
+  ]
+}

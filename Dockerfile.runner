@@ -1,0 +1,14 @@
+FROM python:3.13-slim
+ARG EXTRAS=dev
+RUN apt-get update && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /bench
+COPY pyproject.toml readme.md ./
+COPY src ./src
+RUN python -m pip install --no-cache-dir ".[${EXTRAS}]"
+COPY providers ./providers
+COPY reports ./reports
+COPY scripts ./scripts
+COPY examples ./examples
+ENTRYPOINT ["python", "-m", "src.cli"]
+CMD ["--help"]

@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-8f8677feb45a",
+  "report_path": "openai_tool_evaluation.json",
+  "wall_seconds_including_warmups": 0.7105085420189425,
+  "attempts": 1,
+  "warmup_attempts": 0,
+  "passes": 0,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.0
+}

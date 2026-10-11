@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Observed sandbox runtime inventory (not an allocation attestation)",
+  "type": "object",
+  "required": ["inventory_schema_version", "runtime", "cpu", "memory", "cgroup", "disk", "gpu", "packages", "tools", "identity", "limitations"],
+  "properties": {
+    "inventory_schema_version": {"const": 1},
+    "runtime": {"type": "object", "required": ["python", "implementation", "os", "kernel", "architecture"]},
+    "cpu": {"type": "object", "properties": {"visible_logical_cpus": {"type": ["integer", "null"]}, "model": {"type": ["string", "null"]}, "affinity_count": {"type": ["integer", "null"]}}},
+    "memory": {"type": "object", "properties": {"sysconf_physical_bytes": {"type": ["integer", "null"]}}},
+    "cgroup": {"type": "object", "additionalProperties": {"type": ["string", "null"]}},
+    "disk": {"type": "object", "required": ["filesystem_total_bytes", "filesystem_free_bytes"]},
+    "gpu": {"type": "object", "required": ["probe", "devices"], "properties": {"devices": {"type": "array", "items": {"type": "string"}}}},
+    "packages": {"type": "object", "additionalProperties": {"type": ["string", "null"]}},
+    "tools": {"type": "object", "additionalProperties": {"type": "boolean"}},
+    "identity": {"type": "object", "properties": {"uid": {"type": ["integer", "null"]}}},
+    "limitations": {"type": "string"}
+  }
+}

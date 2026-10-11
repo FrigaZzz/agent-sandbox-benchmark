@@ -1,0 +1,42 @@
+apiVersion: sandbox.k8s.io/v1alpha1
+kind: SandboxTemplate
+metadata:
+  name: python-runtime-template
+  namespace: default
+spec:
+  podTemplate:
+    spec:
+      runtimeClassName: gvisor  # Secure container sandbox isolation (gVisor or Kata)
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+        - name: sandbox-runtime
+          image: k8s-agent-sandbox:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8888
+              name: http
+          resources:
+            limits:
+              cpu: "2"
+              memory: "4Gi"
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+          env:
+            - name: SANDBOX_BASE_DIR
+              value: /tmp/agent-sandbox-data
+            - name: PORT
+              value: "8888"
+---
+apiVersion: sandbox.k8s.io/v1alpha1
+kind: SandboxWarmPool
+metadata:
+  name: python-sandbox-warmpool
+  namespace: default
+spec:
+  replicas: 3
+  templateRef:
+    name: python-runtime-template

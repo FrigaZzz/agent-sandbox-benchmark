@@ -1,0 +1,499 @@
+[
+  {
+    "run_id": "bench-f9329b7266ac",
+    "suite": "cold_start",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SANDBOX_READY\nPYTHON_VERSION:3.12.15\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.459,
+      "execute_ms": 2205.817,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.603,
+      "total_wall_clock_ms": 2206.961
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001986,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001986,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 2.207,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-2e75ab997106",
+    "suite": "cpu_stress",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.2059\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.395,
+      "execute_ms": 1818.231,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.47,
+      "total_wall_clock_ms": 1819.13
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001637,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001637,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 1.8191,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-a4ce6b44fed1",
+    "suite": "mem_stress",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "ALLOCATED_MB:50\nALLOCATED_MB:100\nALLOCATED_MB:250\nALLOCATED_MB:500\nALLOCATED_MB:1000\nALLOCATED_MB:2000\nMAX_ALLOCATION_REACHED:2000MB\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.368,
+      "execute_ms": 4203.865,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.505,
+      "total_wall_clock_ms": 4204.784
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0003784,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0003784,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 4.2048,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-339f91ad3e22",
+    "suite": "disk_io",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SMALL_FILES_WRITE_SEC:0.0027\nLARGE_FILE_WRITE_SEC:0.0544\nLARGE_FILE_READ_SEC:0.0326\nINTEGRITY_MATCH:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.388,
+      "execute_ms": 1839.51,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.478,
+      "total_wall_clock_ms": 1840.413
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001656,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001656,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 1.8404,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-ffc0f6becbb0",
+    "suite": "net_isolation",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "DNS_STATUS:ALLOWED:172.66.147.243\nHTTP_EGRESS:ALLOWED:200\nMETADATA_ACCESS:BLOCKED_SECURE:URLError\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.323,
+      "execute_ms": 3021.316,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.467,
+      "total_wall_clock_ms": 3022.145
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.000272,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.000272,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 3.0221,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-50ebe7f990fb",
+    "suite": "env_security",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "USER_ID:0:0\nIS_ROOT:True\nOS_SYSTEM:Linux:x86_64\nCONTAINER_FLAG:False\nPASSWORDLESS_SUDO:FALSE_OR_UNAVAILABLE\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.343,
+      "execute_ms": 608.061,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.489,
+      "total_wall_clock_ms": 608.937
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 5.48e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 5.48e-05,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 0.6089,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-a58998206b0c",
+    "suite": "timeout_handling",
+    "provider": "blaxel",
+    "status": "timed_out",
+    "preparation": "success",
+    "execution": "timed_out",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "Process did not finish in time (bench-bench-a58998206b0c); it may still be running",
+    "exit_code": null,
+    "artifacts": [],
+    "warnings": [
+      "blaxel_timeout"
+    ],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.413,
+      "execute_ms": 4411.544,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.553,
+      "total_wall_clock_ms": 4412.566
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0003971,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0003971,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 4.4126,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-deffdb0ba77e",
+    "suite": "artifact_roundtrip",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "success",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "INPUT_BYTES_READ:6000\nOUTPUT_BYTES_WRITTEN:6000\nOUTPUT_SHA:3eac135e18c2c6274506531a4e554ec13fe99d90ff1bc7dd8b21065f00dc1fa0\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [
+      {
+        "artifact_id": "bench-deffdb0ba77e-0",
+        "filename": "transformed_output.txt",
+        "relative_path": "transformed_output.txt",
+        "mime_type": "application/octet-stream",
+        "size_bytes": 6000,
+        "sha256": "3eac135e18c2c6274506531a4e554ec13fe99d90ff1bc7dd8b21065f00dc1fa0",
+        "status": "saved",
+        "error": null
+      }
+    ],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 2.123,
+      "execute_ms": 787.107,
+      "collect_ms": 167.781,
+      "cleanup_ms": 0.476,
+      "total_wall_clock_ms": 957.59
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 8.62e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 8.62e-05,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 0.9576,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-cdb1d51d2842",
+    "suite": "agent_multiturn",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "MULTITURN_ITERATIONS:5\nTURN_1_INIT_MS:0.22\nTURN_2_INGEST_MS:1.31\nTURN_3_ANALYSIS_MS:0.90\nTURN_4_DECISION_MS:0.10\nTURN_5_VERIFY_MS:0.04\nTOTAL_MULTITURN_MS:2.58\nSTATE_CONTINUITY_SUCCESS:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.437,
+      "execute_ms": 599.992,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.432,
+      "total_wall_clock_ms": 600.897
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 5.41e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 5.41e-05,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 0.6009,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-3edb41460b84",
+    "suite": "parallel_throughput",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PARALLEL_WORKERS:8\nBATCH_TASKS:200\nSERIAL_PROJECTED_SEC:0.1038\nPARALLEL_WALL_SEC:0.1295\nSPEEDUP_RATIO:0.80\nTHROUGHPUT_TASKS_PER_SEC:1544.7\nCONCURRENCY_TEST_PASSED:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.448,
+      "execute_ms": 1916.842,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.575,
+      "total_wall_clock_ms": 1917.918
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001726,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001726,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 1.9179,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-8dd29feffead",
+    "suite": "package_ecosystem",
+    "provider": "blaxel",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "CORE_STDLIB_COUNT:9/9\nPREINSTALLED_EXT_PACKAGES:[]\nPIP_AVAILABLE:True\nPIP_STATUS:pip 25.0.1 from /usr/local/lib/python3.12/site-packages/pip (python 3.12)\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.559,
+      "execute_ms": 1975.775,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.572,
+      "total_wall_clock_ms": 1976.973
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001779,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001779,
+      "billing_unit": "per-second microVM container",
+      "details": {
+        "duration_seconds": 1.977,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 8.999999999999999e-05
+      }
+    }
+  }
+]

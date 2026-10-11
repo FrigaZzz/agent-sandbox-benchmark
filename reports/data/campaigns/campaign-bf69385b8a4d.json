@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-bf69385b8a4d",
+  "report_path": "aws_evaluation.json",
+  "wall_seconds_including_warmups": 43.75489570898935,
+  "attempts": 11,
+  "warmup_attempts": 0,
+  "passes": 4,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.09141834154065206
+}

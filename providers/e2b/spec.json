@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "provider": "e2b",
+  "reviewed_at": "2026-10-13",
+  "deployment": "managed_runtime",
+  "customization": {
+    "level": "custom_image_and_resources",
+    "summary": "Managed CPU-only Firecracker sandbox with custom image-derived templates and CPU/RAM sizing at template build time, network rules, pause/resume and private-beta volumes. Inspected integration uses e2b_code_interpreter.Sandbox.create(timeout=180) with no explicit template or resource sizing. Official default RAM descriptions conflict; tested allocation is unknown. BYOC is E2B-operated and distinct from self-hosted Embed."
+  },
+  "features": [
+    {"id": "custom_image", "support": "supported", "evidence": "documented", "notes": "Managed templates can derive from Docker registry images, existing templates or parsed Dockerfiles. Distribution/package requirements apply; scratch/distroless and multistage Dockerfile conversion are unsupported. Adapter does not select/build a custom template, and the Code Interpreter SDK default must not be confused with generic Sandbox base.", "source_ids": ["base-image", "build", "adapter"]},
+    {"id": "runtime_packages", "support": "supported", "evidence": "measured", "notes": "Existing dependency_install evaluations pass installation/import of an uploaded offline wheel in a private directory using --no-index/--no-deps. This tests runtime Python package installation, not internet package registry connectivity or apt/sudo privileges.", "source_ids": ["evaluation", "fixtures"]},
+    {"id": "cpu_sizing", "support": "supported", "evidence": "documented", "notes": "cpu_count/cpuCount is configured in Template.build, not a cpu keyword in this adapter's create call. Pricing lists 1-8 vCPUs; billing docs list 8 Hobby, 8+ Pro by support request, custom Enterprise. Adapter does not request CPU and reports do not inventory allocation.", "source_ids": ["build", "billing", "pricing", "adapter"]},
+    {"id": "memory_sizing", "support": "supported", "evidence": "documented", "notes": "memory_mb/memoryMB at template build; pricing bills GiB-seconds and lists 1-8 GiB, with support-approved higher Pro/Enterprise limits in billing docs. Pricing says default 4 GiB, generic base-image docs say 512 MiB, and billing FAQ repeats 512 MiB. Do not infer default Code Interpreter or tested RAM from these descriptions; adapter leaves sizing unset.", "source_ids": ["build", "billing", "pricing", "base-image", "adapter"]},
+    {"id": "gpu", "support": "unsupported", "evidence": "documented", "notes": "Official GPU FAQ explicitly states sandboxes are CPU-only with no GPU SDK/CLI/API/template option; BYOC does not change this. Calling remote inference, installing CUDA libraries, or running an agent that orchestrates GPU training elsewhere is not local sandbox GPU access.", "source_ids": ["gpu", "pricing"]},
+    {"id": "network_policy", "support": "supported", "evidence": "documented", "notes": "Default public egress; allow_internet_access switch, IP/CIDR allow/deny rules, HTTP 80 Host and TLS 443 SNI domain allowlisting. Allow rules override denies; domain mode requires deny-all and allows default DNS server. Domain filtering does not cover QUIC/other ports and shared endpoints have limitations. Runtime update_network replaces rules. Adapter uses defaults and tests no custom policy.", "source_ids": ["network", "adapter"]},
+    {"id": "persistent_storage", "support": "supported", "evidence": "documented", "notes": "Pause/resume preserves filesystem and memory; paused retention is indefinite until explicit kill. Persistent volumes independent of sandbox lifetime are in private beta with locking/ownership limitations. Adapter kills at cleanup and mounts no volume; measured session state is not persistence after kill.", "source_ids": ["persistence", "volumes", "adapter", "evaluation"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "measured", "notes": "Connect to a running/paused sandbox; adapter retains one Code Interpreter sandbox across calls and session_state evaluation passes three separate filesystem calls. The fixture does not prove Python-variable continuity or pause/resume. Continuous runtime caps are 1h Hobby/24h Pro, reset after pause/resume; adapter timeout is 180s.", "source_ids": ["persistence", "billing", "adapter", "evaluation", "fixtures"]},
+    {"id": "shell", "support": "supported", "evidence": "documented", "notes": "Provider commands.run supports foreground/background shell commands. Adapter instead submits all code to run_code with no language selector, so generic shell capability is not a native shell-request route in this integration.", "source_ids": ["public-url", "adapter"]},
+    {"id": "file_transfer", "support": "supported", "evidence": "measured", "notes": "files.write/read APIs; adapter transfers input bytes, reads output with format=bytes and hashes it. Existing artifact_roundtrip validates 26900 bytes; offline-wheel install also exercises binary input staging. One-level output listing does not establish recursive directory or maximum-size transfer support.", "source_ids": ["files", "adapter", "evaluation", "fixtures"]},
+    {"id": "ports_preview", "support": "supported", "evidence": "documented", "notes": "get_host(port) generates a public HTTPS proxy URL for sandbox services, with optional public-access restrictions. URLs are public by default; proxy terminates TLS and can re-encrypt to configured HTTPS ports, not TLS passthrough. Adapter configures no service/preview or public-access restriction.", "source_ids": ["public-url", "adapter"]},
+    {"id": "self_hosting", "support": "conditional", "evidence": "documented", "notes": "Official open-source runtime/control plane is Apache-2.0. BYOC docs distinguish self-operated single-machine Embed on Linux/KVM from E2B-operated Enterprise clusters in customer AWS/GCP/Azure accounts. This adapter and its evaluations use managed Code Interpreter; no self-hosted parity or deployment was tested.", "source_ids": ["open-source", "byoc", "adapter"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "No provider-native customer KMS key binding/rotation/revocation contract was verified in inspected pricing, API-facing and BYOC documentation. Customer-account storage locality in BYOC does not itself establish CMEK coverage for all sandbox data. Adapter declares false but does not test key management.", "source_ids": ["byoc", "adapter"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Monthly plan fee plus provisioned vCPU/RAM per running sandbox-second; paused/killed compute not billed; included sandbox storage.",
+    "rates": [
+      {"resource": "Sandbox CPU", "unit": "vCPU-second", "amount": 0.000014, "source_ids": ["pricing"]},
+      {"resource": "Sandbox RAM", "unit": "GiB-second", "amount": 0.0000045, "source_ids": ["pricing"]},
+      {"resource": "Included sandbox storage", "unit": "included plan allocation, no extra charge", "amount": 0, "source_ids": ["pricing"]},
+      {"resource": "Hobby plan", "unit": "project-month, plus usage", "amount": 0, "source_ids": ["pricing", "billing"]},
+      {"resource": "Pro plan (100 concurrent sandboxes)", "unit": "project-month, plus usage", "amount": 150, "source_ids": ["pricing"]},
+      {"resource": "Pro+ (600 concurrent sandboxes)", "unit": "project-month including plan/add-on, plus usage", "amount": 650, "source_ids": ["pricing"]},
+      {"resource": "Pro++ (1100 concurrent sandboxes)", "unit": "project-month including plan/add-ons, plus usage", "amount": 1150, "source_ids": ["pricing"]},
+      {"resource": "Enterprise minimum usage commitment", "unit": "month, minimum not a unit compute rate", "amount": 3000, "source_ids": ["pricing"]},
+      {"resource": "Enterprise/BYOC contracted rate", "unit": "contract", "amount": null, "source_ids": ["pricing", "byoc"]},
+      {"resource": "Independent private-beta Volume storage rate", "unit": "not published in inspected sources", "amount": null, "source_ids": ["volumes", "pricing"]},
+      {"resource": "Standalone network egress rate", "unit": "not published in inspected pricing", "amount": null, "source_ids": ["pricing"]}
+    ],
+    "limitations": "Exact public rates retrieved 2026-10-13; no invoice or historical price comparison verified. Hobby has one-time $100 credits, 20 concurrency/1h continuous runtime/10 GiB storage; Pro 100 concurrency/24h/20 GiB storage and no additional credits. Pricing default is 2 vCPU/4 GiB while generic base/billing FAQ say 2 vCPU/512 MiB; Code Interpreter allocation and tier are unverified. 'Storage free' is scoped to included sandbox storage, not an independently priced beta-volume contract. Report fixed $0.00004/sec is estimate_unverified_rates and client wall time is not metered runtime."
+  },
+  "sources": [
+    {"id": "pricing", "url": "https://e2b.dev/pricing.md", "title": "E2B Pricing", "accessed_at": "2026-10-13"},
+    {"id": "billing", "url": "https://docs.e2b.dev/billing.md", "title": "Billing & limits", "accessed_at": "2026-10-13"},
+    {"id": "base-image", "url": "https://docs.e2b.dev/template/base-image.md", "title": "Template base image and default resources", "accessed_at": "2026-10-13"},
+    {"id": "build", "url": "https://docs.e2b.dev/template/build.md", "title": "Template build resources and minimum free disk", "accessed_at": "2026-10-13"},
+    {"id": "gpu", "url": "https://docs.e2b.dev/faq/gpu-support.md", "title": "Does E2B support GPUs?", "accessed_at": "2026-10-13"},
+    {"id": "network", "url": "https://docs.e2b.dev/network/internet-access.md", "title": "Internet access and fine-grained network controls", "accessed_at": "2026-10-13"},
+    {"id": "public-url", "url": "https://docs.e2b.dev/network/public-url.md", "title": "Sandbox public URL", "accessed_at": "2026-10-13"},
+    {"id": "files", "url": "https://docs.e2b.dev/filesystem/read-write.md", "title": "Read & write files", "accessed_at": "2026-10-13"},
+    {"id": "persistence", "url": "https://docs.e2b.dev/sandbox/persistence.md", "title": "Sandbox persistence", "accessed_at": "2026-10-13"},
+    {"id": "volumes", "url": "https://docs.e2b.dev/volumes.md", "title": "Volumes overview (private beta)", "accessed_at": "2026-10-13"},
+    {"id": "open-source", "url": "https://e2b.dev/open-source.md", "title": "E2B Open Source", "accessed_at": "2026-10-13"},
+    {"id": "byoc", "url": "https://docs.e2b.dev/byoc.md", "title": "BYOC versus self-hosted Embed", "accessed_at": "2026-10-13"},
+    {"id": "adapter", "url": "../../src/core/providers/e2b.py", "title": "Inspected working-tree E2B adapter", "accessed_at": "2026-10-13"},
+    {"id": "evaluation", "url": "../../reports/data/attempts/e2b_evaluation.json", "title": "Existing E2B evaluations (schema version 2)", "accessed_at": "2026-10-13"},
+    {"id": "fixtures", "url": "../../src/bench/suites/workflows.py", "title": "Offline dependency and cross-call filesystem fixtures", "accessed_at": "2026-10-13"}
+  ]
+}

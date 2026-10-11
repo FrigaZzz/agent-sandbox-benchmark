@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-3cbf20571d61",
+  "report_path": "k8s_agent_sandbox_evaluation.json",
+  "wall_seconds_including_warmups": 27.96012395899743,
+  "attempts": 19,
+  "warmup_attempts": 0,
+  "passes": 9,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.32188698495035983
+}

@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bench-sandboxes"
+version = "0.1.0"
+description = "Comprehensive benchmarking, stress-testing, and telemetry framework for AI agent sandbox runtimes"
+readme = "readme.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+adk = [
+    "google-adk>=0.1.0",
+]
+gcp = [
+    "google-cloud-aiplatform[agent_engines]>=2.3.0",
+]
+modal = [
+    "modal>=1.6.0",
+]
+e2b = [
+    "e2b-code-interpreter>=1.0.0",
+]
+blaxel = [
+    "blaxel>=0.1.0",
+]
+aws = [
+    "boto3>=1.40.0",
+]
+daytona = [
+    "daytona-sdk>=0.1.0",
+]
+servers = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+    "python-multipart>=0.0.9",
+]
+presentation = [
+    "websockets>=12.0.0",
+    "Pillow>=10.0.0",
+    "PyMuPDF>=1.24.0",
+]
+databricks = [
+    "databricks-sdk>=0.151.0",
+]
+genai = [
+    "google-genai>=0.1.0",
+    "openai>=1.40.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "jsonschema>=4.0.0",
+    "websockets>=12.0.0",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+    "python-multipart>=0.0.9",
+    "databricks-sdk>=0.151.0",
+    "opensandbox>=1.1.1",
+    "k8s-agent-sandbox>=1.0.6",
+]
+
+[project.scripts]
+bench-sandboxes = "src.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-data]
+"src.bench" = ["*.html"]

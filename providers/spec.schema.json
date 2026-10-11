@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Provider capability specification",
+  "type": "object",
+  "required": ["schema_version", "provider", "reviewed_at", "deployment", "customization", "features", "pricing", "sources"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "provider": {"type": "string"},
+    "reviewed_at": {"type": "string"},
+    "deployment": {"enum": ["managed_runtime", "managed_tool", "model_mediated", "self_hosted", "hybrid"]},
+    "customization": {
+      "type": "object", "required": ["level", "summary"],
+      "properties": {
+        "level": {"enum": ["fixed_runtime", "packages_and_files", "custom_image_and_resources", "infrastructure_control", "deployment_dependent"]},
+        "summary": {"type": "string"}
+      }
+    },
+    "features": {"type": "array", "items": {
+      "type": "object", "required": ["id", "support", "evidence", "notes", "source_ids"],
+      "properties": {
+        "id": {"enum": ["custom_image", "runtime_packages", "cpu_sizing", "memory_sizing", "gpu", "network_policy", "persistent_storage", "session_reuse", "shell", "file_transfer", "ports_preview", "self_hosting", "cmek"]},
+        "support": {"enum": ["supported", "unsupported", "conditional", "unknown"]},
+        "evidence": {"enum": ["documented", "measured", "unverified"]},
+        "notes": {"type": "string"}, "source_ids": {"type": "array", "items": {"type": "string"}}
+      }
+    }},
+    "pricing": {"type": "object", "required": ["currency", "model", "rates", "limitations"],
+      "properties": {
+        "currency": {"const": "USD"}, "model": {"type": "string"},
+        "rates": {"type": "array", "items": {"type": "object", "required": ["resource", "unit", "amount", "source_ids"],
+          "properties": {"resource": {"type": "string"}, "unit": {"type": "string"}, "amount": {"type": ["number", "null"]}, "source_ids": {"type": "array", "items": {"type": "string"}}}}},
+        "limitations": {"type": "string"}
+      }
+    },
+    "sources": {"type": "array", "items": {"type": "object", "required": ["id", "url", "title", "accessed_at"],
+      "properties": {"id": {"type": "string"}, "url": {"type": "string"}, "title": {"type": "string"}, "accessed_at": {"type": "string"}}}}
+  }
+}

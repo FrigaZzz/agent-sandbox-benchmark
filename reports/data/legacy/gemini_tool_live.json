@@ -1,0 +1,475 @@
+[
+  {
+    "run_id": "bench-277897dcbc40",
+    "suite": "cold_start",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SANDBOX_READY\nPYTHON_VERSION:3.11.8\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.011,
+      "execute_ms": 3120.518,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.003,
+      "total_wall_clock_ms": 3120.633
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 3.1206,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-495de62b8f21",
+    "suite": "cpu_stress",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.5409\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 2584.77,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 2584.814
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 2.5848,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-d66d119fe252",
+    "suite": "mem_stress",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "\nExecuteCode failed: .\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.002,
+      "execute_ms": 4203.36,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 4203.427
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 4.2034,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-a18f744e05a2",
+    "suite": "disk_io",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SMALL_FILES_WRITE_SEC:0.0246\nLARGE_FILE_WRITE_SEC:0.0085\nLARGE_FILE_READ_SEC:0.0067\nINTEGRITY_MATCH:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 3957.376,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 3957.452
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 3.9575,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-3cb0a1eb09ee",
+    "suite": "net_isolation",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "DNS_STATUS:BLOCKED:gaierror\nHTTP_EGRESS:BLOCKED:URLError\nMETADATA_ACCESS:BLOCKED_SECURE:URLError\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 2269.073,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 2269.148
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 2.2691,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-5ed12c50c477",
+    "suite": "env_security",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "USER_ID:369346771:5000\nIS_ROOT:False\nOS_SYSTEM:Linux:x86_64\nCONTAINER_FLAG:False\nPASSWORDLESS_SUDO:FALSE_OR_UNAVAILABLE\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 2198.275,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 2198.325
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 2.1983,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-8a6256f6f659",
+    "suite": "timeout_handling",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "\nCode execution timed out. Forcefully killed.",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 32006.552,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 32006.64
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 32.0066,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-7d9231f9c4c2",
+    "suite": "artifact_roundtrip",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "empty",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "INPUT_BYTES_READ:20\nOUTPUT_BYTES_WRITTEN:20\nOUTPUT_SHA:03f8b5a6985317bb443711cf59982832808ed02a2a2b2c2e7c07bd702ac081e9\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 4812.437,
+      "collect_ms": 0.073,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 4812.627
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 4.8126,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-0f1fc5fcb921",
+    "suite": "agent_multiturn",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "MULTITURN_ITERATIONS:5\nTURN_1_INIT_MS:1.06\nTURN_2_INGEST_MS:3.10\nTURN_3_ANALYSIS_MS:2.12\nTURN_4_DECISION_MS:0.69\nTURN_5_VERIFY_MS:0.42\nTOTAL_MULTITURN_MS:7.41\nSTATE_CONTINUITY_SUCCESS:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 7013.18,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 7013.271
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 7.0133,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-4b656fc077bc",
+    "suite": "parallel_throughput",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PARALLEL_WORKERS:8\nBATCH_TASKS:200\nSERIAL_PROJECTED_SEC:0.3174\nPARALLEL_WALL_SEC:0.2476\nSPEEDUP_RATIO:1.28\nTHROUGHPUT_TASKS_PER_SEC:807.9\nCONCURRENCY_TEST_PASSED:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 3352.172,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 3352.248
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 3.3522,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  },
+  {
+    "run_id": "bench-40cd654500c0",
+    "suite": "package_ecosystem",
+    "provider": "gemini_tool",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "CORE_STDLIB_COUNT:9/9\nPREINSTALLED_EXT_PACKAGES:['numpy', 'pandas', 'scipy', 'matplotlib']\nPIP_AVAILABLE:False\nPIP_STATUS:pip_error_TypeError\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 3138.706,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 3138.804
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0,
+      "token_cost_usd": 0.0001125,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001125,
+      "billing_unit": "token-only (compute runtime free)",
+      "details": {
+        "duration_seconds": 3.1388,
+        "prompt_tokens": 500,
+        "completion_tokens": 250
+      }
+    }
+  }
+]

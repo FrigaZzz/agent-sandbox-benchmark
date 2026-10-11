@@ -1,0 +1,477 @@
+[
+  {
+    "run_id": "bench-a83f0ac4ffbd",
+    "suite": "cold_start",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SANDBOX_READY\nPYTHON_VERSION:3.14.4\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.351,
+      "execute_ms": 2947.288,
+      "collect_ms": 0.0,
+      "cleanup_ms": 219.519,
+      "total_wall_clock_ms": 3167.215
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 6.33e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 6.33e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 3.1672,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-70518e5b8666",
+    "suite": "cpu_stress",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1247\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.477,
+      "execute_ms": 2461.275,
+      "collect_ms": 0.0,
+      "cleanup_ms": 140.118,
+      "total_wall_clock_ms": 2601.91
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 5.2e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 5.2e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 2.6019,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-afe6922ae55a",
+    "suite": "mem_stress",
+    "provider": "daytona",
+    "status": "failed",
+    "preparation": "success",
+    "execution": "failed",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 137,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.419,
+      "execute_ms": 2595.274,
+      "collect_ms": 0.0,
+      "cleanup_ms": 330.938,
+      "total_wall_clock_ms": 2926.703
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 5.85e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 5.85e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 2.9267,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-ad8103598827",
+    "suite": "disk_io",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SMALL_FILES_WRITE_SEC:0.0026\nLARGE_FILE_WRITE_SEC:0.0034\nLARGE_FILE_READ_SEC:0.0092\nINTEGRITY_MATCH:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.856,
+      "execute_ms": 2211.057,
+      "collect_ms": 0.0,
+      "cleanup_ms": 135.097,
+      "total_wall_clock_ms": 2347.093
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.69e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.69e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 2.3471,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-be66becd21f0",
+    "suite": "net_isolation",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "DNS_STATUS:ALLOWED:104.20.23.154\nHTTP_EGRESS:BLOCKED:URLError\nMETADATA_ACCESS:BLOCKED_SECURE:HTTPError\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.372,
+      "execute_ms": 2244.476,
+      "collect_ms": 0.0,
+      "cleanup_ms": 134.698,
+      "total_wall_clock_ms": 2379.588
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.76e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.76e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 2.3796,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-31a2a2a18ddc",
+    "suite": "env_security",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "USER_ID:1001:1001\nIS_ROOT:False\nOS_SYSTEM:Linux:x86_64\nCONTAINER_FLAG:True\nPASSWORDLESS_SUDO:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.334,
+      "execute_ms": 2204.122,
+      "collect_ms": 0.0,
+      "cleanup_ms": 350.624,
+      "total_wall_clock_ms": 2555.121
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 5.11e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 5.11e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 2.5551,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-b4fb7c33e683",
+    "suite": "timeout_handling",
+    "provider": "daytona",
+    "status": "timed_out",
+    "preparation": "success",
+    "execution": "timed_out",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "Failed to execute command: command execution timeout",
+    "exit_code": null,
+    "artifacts": [],
+    "warnings": [
+      "daytona_timeout"
+    ],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.395,
+      "execute_ms": 5944.999,
+      "collect_ms": 0.0,
+      "cleanup_ms": 337.997,
+      "total_wall_clock_ms": 6283.513
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001257,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001257,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 6.2835,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-53cdbbd4b6e5",
+    "suite": "artifact_roundtrip",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "success",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "INPUT_BYTES_READ:6000\nOUTPUT_BYTES_WRITTEN:6000\nOUTPUT_SHA:3eac135e18c2c6274506531a4e554ec13fe99d90ff1bc7dd8b21065f00dc1fa0\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [
+      {
+        "artifact_id": "bench-53cdbbd4b6e5-0",
+        "filename": "transformed_output.txt",
+        "relative_path": "transformed_output.txt",
+        "mime_type": "application/octet-stream",
+        "size_bytes": 6000,
+        "sha256": "3eac135e18c2c6274506531a4e554ec13fe99d90ff1bc7dd8b21065f00dc1fa0",
+        "status": "saved",
+        "error": null
+      }
+    ],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.847,
+      "execute_ms": 1633.138,
+      "collect_ms": 41.694,
+      "cleanup_ms": 332.744,
+      "total_wall_clock_ms": 2008.501
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.02e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.02e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 2.0085,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-54f962f89480",
+    "suite": "agent_multiturn",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "MULTITURN_ITERATIONS:5\nTURN_1_INIT_MS:0.25\nTURN_2_INGEST_MS:0.94\nTURN_3_ANALYSIS_MS:1.06\nTURN_4_DECISION_MS:0.90\nTURN_5_VERIFY_MS:0.04\nTOTAL_MULTITURN_MS:3.20\nSTATE_CONTINUITY_SUCCESS:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.439,
+      "execute_ms": 2082.948,
+      "collect_ms": 0.0,
+      "cleanup_ms": 358.165,
+      "total_wall_clock_ms": 2441.604
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.88e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.88e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 2.4416,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-cd992083d021",
+    "suite": "parallel_throughput",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PARALLEL_WORKERS:8\nBATCH_TASKS:200\nSERIAL_PROJECTED_SEC:0.0689\nPARALLEL_WALL_SEC:0.1167\nSPEEDUP_RATIO:0.59\nTHROUGHPUT_TASKS_PER_SEC:1714.3\nCONCURRENCY_TEST_PASSED:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.447,
+      "execute_ms": 1866.856,
+      "collect_ms": 0.0,
+      "cleanup_ms": 134.34,
+      "total_wall_clock_ms": 2001.723
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 2.0017,
+        "rate_per_sec": 2e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-bf60712355c9",
+    "suite": "package_ecosystem",
+    "provider": "daytona",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "CORE_STDLIB_COUNT:9/9\nPREINSTALLED_EXT_PACKAGES:['numpy', 'pandas', 'requests', 'yaml', 'pydantic', 'scipy', 'matplotlib']\nPIP_AVAILABLE:True\nPIP_STATUS:pip 26.0.1 from /usr/local/lib/python3.14/site-packages/pip (python 3.14)\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1.255,
+      "execute_ms": 3366.824,
+      "collect_ms": 0.0,
+      "cleanup_ms": 347.462,
+      "total_wall_clock_ms": 3715.633
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 7.43e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 7.43e-05,
+      "billing_unit": "per-second workspace instance (or self-hosted $0)",
+      "details": {
+        "duration_seconds": 3.7156,
+        "rate_per_sec": 2e-05
+      }
+    }
+  }
+]

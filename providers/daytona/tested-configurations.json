@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "provider": "daytona",
+  "configurations": [
+    {
+      "schema_version": 1,
+      "provider": "daytona",
+      "config_id": "5bd019963a19",
+      "adapter_sha256": "3973cef255b40ec62317e504f19c387dc6ae9557559e3f5afbd22b763140b05a",
+      "stack_sha256": "9493b75dc1a626e8e3203c47e2f8ac6d2a4a3718c0a26cb05aa530b7525964a7",
+      "concurrency": 1,
+      "requested": {
+        "label": "live-rerun",
+        "requested": {
+          "product": "Daytona",
+          "image": "client.create defaults",
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "daytona-sdk",
+          "version": "0.224.0"
+        }
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-7877f98cab56",
+        "bench-3d8e63334fa1",
+        "bench-6418d7c7bdf2",
+        "bench-749e61f05f2c",
+        "bench-06d30d2674eb",
+        "bench-e0fa20fe703b",
+        "bench-4d3a6906ddbf",
+        "bench-b5b0c4d8e98f",
+        "bench-694153926fba",
+        "bench-4b5be1ef179b",
+        "bench-4795c10f5eca",
+        "bench-955a555db315"
+      ],
+      "suites": [
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "error_recovery",
+        "output_fidelity",
+        "repository_task",
+        "runtime_inventory",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-955a555db315",
+          "observed_at": "2026-10-13T16:46:55.833210+00:00",
+          "report_path": "data/attempts/daytona_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": "100000 100000",
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-47",
+              "memory_limit_v1": null,
+              "memory_max": "1073741824"
+            },
+            "cpu": {
+              "affinity_count": 48,
+              "model": "AMD EPYC 9J45 128-Core Processor",
+              "visible_logical_cpus": 48
+            },
+            "disk": {
+              "filesystem_free_bytes": 3221196800,
+              "filesystem_total_bytes": 3221225472
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 1001
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 202591866880
+            },
+            "packages": {
+              "matplotlib": "3.10.8",
+              "numpy": "2.4.1",
+              "pandas": "2.3.3",
+              "pip": "26.0.1",
+              "requests": "2.32.5",
+              "scipy": "1.17.0",
+              "torch": "2.10.0"
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.17.0-1011-oracle",
+              "os": "Linux",
+              "python": "3.14.4"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/daytona_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T16:46:55.833210+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "daytona",
+      "config_id": "39ed10c5d0c2",
+      "adapter_sha256": "fd48ea4b85758e194803d12599fe1f3715664fa6a68ff98b09c1ac26406252df",
+      "stack_sha256": "unrecorded",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults"
+      },
+      "request_recording_complete": false,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0"
+        },
+        "execution_stack": null
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-fece7a7396b1"
+      ],
+      "suites": [
+        "runtime_inventory"
+      ],
+      "observations": [],
+      "reports": [
+        "data/attempts/daytona_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:15:13.906779+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "provider_schemas": 12,
+  "inventory_observations": 56,
+  "contract_hashed_attempts": 557,
+  "checked_local_links": 1073,
+  "issues": []
+}

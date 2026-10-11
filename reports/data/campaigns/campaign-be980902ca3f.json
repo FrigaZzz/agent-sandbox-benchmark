@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-be980902ca3f",
+  "report_path": "modal_evaluation.json",
+  "wall_seconds_including_warmups": 42.53942087502219,
+  "attempts": 11,
+  "warmup_attempts": 0,
+  "passes": 11,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.2585836801191352
+}

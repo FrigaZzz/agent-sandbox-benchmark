@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "provider": "gcp_vertex",
+  "reviewed_at": "2026-10-13",
+  "deployment": "managed_runtime",
+  "customization": {
+    "level": "deployment_dependent",
+    "summary": "Tested integration: agent-sandbox run with the default Google-managed Python code sandbox under an Agent Engine/Agent Runtime parent. No CPU, RAM, image, GPU or network settings are sent by the adapter. Current official BYOC templates offer image, CPU/memory requests and limits, ports and internet_access, but that separate managed-container path was not tested. GKE Agent Sandbox and Compute Engine GPU VMs are infrastructure alternatives, not capabilities measured for this adapter."
+  },
+  "features": [
+    {"id": "custom_image", "support": "conditional", "evidence": "documented", "notes": "Official BYOC uses an Artifact Registry image and a custom-container sandbox template. The tested default code sandbox has no image selector; local shell/CMEK references explicitly lack end-to-end verification.", "source_ids": ["gcp_byoc", "adapter", "local_shell"]},
+    {"id": "runtime_packages", "support": "conditional", "evidence": "measured", "notes": "The report verifies installing one uploaded pure-Python fixture wheel via pip --no-index --no-deps --target, then importing it. This is not online package installation or arbitrary native dependencies. Official code-sandbox docs say own libraries cannot be installed; retain this narrow observed exception rather than generalizing it. BYOC is the documented dependency-customization path.", "source_ids": ["report", "offline_workload", "gcp_code", "gcp_byoc"]},
+    {"id": "cpu_sizing", "support": "conditional", "evidence": "documented", "notes": "BYOC templates document CPU requests/limits. The tested adapter requests none; its cost estimate assumes 2 vCPU, not an allocation attestation. A separate 2026-10-01 local probe saw 8 visible CPUs and roughly 2x CPU parallel speedup, neither a contractual allocation nor current-run inventory.", "source_ids": ["gcp_byoc", "adapter", "report", "local_environment"]},
+    {"id": "memory_sizing", "support": "conditional", "evidence": "documented", "notes": "BYOC templates document memory requests/limits. The tested adapter requests none; 4 GB in report cost metadata is an estimate. The separate 2026-10-01 reference measured 2 GiB, illustrating why actual current allocation remains unknown.", "source_ids": ["gcp_byoc", "adapter", "report", "local_environment"]},
+    {"id": "gpu", "support": "unknown", "evidence": "unverified", "notes": "No GPU requested/tested. Current guest inventory reports nvidia-smi unavailable, which does not establish platform-wide GPU eligibility. Reviewed BYOC example does not establish accelerator support. Compute Engine and compatible GKE GPU deployments are separate choices.", "source_ids": ["adapter", "report", "local_environment", "gcp_byoc", "compute_gpu", "gke_runtime"]},
+    {"id": "network_policy", "support": "conditional", "evidence": "documented", "notes": "The official code sandbox has no network access; the local probe concurs, contradicting has_internet_access=true in the adapter. BYOC documents egress_control_config.internet_access. The tested adapter sends no network policy and the evaluation campaign does not attest effective policy.", "source_ids": ["gcp_code", "gcp_byoc", "local_environment", "adapter", "report"]},
+    {"id": "persistent_storage", "support": "conditional", "evidence": "documented", "notes": "Files/state survive calls within a live sandbox, not deletion. Current lifecycle docs describe filesystem-preserving pause/resume, but code-sandbox snapshots are explicitly unsupported and the adapter uses one-shot deletion. Durable cross-deletion storage and pause/resume were not tested.", "source_ids": ["gcp_code", "gcp_lifecycle", "local_sdk", "local_cli", "adapter"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "documented", "notes": "Code execution can reuse state by sandbox ID. Local start/exec supports this, but this adapter calls run for every execution and does not retain a remote session. Current docs advertise up to 14 days; the bundled CLI caps TTL at 3600s and the adapter caps its requested TTL at 900s.", "source_ids": ["gcp_code", "local_cli", "adapter"]},
+    {"id": "shell", "support": "supported", "evidence": "measured", "notes": "The offline-wheel workload executes a pip subprocess inside the code sandbox. Local tooling also documents bash via the code sandbox. This does not attest a separately provisioned shell-container sandbox under CMEK.", "source_ids": ["report", "offline_workload", "local_environment", "local_shell"]},
+    {"id": "file_transfer", "support": "supported", "evidence": "measured", "notes": "The evaluation verifies a 26900-byte artifact round trip by expected size and SHA-256 and verifies summary.json. The adapter passes --upload and reads output files. Official request/response limit is 100 MB in aggregate; unlimited stdout rendering is not unlimited API payload size.", "source_ids": ["report", "adapter", "gcp_code"]},
+    {"id": "ports_preview", "support": "conditional", "evidence": "documented", "notes": "BYOC templates document ports. That is not evidence of an automatically public preview URL. The tested code adapter has no port exposure or preview integration.", "source_ids": ["gcp_byoc", "adapter"]},
+    {"id": "self_hosting", "support": "unsupported", "evidence": "documented", "notes": "This service is Google-managed. A locally running client does not self-host its sandbox. Kubernetes-SIGs/GKE Agent Sandbox and Compute Engine VMs are separate infrastructure deployments.", "source_ids": ["gcp_code", "gke_agent", "compute_custom"]},
+    {"id": "cmek", "support": "supported", "evidence": "documented", "notes": "CMEK is configured at parent runtime creation and inherited by sandboxes/templates/snapshots for at-rest content, not resource metadata. Local setup observed a need for both Vertex service agents. The saved evaluation lacks parent/key readback and KMS audit evidence, so encryption is not measured by that report.", "source_ids": ["gcp_cmek", "local_cmek", "report"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Allocated Agent Compute vCPU-hours plus Agent Memory GiB-hours; official usage rounded to the nearest second. Separate KMS and other resource costs may apply.",
+    "rates": [
+      {"resource": "Agent Compute, default paid tier", "unit": "vCPU-hour", "amount": 0.085, "source_ids": ["gcp_pricing"]},
+      {"resource": "Agent Memory, default paid tier", "unit": "GiB-hour", "amount": 0.009, "source_ids": ["gcp_pricing"]},
+      {"resource": "Cloud KMS and ancillary resources", "unit": "applicable resource SKU", "amount": null, "source_ids": ["gcp_cmek", "local_billing"]}
+    ],
+    "limitations": "Reviewed 2026-10-13. Official pricing includes monthly free usage per account of 50 compute hours and 100 GiB-hours of RAM and eligible savings-plan tiers. The report's 2-vCPU/4-GB and $0.000114/second inputs are explicitly estimate_unverified_rates; client wall time is not billable resource time and billing_verified=false. Do not use them as a bill or observed hardware inventory. Runtime-only idle-time wording must not be assumed to apply to sandbox idle time; lifecycle docs say sandboxes are billed while they exist. No historical price increase is asserted without comparable dated evidence. GKE/Compute Engine alternatives have their own pricing, not these rates."
+  },
+  "sources": [
+    {"id": "adapter", "url": "../../src/core/providers/gcp_vertex.py", "title": "Repository adapter: GcpVertexBackend", "accessed_at": "2026-10-13"},
+    {"id": "report", "url": "../../reports/data/attempts/gcp_vertex_evaluation.json", "title": "Saved GCP evaluation; measured workload outcomes, unverified billing", "accessed_at": "2026-10-13"},
+    {"id": "offline_workload", "url": "../../src/bench/suites/workflows.py", "title": "DependencyInstallBenchmark: uploaded offline wheel", "accessed_at": "2026-10-13"},
+    {"id": "local_environment", "url": "../../providers/gcp_vertex/client-reference.md#historical-environment-probe", "title": "Historical code-sandbox probe summary, 2026-10-01; original logs not in campaign dataset", "accessed_at": "2026-10-13"},
+    {"id": "local_sdk", "url": "../../providers/gcp_vertex/client-reference.md#sdk-contracts", "title": "Versioned SDK contract summary and observed state/file semantics", "accessed_at": "2026-10-13"},
+    {"id": "local_cli", "url": "../../providers/gcp_vertex/client-reference.md#cli-contract", "title": "External CLI lifecycle and TTL contract", "accessed_at": "2026-10-13"},
+    {"id": "local_shell", "url": "../../providers/gcp_vertex/client-reference.md#shell-and-container-scope", "title": "Shell/container path: CMEK end-to-end unverified", "accessed_at": "2026-10-13"},
+    {"id": "local_cmek", "url": "../../providers/gcp_vertex/client-reference.md#cmek-setup", "title": "Versioned CMEK parent runtime and dual-service-agent setup notes", "accessed_at": "2026-10-13"},
+    {"id": "local_billing", "url": "../../providers/gcp_vertex/client-reference.md#billing-and-cleanup", "title": "Billed lifecycle and deletion/TTL scope", "accessed_at": "2026-10-13"},
+    {"id": "gcp_code", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview", "title": "Google: Code Execution overview", "accessed_at": "2026-10-13"},
+    {"id": "gcp_byoc", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers", "title": "Google: Custom container sandbox overview (BYOC)", "accessed_at": "2026-10-13"},
+    {"id": "gcp_lifecycle", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-sandboxes", "title": "Google: Manage sandboxes, pause/resume and billing lifetime", "accessed_at": "2026-10-13"},
+    {"id": "gcp_cmek", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek", "title": "Google: Configure CMEK for sandboxes", "accessed_at": "2026-10-13"},
+    {"id": "gcp_pricing", "url": "https://cloud.google.com/vertex-ai/pricing", "title": "Google pricing: Agents / Agent Compute section", "accessed_at": "2026-10-13"},
+    {"id": "gke_agent", "url": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox", "title": "Google: Isolate AI code execution with GKE Agent Sandbox", "accessed_at": "2026-10-13"},
+    {"id": "gke_runtime", "url": "https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods", "title": "Google: GKE Sandbox runtimes and GPU restrictions", "accessed_at": "2026-10-13"},
+    {"id": "gke_pricing", "url": "https://cloud.google.com/kubernetes-engine/pricing", "title": "Google: GKE pricing", "accessed_at": "2026-10-13"},
+    {"id": "compute_custom", "url": "https://docs.cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type", "title": "Google: Compute Engine custom CPU/memory machine types", "accessed_at": "2026-10-13"},
+    {"id": "compute_image", "url": "https://docs.cloud.google.com/compute/docs/images/create-custom", "title": "Google: Create custom Compute Engine images", "accessed_at": "2026-10-13"},
+    {"id": "compute_gpu", "url": "https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-general-purpose", "title": "Google: Create a general-purpose VM with attached GPUs", "accessed_at": "2026-10-13"},
+    {"id": "compute_pricing", "url": "https://cloud.google.com/compute/all-pricing", "title": "Google: VM instance pricing and billing units", "accessed_at": "2026-10-13"},
+    {"id": "compute_gpu_pricing", "url": "https://cloud.google.com/products/compute/pricing/accelerator-optimized", "title": "Google: Accelerator-optimized VM pricing", "accessed_at": "2026-10-13"}
+  ]
+}

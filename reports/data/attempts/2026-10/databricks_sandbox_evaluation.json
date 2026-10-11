@@ -1,0 +1,129 @@
+[
+  {
+    "run_id": "bench-8d1dce640f13",
+    "suite": "runtime_inventory",
+    "provider": "databricks_sandbox",
+    "status": "failed",
+    "preparation": "success",
+    "execution": "failed",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "The requested API is not available",
+    "exit_code": null,
+    "artifacts": [],
+    "warnings": [
+      "databricks_sandbox_error: NotFound",
+      "Note: Ensure 'Databricks Sandboxes' preview is enabled in Workspace Settings -> Previews."
+    ],
+    "error": null,
+    "timings": {
+      "initialize_ms": 1831.594,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.692,
+      "execute_ms": 3347.089,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.808,
+      "total_wall_clock_ms": 5180.507
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001865,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001865,
+      "billing_unit": "Databricks Serverless Sandbox MicroVM (4 vCPU / 8 GB)",
+      "details": {
+        "duration_seconds": 5.1805,
+        "rate_per_sec": 3.6e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-14T02:11:42.298722+00:00",
+    "workload_sha256": "c9580ef6a4d47ec027a0db7a27e8de2594265da301f0dc0ab2bff039efd68735",
+    "evaluation_contract_sha256": "7b9c619e5d264104d80dc047be5db82ff8d4379e6d60582f3a51b91c09b8242d",
+    "evaluation": "fail",
+    "checks": {
+      "inventory_schema_version": false,
+      "execution_status": false,
+      "cleanup": true
+    },
+    "metrics": {},
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "e557a10c9994c10f7766da83f390b61b9dc6a5e3",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-6e9b38ae0552",
+      "attempt": 0,
+      "warmup": false,
+      "concurrency": 1,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "Dedicated Sandbox",
+          "image": "Sandbox() defaults",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "server_ttl": "not exposed by installed SandboxSpec; explicit delete required"
+        }
+      },
+      "config_id": "4dbc84652b3a",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "bfaa8115541a6cc5edc5d116b4dae7cacf97523fce261766ca074f34b85cbe3d",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "databricks-sdk",
+        "version": "0.151.0"
+      },
+      "stack_sha256": "e8a6874856cd9b3ee5143e80ea1f71b1fbbc78f81d2c2013074c70a0194aea67",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "failed",
+        "stdout": "",
+        "stderr": "The requested API is not available",
+        "wall_ms": 3346.888
+      }
+    ],
+    "teardown": "success"
+  }
+]

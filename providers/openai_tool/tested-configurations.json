@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "provider": "openai_tool",
+  "configurations": [
+    {
+      "schema_version": 1,
+      "provider": "openai_tool",
+      "config_id": "dac26c6c470b",
+      "adapter_sha256": "ea1dd2cdcb0a4e36b12dadef5322aef302b1e39a591c41fa6a9103311a7e2541",
+      "stack_sha256": "842289258d8ce528c4ccfde4358b1cf0e68bbd5d75cdee16ac2e6d8cecf5cb57",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "OpenAI Assistants Code Interpreter",
+          "model": "gpt-4o"
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "openai",
+          "version": "3.29.0"
+        }
+      },
+      "runtime_kind": "model_mediated",
+      "attempt_ids": [
+        "bench-7a43d7043221"
+      ],
+      "suites": [
+        "runtime_inventory"
+      ],
+      "observations": [],
+      "reports": [
+        "data/attempts/openai_tool_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:45:59.423625+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    }
+  ]
+}

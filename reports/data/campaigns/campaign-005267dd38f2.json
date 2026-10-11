@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-005267dd38f2",
+  "report_path": "databricks_evaluation.json",
+  "wall_seconds_including_warmups": 45.69452579203062,
+  "attempts": 11,
+  "warmup_attempts": 0,
+  "passes": 4,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.08753783808163783
+}

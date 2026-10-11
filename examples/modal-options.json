@@ -1,0 +1,8 @@
+{
+  "cpu": [1, 1],
+  "memory": [2048, 2048],
+  "python_version": "3.12",
+  "gpu": null,
+  "runtime": "gvisor",
+  "block_network": true
+}

@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-a3ef4018988b",
+  "report_path": "alibaba_evaluation.json",
+  "wall_seconds_including_warmups": 0.1611071249935776,
+  "attempts": 1,
+  "warmup_attempts": 0,
+  "passes": 1,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 6.207050122953061
+}

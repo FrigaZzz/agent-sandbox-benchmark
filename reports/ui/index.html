@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Sandbox Benchmark Explorer | Empirical Performance & Infrastructure Insights</title>
+  <meta name="description" content="Interactive empirical benchmark and performance evidence explorer for AI agent sandboxes across Modal, GCP Vertex, E2B, AWS, Blaxel, Daytona, Alibaba, and Databricks.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="style.css">
+<link data-benchmark-portal rel="stylesheet" href="../portal.css"></head>
+<body><!-- PORTAL START --><nav class="benchmark-nav" aria-label="Benchmark portal"><a href="../index.html">Raw evidence</a><a href="../ui/index.html" aria-current="page">Chart studio</a><a href="../variant/index.html">Decision filter</a><a href="../executive/index.html">Executive briefing</a></nav><!-- PORTAL END -->
+  <div class="app-container">
+
+    <!-- Top Sticky Header -->
+    <header class="app-header">
+      <div class="header-inner">
+        <div class="brand-section">
+          <div class="brand-logo" aria-hidden="true">⚡</div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <h1 class="brand-title">Sandbox Evidence Studio</h1>
+              <span class="brand-badge">Empirical Benchmarks</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">
+              12 provider specifications + local control · retained pilot evidence
+            </div>
+          </div>
+        </div>
+
+        <!-- Live KPI summary metrics -->
+        <div class="header-kpi-bar" id="header-kpis" role="status" aria-label="Summary KPI metrics">
+          <!-- Populated by app.js -->
+        </div>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="btn" id="btn-theme-toggle" aria-label="Toggle theme">☀️ Light Mode</button>
+          <button class="btn" id="btn-presentation-mode" aria-label="Presentation view">🖥️ Fullscreen</button>
+          <button class="btn btn-primary" id="btn-export-csv" aria-label="Export dataset to CSV">📥 Export CSV</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="app-nav" aria-label="Dashboard Views">
+      <div class="nav-tabs" role="tablist">
+        <button class="nav-tab active" data-tab="overview" role="tab" aria-selected="true">
+          <span>📊</span> Overview
+        </button>
+        <button class="nav-tab" data-tab="latency" role="tab" aria-selected="false">
+          <span>⏱️</span> Latency Studio
+        </button>
+        <button class="nav-tab" data-tab="phases" role="tab" aria-selected="false">
+          <span>🧱</span> Lifecycle Phases
+        </button>
+        <button class="nav-tab" data-tab="reliability" role="tab" aria-selected="false">
+          <span>🛡️</span> Pass Rates & Heatmap
+        </button>
+        <button class="nav-tab" data-tab="cost" role="tab" aria-selected="false">
+          <span>💰</span> Cost vs Speed Frontier
+        </button>
+        <button class="nav-tab" data-tab="scale" role="tab" aria-selected="false">
+          <span>🚀</span> Burst Scaling
+        </button>
+        <button class="nav-tab" data-tab="matrix" role="tab" aria-selected="false">
+          <span>📑</span> Feature Matrix
+        </button>
+        <button class="nav-tab" data-tab="inventory" role="tab" aria-selected="false">
+          <span>🔍</span> Hardware Probes
+        </button>
+        <button class="nav-tab" data-tab="simulator" role="tab" aria-selected="false">
+          <span>🧮</span> Scenario Calculator
+        </button>
+        <button class="nav-tab" data-tab="inspector" role="tab" aria-selected="false">
+          <span>🔬</span> Attempt Inspector <span class="nav-tab-badge">854</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Global Filter Sub-bar -->
+    <div class="filter-bar">
+      <div class="filter-bar-inner">
+        <div class="filter-group">
+          <span class="filter-label">Suite:</span>
+          <select id="select-suite-filter" class="select-custom" aria-label="Filter by benchmark suite">
+            <!-- Populated by app.js -->
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Active Providers:</span>
+          <div class="provider-chips" id="provider-chips-container" role="group" aria-label="Toggle active providers">
+            <!-- Populated by app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Panes -->
+    <main class="app-main">
+
+      <!-- ========================================================
+           TAB 1: OVERVIEW & EXECUTIVE SUMMARY
+           ======================================================== -->
+      <section class="tab-pane active" id="tab-overview" role="tabpanel" aria-labelledby="tab-overview">
+        <!-- Hero KPI Cards -->
+        <div class="kpi-hero-grid" id="overview-hero-kpis">
+          <!-- Populated by app.js -->
+        </div>
+
+        <!-- Grid 1: Radar Chart & Cold Start Bar -->
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 6;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>🕸️</span> Keep Evidence Layers Separate</h2>
+                <p class="panel-subtitle">Measured workflows, documented features and unresolved requirements need different evidence</p>
+              </div>
+            </div>
+            <div id="overview-radar-chart" class="chart-wrapper"></div>
+          </div>
+
+          <div class="panel-card" style="grid-column: span 6;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>⏱️</span> Readiness Client Lifecycle</h2>
+                <p class="panel-subtitle">Latest eligible serial cohort per integration; initialize, prepare, execute, collect and cleanup, not pure provisioning</p>
+              </div>
+            </div>
+            <div id="overview-bar-chart" class="chart-wrapper"></div>
+          </div>
+        </div>
+
+        <!-- Grid 2: Key Empirical Insights & Failure Discoveries -->
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>💡</span> Key Empirical Findings & Failure Discoveries</h2>
+                <p class="panel-subtitle">Concrete anomalies, truncation thresholds, and architectural limitations measured during benchmark execution</p>
+              </div>
+            </div>
+            <div id="overview-insights-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px;">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 3: Comprehensive Provider Snapshot Table -->
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>📋</span> Provider Performance Snapshot</h2>
+                <p class="panel-subtitle">Coverage counts across different tasks/revisions are not pooled provider reliability or speed scores</p>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Provider</th>
+                    <th>Category</th>
+                    <th>Readiness lifecycle (p50)</th>
+                    <th>Tasks represented</th>
+                    <th>Pass / fail / unresolved</th>
+                    <th>Total Attempts</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="overview-providers-tbody">
+                  <!-- Populated by app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 2: LATENCY STUDIO
+           ======================================================== -->
+      <section class="tab-pane" id="tab-latency" role="tabpanel">
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>⏱️</span> Latency Comparison Studio</h2>
+                <p class="panel-subtitle">Latest eligible serial direct-remote cohort per integration; “All” defaults to the prime fixture, never pooled cross-task latency</p>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-primary" id="btn-metric-p50">Median (p50)</button>
+                <button class="btn" id="btn-metric-p95">Tail (p95)</button>
+              </div>
+            </div>
+
+            <div id="latency-bar-chart" class="chart-wrapper tall"></div>
+
+            <div style="margin-top: 24px;">
+              <h3 style="font-size: 0.95rem; margin-bottom: 12px;">Detailed Latency Breakdown Table</h3>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Display order</th>
+                      <th>Provider</th>
+                      <th>Median (p50)</th>
+                      <th>Tail (p95)</th>
+                      <th>Samples</th>
+                      <th>Evidence Context</th>
+                    </tr>
+                  </thead>
+                  <tbody id="latency-details-tbody">
+                    <!-- Populated by app.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 3: LIFECYCLE PHASES
+           ======================================================== -->
+      <section class="tab-pane" id="tab-phases" role="tabpanel">
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>🧱</span> Client Lifecycle Phase Decomposition</h2>
+                <p class="panel-subtitle" id="phase-suite-title">Time spent across Initialize, Prepare, Execute, Collect, and Cleanup</p>
+              </div>
+            </div>
+
+            <div id="phase-stacked-chart" class="chart-wrapper tall"></div>
+
+            <div style="margin-top: 24px; padding: 16px; background: var(--surface-card); border-radius: var(--radius-md); font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+              <strong>ℹ️ Understanding Lifecycle Phases:</strong> Separate phase medians do not sum to a measured median total. Unavailable phases are displayed as zero-length bars, not certified zero cost/time.
+              <ul style="padding-left: 20px; margin-top: 8px;">
+                <li><strong style="color:#6366f1;">Initialize:</strong> Network handshake, authentication, and remote sandbox container allocation.</li>
+                <li><strong style="color:#3b82f6;">Prepare:</strong> Uploading test fixtures, writing input scripts, or provisioning environment variables.</li>
+                <li><strong style="color:#10b981;">Execute:</strong> Client-observed execute phase, including adapter/transport overhead; separate guest timing is available for some workloads.</li>
+                <li><strong style="color:#f59e0b;">Collect:</strong> Downloading generated output files, plots, database artifacts, and stdout streams.</li>
+                <li><strong style="color:#ec4899;">Cleanup:</strong> Graceful container termination, disk unmounting, and session release.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 4: RELIABILITY & PASS RATES
+           ======================================================== -->
+      <section class="tab-pane" id="tab-reliability" role="tabpanel">
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>🛡️</span> Evaluated Pass Rates with Wilson 95% Confidence Bounds</h2>
+                <p class="panel-subtitle">Selected fixture (default prime); latest eligible serial cohort, Wilson interval in its label. Five trials do not establish an SLA.</p>
+              </div>
+            </div>
+            <div id="reliability-bar-chart" class="chart-wrapper"></div>
+          </div>
+
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>🗺️</span> Provider vs Suite Reliability Matrix Heatmap</h2>
+                <p class="panel-subtitle">Latest eligible serial cohort per cell, not pooled revisions. Click to inspect the provider/suite history in the attempt view.</p>
+              </div>
+            </div>
+            <div id="reliability-heatmap-grid" class="heatmap-container">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 5: COST VS SPEED FRONTIER
+           ======================================================== -->
+      <section class="tab-pane" id="tab-cost" role="tabpanel">
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>💰</span> Pricing Evidence and Scenarios</h2>
+                <p class="panel-subtitle">A cheapest-provider frontier needs metered full-campaign costs and verified completions</p>
+              </div>
+            </div>
+
+            <div id="cost-scatter-plot" class="chart-wrapper tall"></div>
+
+            <div style="margin-top: 16px; font-size: 0.82rem; color: var(--text-muted);">
+              <strong>Note:</strong> Published physical-core, vCPU, GiB and consumed-resource billing units differ.
+              Saved estimates are not invoices. Plans, model usage, storage, idle time, failures and credits belong in the full comparison.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 6: BURST SCALING
+           ======================================================== -->
+      <section class="tab-pane" id="tab-scale" role="tabpanel">
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>🚀</span> Multi-Worker Concurrency & Burst Throughput</h2>
+                <p class="panel-subtitle">Recorded direct-remote campaigns with provider attribution; different tasks/revisions do not establish a controlled scaling curve</p>
+              </div>
+            </div>
+
+            <div id="throughput-scale-chart" class="chart-wrapper tall"></div>
+
+            <div style="margin-top: 24px;">
+              <h3 style="font-size: 0.95rem; margin-bottom: 12px;">Recorded Campaign Results</h3>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Campaign ID</th>
+                      <th>Target Suite / File</th>
+                      <th>Concurrency</th>
+                      <th>Passes / Total</th>
+                      <th>Wall Seconds</th>
+                      <th>Throughput (runs/sec)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="scale-campaigns-tbody">
+                    <!-- Populated by app.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 7: FEATURE MATRIX
+           ======================================================== -->
+      <section class="tab-pane" id="tab-matrix" role="tabpanel">
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>📑</span> Architectural Feature & Capability Matrix</h2>
+                <p class="panel-subtitle">System capabilities verified against official API documentation and adapter contracts</p>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Provider</th>
+                    <th>Custom Docker Image</th>
+                    <th>CPU Sizing</th>
+                    <th>RAM Sizing</th>
+                    <th>GPU Sandbox</th>
+                    <th>Network Policy</th>
+                    <th>Offline Pip</th>
+                    <th>Disk State</th>
+                    <th>CMEK Encryption</th>
+                    <th>EU Data Residency</th>
+                  </tr>
+                </thead>
+                <tbody id="matrix-features-tbody">
+                  <!-- Populated by app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 8: HARDWARE PROBES
+           ======================================================== -->
+      <section class="tab-pane" id="tab-inventory" role="tabpanel">
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>🔍</span> Guest Hardware & Runtime Observations</h2>
+                <p class="panel-subtitle">Direct observations probed inside the sandbox guest environment (os.cpu_count, cgroup memory, GPU devices)</p>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Provider & Config</th>
+                    <th>Python Runtime / OS</th>
+                    <th>Visible CPUs</th>
+                    <th>Physical Memory</th>
+                    <th>cgroup Memory Max</th>
+                    <th>GPU Driver Probe</th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-details-tbody">
+                  <!-- Populated by app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 9: SCENARIO CALCULATOR
+           ======================================================== -->
+      <section class="tab-pane" id="tab-simulator" role="tabpanel">
+        <div class="dashboard-grid">
+          <!-- Left: Sliders Panel -->
+          <div class="panel-card" style="grid-column: span 4;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>🧮</span> Workload Assumptions</h2>
+                <p class="panel-subtitle">Adjust sliders to project monthly infrastructure spending</p>
+              </div>
+            </div>
+
+            <div class="simulator-slider-group">
+              <div class="slider-label-row">
+                <span>Monthly Jobs / Runs</span>
+                <strong id="sim-jobs-val" class="mono">50,000</strong>
+              </div>
+              <input type="range" id="sim-jobs-slider" class="slider-input" min="1000" max="1000000" step="1000" value="50000">
+            </div>
+
+            <div class="simulator-slider-group">
+              <div class="slider-label-row">
+                <span>Average Duration</span>
+                <strong id="sim-dur-val" class="mono">1.5s</strong>
+              </div>
+              <input type="range" id="sim-dur-slider" class="slider-input" min="0.1" max="30" step="0.1" value="1.5">
+            </div>
+
+            <div class="simulator-slider-group">
+              <div class="slider-label-row">
+                <span>Allocated Memory</span>
+                <strong id="sim-mem-val" class="mono">2 GiB</strong>
+              </div>
+              <input type="range" id="sim-mem-slider" class="slider-input" min="1" max="16" step="1" value="2">
+            </div>
+
+            <div style="margin-top: 24px; padding: 14px; background: var(--surface-card); border-radius: var(--radius-md); font-size: 0.82rem; line-height: 1.5;" id="sim-summary-text">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+
+          <!-- Right: Projected Cost Bar Chart -->
+          <div class="panel-card" style="grid-column: span 8;">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title"><span>📊</span> Request-Only Compute Scenarios</h2>
+                <p class="panel-subtitle">Explicit published-unit assumptions; fees, premiums, failures and model charges are separate</p>
+              </div>
+            </div>
+
+            <div id="simulator-bar-chart" class="chart-wrapper tall"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 10: ATTEMPT INSPECTOR
+           ======================================================== -->
+      <section class="tab-pane" id="tab-inspector" role="tabpanel">
+        <div class="dashboard-grid">
+          <div class="panel-card" style="grid-column: span 12;">
+            <div class="panel-header" style="flex-wrap: wrap; gap: 14px;">
+              <div>
+                <h2 class="panel-title"><span>🔬</span> Evidence Attempt Inspector</h2>
+                <p class="panel-subtitle">Search retained attempts and bounded log previews; historical unknown outcomes stay visible</p>
+              </div>
+
+              <!-- Search and Filter Controls -->
+              <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                <input type="text" id="inspector-search-input" placeholder="Search Run ID or logs..." class="select-custom" style="width: 200px;">
+                <select id="inspector-prov-select" class="select-custom">
+                  <option value="all">All Providers</option>
+                  <option value="modal">Modal</option>
+                  <option value="gcp_vertex">GCP Vertex</option>
+                  <option value="e2b">E2B</option>
+                  <option value="blaxel">Blaxel</option>
+                  <option value="daytona">Daytona</option>
+                  <option value="aws">AWS</option>
+                  <option value="alibaba">Alibaba</option>
+                  <option value="databricks">Databricks</option>
+                  <option value="gemini_tool">Gemini Tool</option>
+                  <option value="openai_tool">OpenAI Tool</option>
+                  <option value="k8s_agent_sandbox">K8s Sandbox</option>
+                  <option value="local_baseline">Local Host</option>
+                </select>
+                <select id="inspector-outcome-select" class="select-custom">
+                  <option value="all">All Outcomes</option>
+                  <option value="pass">Pass Only</option>
+                  <option value="fail">Fail Only</option>
+                  <option value="timed_out">Timed Out</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 12px; font-size: 0.82rem; color: var(--text-muted);" id="inspector-match-count">
+              Showing attempts...
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Run ID</th>
+                    <th>Provider</th>
+                    <th>Suite</th>
+                    <th>Outcome</th>
+                    <th>Total Wall Time</th>
+                    <th>Estimated Cost</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody id="inspector-table-tbody">
+                  <!-- Populated by app.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <div id="inspector-pagination" style="display: flex; justify-content: center; align-items: center; margin-top: 16px;">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Slide-Out Attempt Inspector Drawer -->
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <aside class="drawer-panel" id="drawer-panel" role="dialog" aria-modal="true" aria-label="Attempt details drawer">
+      <div class="drawer-header">
+        <h3 style="font-size: 1.1rem; font-weight: 600;">Attempt Deep-Dive</h3>
+        <button class="btn btn-icon-only" id="drawer-close-btn" aria-label="Close drawer">✕</button>
+      </div>
+      <div class="drawer-body" id="drawer-content">
+        <!-- Populated dynamically when clicking an attempt -->
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Data Bundle and Logic Scripts -->
+  <script src="data.js"></script>
+  <script src="charts.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

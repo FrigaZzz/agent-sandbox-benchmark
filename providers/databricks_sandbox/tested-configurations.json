@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "provider": "databricks_sandbox",
+  "configurations": [
+    {
+      "schema_version": 1,
+      "provider": "databricks_sandbox",
+      "config_id": "39ed10c5d0c2",
+      "adapter_sha256": "f79f492591b9d63a675c1615e134cdcc74cbcbbf8ce4fe0fbbcfe03872646b21",
+      "stack_sha256": "unrecorded",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults"
+      },
+      "request_recording_complete": false,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0"
+        },
+        "execution_stack": null
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-69ff9d171cac"
+      ],
+      "suites": [
+        "runtime_inventory"
+      ],
+      "observations": [],
+      "reports": [
+        "data/attempts/databricks_sandbox_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:15:13.911751+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    }
+  ]
+}

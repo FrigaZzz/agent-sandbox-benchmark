@@ -1,0 +1,6 @@
+{
+  "image": "blaxel/py-app:latest",
+  "memory": 4096,
+  "region": "us-pdx-1",
+  "ttl": "15m"
+}

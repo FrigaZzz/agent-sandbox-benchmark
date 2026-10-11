@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "provider": "k8s_agent_sandbox",
+  "reviewed_at": "2026-10-13",
+  "deployment": "self_hosted",
+  "customization": {
+    "level": "deployment_dependent",
+    "summary": "Deployment unattested. Adapter talks HTTP to an existing AGENT_SANDBOX_URL or, by default, auto-spawns the repository FastAPI/uvicorn server as a host subprocess. That fallback is not Kubernetes-SIGs controller/CRD provisioning or managed GKE isolation. Official Kubernetes deployments allow image/resource/storage/network configuration; GKE offers a managed controller add-on on an operator-configured cluster. Saved results must not be assigned a security ranking."
+  },
+  "features": [
+    {"id": "custom_image", "support": "conditional", "evidence": "documented", "notes": "Official Sandbox/SandboxTemplate podTemplate selects a container image. Adapter sends no image and does not create templates/claims; auto_spawn uses host Python. Repository YAML/image is deployment intent, not evidence that it ran.", "source_ids": ["upstream", "gke_guide", "adapter", "local_manifest"]},
+    {"id": "runtime_packages", "support": "conditional", "evidence": "unverified", "notes": "A chosen image can bundle dependencies and runtime installation depends on permission/egress. Saved report observes preinstalled packages and pip availability, not installing a new package. Auto-spawn inherits the host runtime and network.", "source_ids": ["gke_guide", "adapter", "server", "report"]},
+    {"id": "cpu_sizing", "support": "conditional", "evidence": "documented", "notes": "Official pod templates support requests/limits. Repository manifest requests 500m and limits 2 CPUs; adapter sends neither and auto-spawn sets no CPU constraint. Report's cost assumption of 2 vCPU does not attest effective allocation.", "source_ids": ["gke_guide", "local_manifest", "adapter", "server", "report"]},
+    {"id": "memory_sizing", "support": "conditional", "evidence": "documented", "notes": "Official pod templates support memory requests/limits. Repository manifest requests 1Gi and limits 4Gi; adapter sends neither. Saved allocation workload reaching 2000MB is not a 4Gi limit or allocation measurement. Actual deployment limits unknown.", "source_ids": ["gke_guide", "local_manifest", "adapter", "report"]},
+    {"id": "gpu", "support": "conditional", "evidence": "documented", "notes": "A real GKE gVisor deployment can use supported GPUs for CUDA under version/model/driver constraints; microVM sandbox runtimes do not support GPUs per reviewed GKE docs. Adapter/manifest request no accelerator and report contains no GPU inventory. No accelerator access is attested here.", "source_ids": ["gke_runtime", "adapter", "local_manifest", "report"]},
+    {"id": "network_policy", "support": "conditional", "evidence": "documented", "notes": "Official GKE add-on manages ingress/egress policies and permits template customization. Auto-spawn installs no network policy. Report observed DNS/HTTP allowed and metadata URL failure, which does not prove an enforced isolation policy or identify the deployment.", "source_ids": ["gke_guide", "adapter", "server", "report"]},
+    {"id": "persistent_storage", "support": "conditional", "evidence": "documented", "notes": "Upstream supports persistent storage surviving Pod restarts when configured. Local fallback uses a shared temporary base directory removed in teardown; per-run cleanup is a no-op. No PVC/mount/retention attestation in report or local template.", "source_ids": ["upstream", "adapter", "server", "local_manifest", "report"]},
+    {"id": "session_reuse", "support": "conditional", "evidence": "documented", "notes": "Upstream provides stable stateful Sandbox identity/lifecycle. This adapter targets one HTTP server/base directory with no claim/session allocation. A five-turn loop inside one execution does not prove independently isolated cross-request sessions.", "source_ids": ["upstream", "adapter", "server", "report"]},
+    {"id": "shell", "support": "supported", "evidence": "measured", "notes": "Saved Python workloads ran through /execute. Repository server executes arbitrary commands with asyncio.create_subprocess_shell in a working directory; auto-spawn imposes no kernel/container boundary. Measured command execution is not measured sandbox isolation.", "source_ids": ["adapter", "server", "report"]},
+    {"id": "file_transfer", "support": "conditional", "evidence": "measured", "notes": "HTTP upload/download are implemented, but the saved roundtrip stdout says 20 output bytes with SHA 03f8b5a6985317bb443711cf59982832808ed02a2a2b2c2e7c07bd702ac081e9 while collected artifact is 35 bytes with SHA 1093d1f916b518786a39c26266690572a4dfb9b7273ca21cf923acd9e42fa394. This is not a verified byte-faithful roundtrip. Adapter collects only two candidate paths.", "source_ids": ["adapter", "server", "report"]},
+    {"id": "ports_preview", "support": "conditional", "evidence": "documented", "notes": "Official deployments route HTTP through a Sandbox Router and production direct/Gateway connections. Operator configures services, exposure and authentication; no automatic public preview URL. Local port 8888 is an execution API, not proof of application-port preview support.", "source_ids": ["gke_guide", "upstream", "adapter"]},
+    {"id": "self_hosting", "support": "supported", "evidence": "documented", "notes": "Upstream is a Kubernetes CRD/controller installed on an operator cluster; GKE alternatively manages the controller add-on. Adapter can run its local server but does not provision either deployment. The saved deployment remains unattested.", "source_ids": ["upstream", "gke_concepts", "adapter", "report"]},
+    {"id": "cmek", "support": "conditional", "evidence": "documented", "notes": "GKE can use customer-managed keys for node boot disks and attached Persistent Disks/Filestore with explicit KMS/IAM/StorageClass setup. This is infrastructure/storage-specific, not an Agent Sandbox API guarantee; control-plane disks cannot use CMEK. No key configured by adapter or attested in report.", "source_ids": ["gke_cmek", "adapter", "local_manifest", "report"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "No universal Kubernetes-SIGs per-execution tariff; pay for deployed infrastructure, warm pools, router/controller capacity, storage and networking. GKE Agent Sandbox adds no feature fee; normal GKE pricing applies.",
+    "rates": [
+      {"resource": "GKE Agent Sandbox incremental feature fee", "unit": "feature surcharge", "amount": 0, "source_ids": ["gke_guide"]},
+      {"resource": "GKE cluster management before eligible credits", "unit": "cluster-hour", "amount": 0.1, "source_ids": ["gke_pricing"]},
+      {"resource": "Deployment CPU, memory, GPU, storage and network", "unit": "deployment-specific infrastructure SKU", "amount": null, "source_ids": ["gke_pricing", "compute_pricing"]}
+    ],
+    "limitations": "Deployment unattested, so no measured cloud cost. Saved $0.000072/second and 2-vCPU/4-GB inputs have no bill/SKU provenance. GKE Standard nodes use Compute Engine per-second billing with one-minute minimum; general-purpose Autopilot uses requested Pod resources in one-second increments with no duration minimum; selected hardware uses node-based billing plus management premium. Warm pool idle capacity and cluster/router/storage costs cannot be omitted. GKE monthly eligible cluster-fee credit is $74.40 per billing account, not free workload compute. No historical increase or security ranking asserted."
+  },
+  "sources": [
+    {"id": "adapter", "url": "../../src/core/providers/k8s_agent_sandbox.py", "title": "Repository HTTP adapter and auto_spawn fallback", "accessed_at": "2026-10-13"},
+    {"id": "server", "url": "../../deploy/agent-sandbox/server.py", "title": "Repository FastAPI host-subprocess execution server", "accessed_at": "2026-10-13"},
+    {"id": "local_manifest", "url": "../../deploy/agent-sandbox/k8s-sandbox.yaml", "title": "Unattested repository SandboxTemplate/WarmPool deployment intent", "accessed_at": "2026-10-13"},
+    {"id": "report", "url": "../../reports/data/legacy/k8s_agent_sandbox_live.json", "title": "Saved legacy live report, missing deployment provenance", "accessed_at": "2026-10-13"},
+    {"id": "upstream", "url": "https://github.com/kubernetes-sigs/agent-sandbox", "title": "Official Kubernetes-SIGs Agent Sandbox controller and CRDs", "accessed_at": "2026-10-13"},
+    {"id": "gke_guide", "url": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/agent-sandbox", "title": "Google: Isolate AI code execution with GKE Agent Sandbox", "accessed_at": "2026-10-13"},
+    {"id": "gke_concepts", "url": "https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox", "title": "Google: GKE managed Agent Sandbox add-on", "accessed_at": "2026-10-13"},
+    {"id": "gke_runtime", "url": "https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods", "title": "Google: GKE Sandbox runtimes, CPU/memory/GPU restrictions", "accessed_at": "2026-10-13"},
+    {"id": "gke_cmek", "url": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/using-cmek", "title": "Google: GKE CMEK for boot and attached disks", "accessed_at": "2026-10-13"},
+    {"id": "gke_pricing", "url": "https://cloud.google.com/kubernetes-engine/pricing", "title": "Google: GKE cluster, Standard and Autopilot pricing", "accessed_at": "2026-10-13"},
+    {"id": "compute_pricing", "url": "https://cloud.google.com/compute/all-pricing", "title": "Google: Compute Engine infrastructure billing units", "accessed_at": "2026-10-13"}
+  ]
+}

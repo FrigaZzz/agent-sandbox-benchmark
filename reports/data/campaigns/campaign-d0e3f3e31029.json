@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-d0e3f3e31029",
+  "report_path": "daytona_evaluation.json",
+  "wall_seconds_including_warmups": 3.189216749975458,
+  "attempts": 1,
+  "warmup_attempts": 0,
+  "passes": 1,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.31355661229601134
+}

@@ -1,0 +1,3541 @@
+{
+  "snapshot": "2026-10-13",
+  "issues": [],
+  "selected_cohorts": [
+    {
+      "provider": "e2b",
+      "suite": "cpu_stress",
+      "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+      "config_id": "b8b64fa8b3ea",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 1454.034,
+        "p95": 2043.9444,
+        "min": 1348.182,
+        "max": 2100.581,
+        "mean": 1630.6974,
+        "stdev": 318.4499614049278
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 1454.034,
+        "p95": 2043.9444,
+        "min": 1348.182,
+        "max": 2100.581,
+        "mean": 1630.6974,
+        "stdev": 318.4499614049278
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.005,
+          "p95": 0.0084,
+          "min": 0.001,
+          "max": 0.009,
+          "mean": 0.0048,
+          "stdev": 0.00303315017762062
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.388,
+          "p95": 0.48519999999999996,
+          "min": 0.343,
+          "max": 0.507,
+          "mean": 0.4008,
+          "stdev": 0.06298174338647669
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 1275.592,
+          "p95": 1863.045,
+          "min": 1165.965,
+          "max": 1919.42,
+          "mean": 1450.5358,
+          "stdev": 318.1883641629594
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 179.372,
+          "p95": 181.5,
+          "min": 177.958,
+          "max": 181.719,
+          "mean": 179.6242,
+          "stdev": 1.5500855460264078
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 165.1,
+        "p95": 201.88,
+        "min": 148.9,
+        "max": 206.4,
+        "mean": 172.1,
+        "stdev": 23.185448022412682
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "e2b",
+          "run_id": "bench-513b613d7595",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 75
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-c67e34455f79",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 88
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-67306aa3d594",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 100
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-8617044db674",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 105
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-c6a36f3c539b",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 117
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:27.732833+00:00"
+    },
+    {
+      "provider": "e2b",
+      "suite": "output_fidelity",
+      "workload_sha256": "3e21aadb8da374a746d81965de0833af8a8b43df75f8b67b9eec767f4c29b7f0",
+      "config_id": "b8b64fa8b3ea",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 2336.526,
+        "p95": 2591.6223999999997,
+        "min": 1540.092,
+        "max": 2621.084,
+        "mean": 2146.2574,
+        "stdev": 470.560764295962
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2336.526,
+        "p95": 2591.6223999999997,
+        "min": 1540.092,
+        "max": 2621.084,
+        "mean": 2146.2574,
+        "stdev": 470.560764295962
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.001,
+          "p95": 0.0036,
+          "min": 0.001,
+          "max": 0.004,
+          "mean": 0.0018,
+          "stdev": 0.0013038404810405298
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.385,
+          "p95": 0.7722,
+          "min": 0.321,
+          "max": 0.864,
+          "mean": 0.46040000000000003,
+          "stdev": 0.22851433215446246
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 1822.129,
+          "p95": 2362.5886,
+          "min": 1359.682,
+          "max": 2440.001,
+          "mean": 1851.4366,
+          "stdev": 418.94398999544086
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 180.647,
+          "p95": 577.0336,
+          "min": 176.967,
+          "max": 650.517,
+          "mean": 294.21520000000004,
+          "stdev": 204.20574150645228
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "e2b",
+          "run_id": "bench-af421b509902",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 66
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-0b42db3e8711",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 69
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-bc283e99ee8b",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 72
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-90eb0ac8d49b",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 109
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-691b4c67c3c2",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 118
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:29.107671+00:00"
+    },
+    {
+      "provider": "e2b",
+      "suite": "artifact_roundtrip",
+      "workload_sha256": "b8ad01873e42d51a1a8e3ab00cd96540357c7ddce370426bd913c3ca7ecb6625",
+      "config_id": "b8b64fa8b3ea",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "evaluation_contract_sha256": "a5549900beb7d84c66a5f209ed385fd46f6a6d2ab614f01770ff9ce9973368e7",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 1788.106,
+        "p95": 2180.9912,
+        "min": 1768.957,
+        "max": 2276.296,
+        "mean": 1883.2898,
+        "stdev": 219.97465870458797
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 1788.106,
+        "p95": 2180.9912,
+        "min": 1768.957,
+        "max": 2276.296,
+        "mean": 1883.2898,
+        "stdev": 219.97465870458797
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.006,
+          "p95": 0.0078,
+          "min": 0.005,
+          "max": 0.008,
+          "mean": 0.0062,
+          "stdev": 0.0013038404810405298
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.578,
+          "p95": 1.0984,
+          "min": 0.509,
+          "max": 1.189,
+          "mean": 0.7108,
+          "stdev": 0.2811417791791181
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 1247.962,
+          "p95": 1623.2176,
+          "min": 1233.506,
+          "max": 1713.174,
+          "mean": 1339.709,
+          "stdev": 209.0677062197794
+        },
+        "collect_ms": {
+          "n": 5,
+          "p50": 354.202,
+          "p95": 378.9422,
+          "min": 348.996,
+          "max": 380.838,
+          "mean": 361.89119999999997,
+          "stdev": 13.5585994741345
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 180.744,
+          "p95": 182.2162,
+          "min": 178.773,
+          "max": 182.451,
+          "mean": 180.7584,
+          "stdev": 1.334218048146552
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "e2b",
+          "run_id": "bench-54a769a78ca5",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 76
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-1685bbd3a866",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 92
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-3398fe3d188d",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 104
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-71b2571685d9",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 108
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-6deabde06e86",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 114
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:22.924847+00:00"
+    },
+    {
+      "provider": "e2b",
+      "suite": "data_pipeline",
+      "workload_sha256": "4ef8b04defcadaf0a426f12b5f4871cb9296afa6f7ca1ba7d8b4616c4d432629",
+      "config_id": "b8b64fa8b3ea",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "evaluation_contract_sha256": "65e8a5dd7b1773b1fd97d8dfb86a09f1a910f91890dfc055b559c35257c9dcb4",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 1955.899,
+        "p95": 2500.2968,
+        "min": 1839.157,
+        "max": 2529.209,
+        "mean": 2130.0966,
+        "stdev": 306.0310673269954
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 1955.899,
+        "p95": 2500.2968,
+        "min": 1839.157,
+        "max": 2529.209,
+        "mean": 2130.0966,
+        "stdev": 306.0310673269954
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.004,
+          "p95": 0.0048,
+          "min": 0.002,
+          "max": 0.005,
+          "mean": 0.0034000000000000002,
+          "stdev": 0.0013416407864998738
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.601,
+          "p95": 0.8674,
+          "min": 0.499,
+          "max": 0.871,
+          "mean": 0.6698,
+          "stdev": 0.17952492863109568
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 1426.468,
+          "p95": 1951.0946,
+          "min": 1305.056,
+          "max": 1977.655,
+          "mean": 1592.3232,
+          "stdev": 298.5007787086995
+        },
+        "collect_ms": {
+          "n": 5,
+          "p50": 355.033,
+          "p95": 365.3124,
+          "min": 348.044,
+          "max": 367.142,
+          "mean": 355.668,
+          "stdev": 7.52153963627129
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 180.719,
+          "p95": 183.3366,
+          "min": 178.302,
+          "max": 183.365,
+          "mean": 181.23,
+          "stdev": 2.1118297753370268
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 19.398282000000933,
+        "p95": 26.338089400000086,
+        "min": 18.419451999999836,
+        "max": 26.592593000000164,
+        "mean": 21.68954840000019,
+        "stdev": 3.936941220572911
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "e2b",
+          "run_id": "bench-a3f6ae2c4c4f",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 64
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-6393abf72bad",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 79
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-a7428af10ae6",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 89
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-be877aafe4cf",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 91
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-fb61369d1248",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 119
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:30.898398+00:00"
+    },
+    {
+      "provider": "e2b",
+      "suite": "dependency_install",
+      "workload_sha256": "d4283fa079e3e73f6824924c645f2c50918535307e6a66f850f3c56fd93497f6",
+      "config_id": "b8b64fa8b3ea",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "evaluation_contract_sha256": "196f888c374b5cee3cd0a5e103f167807e5d1e3ed16d9fd27a1d3634d01111b4",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 2281.061,
+        "p95": 2380.8408000000004,
+        "min": 1789.348,
+        "max": 2381.202,
+        "mean": 2147.2434000000003,
+        "stdev": 279.82489628658857
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2281.061,
+        "p95": 2380.8408000000004,
+        "min": 1789.348,
+        "max": 2381.202,
+        "mean": 2147.2434000000003,
+        "stdev": 279.82489628658857
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.005,
+          "p95": 0.008799999999999999,
+          "min": 0.004,
+          "max": 0.009,
+          "mean": 0.0062,
+          "stdev": 0.0021679483388678798
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.922,
+          "p95": 1.2652,
+          "min": 0.462,
+          "max": 1.31,
+          "mean": 0.8560000000000001,
+          "stdev": 0.36923705122861117
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 2100.284,
+          "p95": 2200.2232,
+          "min": 1610.909,
+          "max": 2200.942,
+          "mean": 1967.0774000000001,
+          "stdev": 278.604440321399
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 179.673,
+          "p95": 180.7672,
+          "min": 177.221,
+          "max": 180.917,
+          "mean": 179.155,
+          "stdev": 1.5800612329906734
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 481.094981,
+        "p95": 647.4276718000009,
+        "min": 434.9162520000007,
+        "max": 682.1932540000013,
+        "mean": 511.13932000000017,
+        "stdev": 99.78140864416493
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "e2b",
+          "run_id": "bench-8fb2e58cc949",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 67
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-5d32ac3b1766",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 81
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-845f253cb8da",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 83
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-1d7fb60e66f0",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 101
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-c688f973415c",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 107
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:00.214214+00:00"
+    },
+    {
+      "provider": "e2b",
+      "suite": "session_state",
+      "workload_sha256": "5c066bf7f6c3ff560ce7bf91d69eb4a0512dc685341488cc1c20428b76e64881",
+      "config_id": "b8b64fa8b3ea",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "evaluation_contract_sha256": "640d8dc9428083fd6130ff1750248cac8db9c9a46061ab6c454afdfe2ac80f20",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 3073.272,
+        "p95": 3145.1513999999997,
+        "min": 2684.191,
+        "max": 3147.618,
+        "mean": 3020.7968,
+        "stdev": 191.75631090449153
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 3073.272,
+        "p95": 3145.1513999999997,
+        "min": 2684.191,
+        "max": 3147.618,
+        "mean": 3020.7968,
+        "stdev": 191.75631090449153
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.005,
+          "p95": 0.007,
+          "min": 0.004,
+          "max": 0.007,
+          "mean": 0.0054,
+          "stdev": 0.00151657508881031
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.876,
+          "p95": 1.1760000000000002,
+          "min": 0.346,
+          "max": 1.215,
+          "mean": 0.7642,
+          "stdev": 0.39249356682626024
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 2891.69,
+          "p95": 2950.7596000000003,
+          "min": 2499.787,
+          "max": 2951.293,
+          "mean": 2835.6032,
+          "stdev": 190.18362596632772
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 183.93,
+          "p95": 193.305,
+          "min": 175.615,
+          "max": 195.312,
+          "mean": 184.2438,
+          "stdev": 7.212926431068045
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "e2b",
+          "run_id": "bench-6421dab0ac23",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 65
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-709c92ade37a",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 87
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-b4251964f0d7",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 98
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-e0ae120374cd",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 111
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-ea2f202172b6",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 112
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:10.748122+00:00"
+    },
+    {
+      "provider": "e2b",
+      "suite": "error_recovery",
+      "workload_sha256": "d61f5f0d107ff3cb4322aa89efac963143e4ede10f0b5dd935c46d4157cdcaba",
+      "config_id": "b8b64fa8b3ea",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "evaluation_contract_sha256": "83a7036b4c207800b41d63ce20243f18d0bcda1617f973b3bcc8930993c0078c",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 2048.436,
+        "p95": 2483.5214,
+        "min": 1904.408,
+        "max": 2502.698,
+        "mean": 2159.941,
+        "stdev": 276.45399964912787
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2048.436,
+        "p95": 2483.5214,
+        "min": 1904.408,
+        "max": 2502.698,
+        "mean": 2159.941,
+        "stdev": 276.45399964912787
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.004,
+          "p95": 0.0058,
+          "min": 0.004,
+          "max": 0.006,
+          "mean": 0.0046,
+          "stdev": 0.0008944271909999159
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.736,
+          "p95": 1.0356,
+          "min": 0.389,
+          "max": 1.094,
+          "mean": 0.6884,
+          "stdev": 0.2919011819092208
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 1863.032,
+          "p95": 2302.0751999999998,
+          "min": 1720.348,
+          "max": 2321.379,
+          "mean": 1976.8138,
+          "stdev": 277.6773120533977
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 182.329,
+          "p95": 184.1868,
+          "min": 180.086,
+          "max": 184.455,
+          "mean": 182.264,
+          "stdev": 1.6682381424724697
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "e2b",
+          "run_id": "bench-0d860e6c9323",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 68
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-f3b4450d5c49",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 70
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-1ee49b715272",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 73
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-1851e774f261",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 77
+        },
+        {
+          "provider": "e2b",
+          "run_id": "bench-0772c1c612bd",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "report_index": 102
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:43:42.041683+00:00"
+    },
+    {
+      "provider": "modal",
+      "suite": "cpu_stress",
+      "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+      "config_id": "c6eceedf16a1",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 1821.346,
+        "p95": 1882.1334,
+        "min": 1757.593,
+        "max": 1892.993,
+        "mean": 1813.7916,
+        "stdev": 57.41139008768206
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 1821.346,
+        "p95": 1882.1334,
+        "min": 1757.593,
+        "max": 1892.993,
+        "mean": 1813.7916,
+        "stdev": 57.41139008768206
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.011,
+          "p95": 0.039999999999999994,
+          "min": 0.006,
+          "max": 0.047,
+          "mean": 0.0172,
+          "stdev": 0.01681368490248345
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 1330.001,
+          "p95": 1450.9116,
+          "min": 1304.828,
+          "max": 1466.724,
+          "mean": 1362.6594,
+          "stdev": 65.86696570967875
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 318.052,
+          "p95": 387.4028,
+          "min": 314.214,
+          "max": 400.245,
+          "mean": 336.6416,
+          "stdev": 36.66534807280574
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 114.266,
+          "p95": 118.91319999999999,
+          "min": 109.238,
+          "max": 119.939,
+          "mean": 113.9304,
+          "stdev": 4.044014132022783
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 74.80000000000001,
+        "p95": 126.43999999999998,
+        "min": 73.5,
+        "max": 138.6,
+        "mean": 87.64,
+        "stdev": 28.541601216469964
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/modal_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "modal",
+          "run_id": "bench-5e23fa325a9c",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 82
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-ea5617f0e618",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 95
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-5979df8586e3",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 107
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-a8d0762fded9",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 112
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-5d2c0b545a64",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 124
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:34.241750+00:00"
+    },
+    {
+      "provider": "modal",
+      "suite": "output_fidelity",
+      "workload_sha256": "3e21aadb8da374a746d81965de0833af8a8b43df75f8b67b9eec767f4c29b7f0",
+      "config_id": "c6eceedf16a1",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 2033.199,
+        "p95": 2173.9458,
+        "min": 1994.954,
+        "max": 2198.261,
+        "mean": 2067.1554,
+        "stdev": 78.79445094865498
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2033.199,
+        "p95": 2173.9458,
+        "min": 1994.954,
+        "max": 2198.261,
+        "mean": 2067.1554,
+        "stdev": 78.79445094865498
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.003,
+          "p95": 0.0072,
+          "min": 0.003,
+          "max": 0.008,
+          "mean": 0.0042,
+          "stdev": 0.0021679483388678798
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 1339.745,
+          "p95": 1445.1572,
+          "min": 1294.679,
+          "max": 1461.775,
+          "mean": 1358.5722,
+          "stdev": 65.4603673966164
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 589.457,
+          "p95": 614.4264,
+          "min": 578.205,
+          "max": 619.352,
+          "mean": 593.0032,
+          "stdev": 15.995016308212984
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 116.884,
+          "p95": 119.286,
+          "min": 108.435,
+          "max": 119.86,
+          "mean": 115.4308,
+          "stdev": 4.280790312547437
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/modal_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "modal",
+          "run_id": "bench-c210ff410123",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 73
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-69ee5e82995c",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 76
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-1046d5ac16bf",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 79
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-edfd492ad25e",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 116
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-030c513e6cd0",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 125
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:36.173964+00:00"
+    },
+    {
+      "provider": "modal",
+      "suite": "artifact_roundtrip",
+      "workload_sha256": "b8ad01873e42d51a1a8e3ab00cd96540357c7ddce370426bd913c3ca7ecb6625",
+      "config_id": "c6eceedf16a1",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "evaluation_contract_sha256": "a5549900beb7d84c66a5f209ed385fd46f6a6d2ab614f01770ff9ce9973368e7",
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 2772.429,
+        "p95": 3039.5216,
+        "min": 2690.043,
+        "max": 3098.602,
+        "mean": 2816.9028,
+        "stdev": 163.52158164505377
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2772.429,
+        "p95": 3039.5216,
+        "min": 2690.043,
+        "max": 3098.602,
+        "mean": 2816.9028,
+        "stdev": 163.52158164505377
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.008,
+          "p95": 0.0118,
+          "min": 0.007,
+          "max": 0.012,
+          "mean": 0.0092,
+          "stdev": 0.0021679483388678798
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 1871.886,
+          "p95": 2110.2014,
+          "min": 1765.87,
+          "max": 2169.764,
+          "mean": 1893.6468,
+          "stdev": 161.6419425851472
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 300.411,
+          "p95": 312.894,
+          "min": 296.173,
+          "max": 314.456,
+          "mean": 303.5606,
+          "stdev": 7.151650669600696
+        },
+        "collect_ms": {
+          "n": 5,
+          "p50": 501.913,
+          "p95": 521.4964,
+          "min": 488.635,
+          "max": 522.769,
+          "mean": 505.5696,
+          "stdev": 13.86380535062433
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 111.995,
+          "p95": 123.8694,
+          "min": 106.096,
+          "max": 125.606,
+          "mean": 113.6334,
+          "stdev": 7.916843392413416
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/modal_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "modal",
+          "run_id": "bench-f47b98a1e3eb",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 83
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-5de29121e19d",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 99
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-0a147c83ece0",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 111
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-682f266dc824",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 115
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-646829d3c165",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 121
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:27.835167+00:00"
+    },
+    {
+      "provider": "modal",
+      "suite": "data_pipeline",
+      "workload_sha256": "4ef8b04defcadaf0a426f12b5f4871cb9296afa6f7ca1ba7d8b4616c4d432629",
+      "config_id": "c6eceedf16a1",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "evaluation_contract_sha256": "65e8a5dd7b1773b1fd97d8dfb86a09f1a910f91890dfc055b559c35257c9dcb4",
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 2732.545,
+        "p95": 2847.3288,
+        "min": 2677.123,
+        "max": 2863.008,
+        "mean": 2756.6512,
+        "stdev": 70.60608592536475
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2732.545,
+        "p95": 2847.3288,
+        "min": 2677.123,
+        "max": 2863.008,
+        "mean": 2756.6512,
+        "stdev": 70.60608592536475
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.009,
+          "p95": 0.012,
+          "min": 0.007,
+          "max": 0.012,
+          "mean": 0.009600000000000001,
+          "stdev": 0.002302172886644268
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 1922.61,
+          "p95": 1982.8838,
+          "min": 1817.59,
+          "max": 1991.452,
+          "mean": 1917.2724,
+          "stdev": 64.37126031312425
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 309.064,
+          "p95": 323.0698,
+          "min": 298.703,
+          "max": 323.681,
+          "mean": 310.5896,
+          "stdev": 11.292543725839632
+        },
+        "collect_ms": {
+          "n": 5,
+          "p50": 412.848,
+          "p95": 430.3794,
+          "min": 394.445,
+          "max": 433.325,
+          "mean": 413.0222,
+          "stdev": 14.48453929885241
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 114.836,
+          "p95": 117.3134,
+          "min": 113.854,
+          "max": 117.373,
+          "mean": 115.5096,
+          "stdev": 1.606751785435451
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 20.487292999999962,
+        "p95": 20.894662999999845,
+        "min": 11.603427000000055,
+        "max": 20.952117999999853,
+        "mean": 18.548154599999922,
+        "stdev": 3.952343395559992
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/modal_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "modal",
+          "run_id": "bench-fb8274ea4362",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 71
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-f0490c29e108",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 86
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-7743ef1c7158",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 96
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-1c526a6f3378",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 98
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-88db522c27ed",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 126
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:38.238088+00:00"
+    },
+    {
+      "provider": "modal",
+      "suite": "dependency_install",
+      "workload_sha256": "d4283fa079e3e73f6824924c645f2c50918535307e6a66f850f3c56fd93497f6",
+      "config_id": "c6eceedf16a1",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "evaluation_contract_sha256": "196f888c374b5cee3cd0a5e103f167807e5d1e3ed16d9fd27a1d3634d01111b4",
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 2502.773,
+        "p95": 2633.9154,
+        "min": 2390.062,
+        "max": 2663.682,
+        "mean": 2499.699,
+        "stdev": 105.37560549529475
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2502.773,
+        "p95": 2633.9154,
+        "min": 2390.062,
+        "max": 2663.682,
+        "mean": 2499.699,
+        "stdev": 105.37560549529475
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.007,
+          "p95": 0.022599999999999995,
+          "min": 0.006,
+          "max": 0.026,
+          "mean": 0.0108,
+          "stdev": 0.0085848704125339
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 1650.824,
+          "p95": 1781.665,
+          "min": 1498.681,
+          "max": 1804.569,
+          "mean": 1658.5958,
+          "stdev": 109.57359027931865
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 738.478,
+          "p95": 751.5264,
+          "min": 591.015,
+          "max": 752.347,
+          "mean": 688.5032,
+          "stdev": 79.73902938147667
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 113.321,
+          "p95": 274.78799999999995,
+          "min": 108.788,
+          "max": 315.133,
+          "mean": 152.267,
+          "stdev": 91.06540632699114
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 453.393747,
+        "p95": 466.8257980000001,
+        "min": 326.728001,
+        "max": 467.3261740000001,
+        "mean": 409.5290412,
+        "stdev": 71.89804959944385
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/modal_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "modal",
+          "run_id": "bench-166f80bc19da",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 74
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-d6aa97c9c66a",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 88
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-bc0af6498d76",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 90
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-36c2bbf484bc",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 108
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-5cc2f091e3c9",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 114
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:04.999674+00:00"
+    },
+    {
+      "provider": "modal",
+      "suite": "session_state",
+      "workload_sha256": "5c066bf7f6c3ff560ce7bf91d69eb4a0512dc685341488cc1c20428b76e64881",
+      "config_id": "c6eceedf16a1",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "evaluation_contract_sha256": "640d8dc9428083fd6130ff1750248cac8db9c9a46061ab6c454afdfe2ac80f20",
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 3728.992,
+        "p95": 3776.83,
+        "min": 3563.847,
+        "max": 3778.548,
+        "mean": 3681.1476000000002,
+        "stdev": 108.45999154204274
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 3728.992,
+        "p95": 3776.83,
+        "min": 3563.847,
+        "max": 3778.548,
+        "mean": 3681.1476000000002,
+        "stdev": 108.45999154204274
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.006,
+          "p95": 0.0076,
+          "min": 0.005,
+          "max": 0.008,
+          "mean": 0.0062,
+          "stdev": 0.0010954451150103322
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 1356.692,
+          "p95": 1525.1202,
+          "min": 1306.607,
+          "max": 1530.31,
+          "mean": 1407.7878,
+          "stdev": 102.04307858791796
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 2114.95,
+          "p95": 2297.9988,
+          "min": 2094.091,
+          "max": 2338.662,
+          "mean": 2158.4972,
+          "stdev": 101.79237897652256
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 112.89,
+          "p95": 122.61540000000001,
+          "min": 108.344,
+          "max": 124.51,
+          "mean": 114.7,
+          "stdev": 5.998934613746015
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/modal_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "modal",
+          "run_id": "bench-317552374240",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 72
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-61b6f504bbe6",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 94
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-3e9c5e72cb5a",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 105
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-b1cd067339a6",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 118
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-39c955f3150e",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 119
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:44:18.378175+00:00"
+    },
+    {
+      "provider": "modal",
+      "suite": "error_recovery",
+      "workload_sha256": "d61f5f0d107ff3cb4322aa89efac963143e4ede10f0b5dd935c46d4157cdcaba",
+      "config_id": "c6eceedf16a1",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "evaluation_contract_sha256": "83a7036b4c207800b41d63ce20243f18d0bcda1617f973b3bcc8930993c0078c",
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 2656.386,
+        "p95": 2674.0666,
+        "min": 2608.085,
+        "max": 2676.317,
+        "mean": 2651.431,
+        "stdev": 26.02231414574806
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2656.386,
+        "p95": 2674.0666,
+        "min": 2608.085,
+        "max": 2676.317,
+        "mean": 2651.431,
+        "stdev": 26.02231414574806
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 0.006,
+          "p95": 0.0162,
+          "min": 0.006,
+          "max": 0.018,
+          "mean": 0.009,
+          "stdev": 0.005196152422706631
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 1351.787,
+          "p95": 1361.9634,
+          "min": 1310.217,
+          "max": 1363.202,
+          "mean": 1345.3596,
+          "stdev": 20.80250388294636
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 1190.519,
+          "p95": 1201.1781999999998,
+          "min": 1173.33,
+          "max": 1201.456,
+          "mean": 1189.072,
+          "stdev": 12.31540610373851
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 117.592,
+          "p95": 121.0734,
+          "min": 111.668,
+          "max": 121.135,
+          "mean": 116.7964,
+          "stdev": 4.424228102166522
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/modal_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "modal",
+          "run_id": "bench-927ce61c91bf",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 75
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-17be48689f25",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 77
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-e822d0f73b3b",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 80
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-e9e979788273",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 84
+        },
+        {
+          "provider": "modal",
+          "run_id": "bench-419d1c95555d",
+          "report_path": "data/attempts/modal_evaluation.json",
+          "report_index": 109
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:43:49.605691+00:00"
+    },
+    {
+      "provider": "gcp_vertex",
+      "suite": "cpu_stress",
+      "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+      "config_id": "5a61c94c9323",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "Agent Engine default code sandbox",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "region": "CLI-configured; see preflight",
+          "network_policy": "not requested by adapter",
+          "session_mode": "one-shot run"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "c640a283b17ad67a3be95a89b415550fc59869e39be873617bbe9d18e0297afb",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "0a074557c3d6e79646811777a7f789209001e053430f1de83562ed0839bbbf73",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 6039.563,
+        "p95": 6249.6414,
+        "min": 5500.634,
+        "max": 6260.457,
+        "mean": 5961.3284,
+        "stdev": 313.8633711757395
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 6039.563,
+        "p95": 6249.6414,
+        "min": 5500.634,
+        "max": 6260.457,
+        "mean": 5961.3284,
+        "stdev": 313.8633711757395
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 248.22,
+          "p95": 560.1967999999999,
+          "min": 233.786,
+          "max": 602.026,
+          "mean": 342.41319999999996,
+          "stdev": 159.78303047945985
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.507,
+          "p95": 0.9308,
+          "min": 0.444,
+          "max": 0.946,
+          "mean": 0.6514,
+          "stdev": 0.23690251159495965
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 5655.932,
+          "p95": 5934.086,
+          "min": 5106.147,
+          "max": 5970.057,
+          "mean": 5617.391,
+          "stdev": 323.9899229027039
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 0.522,
+          "p95": 1.0972,
+          "min": 0.497,
+          "max": 1.24,
+          "mean": 0.6586,
+          "stdev": 0.32521654324465105
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 393.5,
+        "p95": 604.8399999999999,
+        "min": 215.79999999999998,
+        "max": 644.5999999999999,
+        "mean": 407.73999999999995,
+        "stdev": 157.57549936459029
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/gcp_vertex_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-4931c5ec0765",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 48
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-c8f7a355a7b7",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 51
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-1004769a48d5",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 72
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-bc97a1434469",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 75
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-cbd348958016",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 87
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:40:45.737832+00:00"
+    },
+    {
+      "provider": "gcp_vertex",
+      "suite": "output_fidelity",
+      "workload_sha256": "3e21aadb8da374a746d81965de0833af8a8b43df75f8b67b9eec767f4c29b7f0",
+      "config_id": "5a61c94c9323",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "Agent Engine default code sandbox",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "region": "CLI-configured; see preflight",
+          "network_policy": "not requested by adapter",
+          "session_mode": "one-shot run"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "c640a283b17ad67a3be95a89b415550fc59869e39be873617bbe9d18e0297afb",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "0a074557c3d6e79646811777a7f789209001e053430f1de83562ed0839bbbf73",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 5556.189,
+        "p95": 6121.3276000000005,
+        "min": 5111.874,
+        "max": 6240.117,
+        "mean": 5580.4522,
+        "stdev": 422.40564617521403
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 5556.189,
+        "p95": 6121.3276000000005,
+        "min": 5111.874,
+        "max": 6240.117,
+        "mean": 5580.4522,
+        "stdev": 422.40564617521403
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 298.152,
+          "p95": 377.07959999999997,
+          "min": 248.343,
+          "max": 387.878,
+          "mean": 304.3362,
+          "stdev": 58.348439492414876
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.633,
+          "p95": 0.9281999999999999,
+          "min": 0.446,
+          "max": 0.994,
+          "mean": 0.6542,
+          "stdev": 0.20860656749009604
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 5256.567,
+          "p95": 5854.531,
+          "min": 4856.915,
+          "max": 5990.477,
+          "mean": 5274.592,
+          "stdev": 444.0290599859428
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 0.592,
+          "p95": 0.7749999999999999,
+          "min": 0.575,
+          "max": 0.813,
+          "mean": 0.6362,
+          "stdev": 0.10064641076561051
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/gcp_vertex_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-8fafc08bfd6a",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 55
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-b897a9c56a57",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 58
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-6ecaf272fbf0",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 77
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-baa836189e3d",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 82
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-84060c038255",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 85
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:40:35.506888+00:00"
+    },
+    {
+      "provider": "gcp_vertex",
+      "suite": "artifact_roundtrip",
+      "workload_sha256": "b8ad01873e42d51a1a8e3ab00cd96540357c7ddce370426bd913c3ca7ecb6625",
+      "config_id": "5a61c94c9323",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "Agent Engine default code sandbox",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "region": "CLI-configured; see preflight",
+          "network_policy": "not requested by adapter",
+          "session_mode": "one-shot run"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "c640a283b17ad67a3be95a89b415550fc59869e39be873617bbe9d18e0297afb",
+      "evaluation_contract_sha256": "a5549900beb7d84c66a5f209ed385fd46f6a6d2ab614f01770ff9ce9973368e7",
+      "stack_sha256": "0a074557c3d6e79646811777a7f789209001e053430f1de83562ed0839bbbf73",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 5950.467,
+        "p95": 7179.9918,
+        "min": 5159.668,
+        "max": 7422.079,
+        "mean": 6099.0252,
+        "stdev": 834.9476015279042
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 5950.467,
+        "p95": 7179.9918,
+        "min": 5159.668,
+        "max": 7422.079,
+        "mean": 6099.0252,
+        "stdev": 834.9476015279042
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 271.182,
+          "p95": 527.4282,
+          "min": 242.906,
+          "max": 536.342,
+          "mean": 361.6264,
+          "stdev": 140.44250924239427
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.721,
+          "p95": 0.8383999999999999,
+          "min": 0.676,
+          "max": 0.859,
+          "mean": 0.7458,
+          "stdev": 0.06934479071999568
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 5483.109,
+          "p95": 6736.0599999999995,
+          "min": 4886.475,
+          "max": 6928.392,
+          "mean": 5735.3278,
+          "stdev": 769.0417704017772
+        },
+        "collect_ms": {
+          "n": 5,
+          "p50": 0.504,
+          "p95": 0.526,
+          "min": 0.492,
+          "max": 0.531,
+          "mean": 0.5054,
+          "stdev": 0.015549919613940146
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 0.567,
+          "p95": 0.5908,
+          "min": 0.544,
+          "max": 0.592,
+          "mean": 0.5678,
+          "stdev": 0.021217916957137862
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/gcp_vertex_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-508887bd1358",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 59
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-7954cf4af105",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 62
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-ba79b247e70d",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 64
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-c43049a012b0",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 67
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-d50a0c8f64db",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 78
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:39:50.006596+00:00"
+    },
+    {
+      "provider": "gcp_vertex",
+      "suite": "data_pipeline",
+      "workload_sha256": "4ef8b04defcadaf0a426f12b5f4871cb9296afa6f7ca1ba7d8b4616c4d432629",
+      "config_id": "5a61c94c9323",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "Agent Engine default code sandbox",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "region": "CLI-configured; see preflight",
+          "network_policy": "not requested by adapter",
+          "session_mode": "one-shot run"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "c640a283b17ad67a3be95a89b415550fc59869e39be873617bbe9d18e0297afb",
+      "evaluation_contract_sha256": "65e8a5dd7b1773b1fd97d8dfb86a09f1a910f91890dfc055b559c35257c9dcb4",
+      "stack_sha256": "0a074557c3d6e79646811777a7f789209001e053430f1de83562ed0839bbbf73",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 5222.757,
+        "p95": 6148.8008,
+        "min": 4903.526,
+        "max": 6307.283,
+        "mean": 5372.4800000000005,
+        "stdev": 580.2382522813367
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 5222.757,
+        "p95": 6148.8008,
+        "min": 4903.526,
+        "max": 6307.283,
+        "mean": 5372.4800000000005,
+        "stdev": 580.2382522813367
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 258.624,
+          "p95": 284.19919999999996,
+          "min": 228.419,
+          "max": 286.989,
+          "mean": 256.7906,
+          "stdev": 24.39614507048193
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.678,
+          "p95": 1.0186,
+          "min": 0.611,
+          "max": 1.089,
+          "mean": 0.7468,
+          "stdev": 0.19792978553012175
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 4983.423,
+          "p95": 5862.047799999999,
+          "min": 4642.909,
+          "max": 6017.918,
+          "mean": 5113.183599999999,
+          "stdev": 560.631872773748
+        },
+        "collect_ms": {
+          "n": 5,
+          "p50": 0.557,
+          "p95": 1.0657999999999999,
+          "min": 0.483,
+          "max": 1.087,
+          "mean": 0.7196,
+          "stdev": 0.29088107535554797
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 0.625,
+          "p95": 1.1134,
+          "min": 0.543,
+          "max": 1.13,
+          "mean": 0.7926,
+          "stdev": 0.2736024488194504
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 43.37518100010129,
+        "p95": 63.616805398578435,
+        "min": 33.66338299974814,
+        "max": 64.95226499828277,
+        "mean": 47.75199580208209,
+        "stdev": 13.322300846705403
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/gcp_vertex_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-c66657311c60",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 46
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-5ed759490be3",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 53
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-03363c9f0e0d",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 54
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-5dfff0a9bda0",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 63
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-a47b042a4bc1",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 69
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:38:55.754667+00:00"
+    },
+    {
+      "provider": "gcp_vertex",
+      "suite": "dependency_install",
+      "workload_sha256": "d4283fa079e3e73f6824924c645f2c50918535307e6a66f850f3c56fd93497f6",
+      "config_id": "5a61c94c9323",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "Agent Engine default code sandbox",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "region": "CLI-configured; see preflight",
+          "network_policy": "not requested by adapter",
+          "session_mode": "one-shot run"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "c640a283b17ad67a3be95a89b415550fc59869e39be873617bbe9d18e0297afb",
+      "evaluation_contract_sha256": "196f888c374b5cee3cd0a5e103f167807e5d1e3ed16d9fd27a1d3634d01111b4",
+      "stack_sha256": "0a074557c3d6e79646811777a7f789209001e053430f1de83562ed0839bbbf73",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 7031.608,
+        "p95": 7158.6348,
+        "min": 6740.766,
+        "max": 7188.278,
+        "mean": 7002.8214,
+        "stdev": 162.32257429821667
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 7031.608,
+        "p95": 7158.6348,
+        "min": 6740.766,
+        "max": 7188.278,
+        "mean": 7002.8214,
+        "stdev": 162.32257429821667
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 288.72,
+          "p95": 306.2364,
+          "min": 238.353,
+          "max": 310.482,
+          "mean": 276.04400000000004,
+          "stdev": 29.38547723791466
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.881,
+          "p95": 1.5917999999999997,
+          "min": 0.685,
+          "max": 1.763,
+          "mean": 1.0042,
+          "stdev": 0.43311107120460446
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 6748.529,
+          "p95": 6875.8896,
+          "min": 6485.008,
+          "max": 6897.34,
+          "mean": 6724.2228000000005,
+          "stdev": 152.23489190294066
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 1.259,
+          "p95": 1.5965999999999998,
+          "min": 1.226,
+          "max": 1.65,
+          "mean": 1.3514,
+          "stdev": 0.17822541906248948
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 1264.3037269999695,
+        "p95": 1422.956389200408,
+        "min": 1169.2055519961286,
+        "max": 1423.9669119997416,
+        "mean": 1292.3126260016943,
+        "stdev": 123.26765680097957
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/gcp_vertex_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-ca9a72120334",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 66
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-3dc3b15ab87b",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 73
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-3090ee159be4",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 74
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-ce1ea2cd4b9b",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 81
+        },
+        {
+          "provider": "gcp_vertex",
+          "run_id": "bench-179c68e8094c",
+          "report_path": "data/attempts/gcp_vertex_evaluation.json",
+          "report_index": 88
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:40:52.025484+00:00"
+    },
+    {
+      "provider": "aws",
+      "suite": "cpu_stress",
+      "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+      "config_id": "a017dc2faa1b",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "AgentCore Code Interpreter",
+          "region": "eu-north-1",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "network_policy": "tool configuration not attested by adapter",
+          "session_mode": "fresh session"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "beb5698440d99184777c6367a8d30304eff94cdfc68edeb9702cc99a29122089",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "be9cea6def64e466c055f3bd45fffde840036de4ebccec5d48d5b7f2d04fcfbe",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 1358.136,
+        "p95": 1999.8244,
+        "min": 1292.884,
+        "max": 2044.388,
+        "mean": 1567.3724,
+        "stdev": 343.70574749456836
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 1358.136,
+        "p95": 1999.8244,
+        "min": 1292.884,
+        "max": 2044.388,
+        "mean": 1567.3724,
+        "stdev": 343.70574749456836
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 1.48,
+          "p95": 223.33479999999994,
+          "min": 1.377,
+          "max": 278.508,
+          "mean": 57.0868,
+          "stdev": 123.77933532581275
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.391,
+          "p95": 0.6789999999999999,
+          "min": 0.339,
+          "max": 0.715,
+          "mean": 0.467,
+          "stdev": 0.15877027429591473
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 1217.62,
+          "p95": 1678.7754,
+          "min": 1167.568,
+          "max": 1695.206,
+          "mean": 1376.2524,
+          "stdev": 255.9433501603431
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 130.276,
+          "p95": 148.6824,
+          "min": 123.394,
+          "max": 151.547,
+          "mean": 133.382,
+          "stdev": 11.549644345173576
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 139.6,
+        "p95": 139.96,
+        "min": 138.9,
+        "max": 140.0,
+        "mean": 139.54,
+        "stdev": 0.42190046219457866
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/aws_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "aws",
+          "run_id": "bench-a35a3537e4e0",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 27
+        },
+        {
+          "provider": "aws",
+          "run_id": "bench-dfb5a3e78284",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 38
+        },
+        {
+          "provider": "aws",
+          "run_id": "bench-23474fc28bfa",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 43
+        },
+        {
+          "provider": "aws",
+          "run_id": "bench-acc76386e1e7",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 44
+        },
+        {
+          "provider": "aws",
+          "run_id": "bench-ed90415d64ca",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 51
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:37:07.358451+00:00"
+    },
+    {
+      "provider": "aws",
+      "suite": "output_fidelity",
+      "workload_sha256": "3e21aadb8da374a746d81965de0833af8a8b43df75f8b67b9eec767f4c29b7f0",
+      "config_id": "a017dc2faa1b",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "AgentCore Code Interpreter",
+          "region": "eu-north-1",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null,
+          "network_policy": "tool configuration not attested by adapter",
+          "session_mode": "fresh session"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "beb5698440d99184777c6367a8d30304eff94cdfc68edeb9702cc99a29122089",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "be9cea6def64e466c055f3bd45fffde840036de4ebccec5d48d5b7f2d04fcfbe",
+      "attempts": 5,
+      "outcomes": {
+        "fail": 5
+      },
+      "n": 5,
+      "pass_rate": 0.0,
+      "success_ci95": [
+        0,
+        0.43448246478317476
+      ],
+      "latency_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 1361.855,
+        "p95": 1467.6082000000001,
+        "min": 1343.518,
+        "max": 1485.844,
+        "mean": 1389.1456,
+        "stdev": 57.15366486324391
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "prepare_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "execute_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/aws_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "aws",
+          "run_id": "bench-2b12a28f84a6",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 29
+        },
+        {
+          "provider": "aws",
+          "run_id": "bench-feb456206ab5",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 31
+        },
+        {
+          "provider": "aws",
+          "run_id": "bench-9ecc2d9002c6",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 41
+        },
+        {
+          "provider": "aws",
+          "run_id": "bench-1382b77d6914",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 48
+        },
+        {
+          "provider": "aws",
+          "run_id": "bench-6d4321d6714a",
+          "report_path": "data/attempts/aws_evaluation.json",
+          "report_index": 49
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:37:04.819528+00:00"
+    },
+    {
+      "provider": "blaxel",
+      "suite": "cpu_stress",
+      "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+      "config_id": "ed833ceba657",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "image": "blaxel/py-app:latest",
+          "memory": 4096,
+          "memory_unit": "MB API field",
+          "cpu": "memory-coupled",
+          "region": "us-pdx-1",
+          "ttl": "1h",
+          "gpu": null,
+          "network_policy": "default; no restriction requested"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "f1238f8bfe20e7b0dff541cd4b001d49c898cf5ebcfa599284573aa1f4a2e1e2",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "1d71f3be8c2a3381d7ba2d908504459f105f54f8edde72e15bb9c875ecd1743c",
+      "attempts": 5,
+      "outcomes": {
+        "fail": 1,
+        "pass": 4
+      },
+      "n": 5,
+      "pass_rate": 0.8,
+      "success_ci95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ],
+      "latency_ms": {
+        "n": 4,
+        "p50": 2313.6949999999997,
+        "p95": 2399.5964999999997,
+        "min": 2288.661,
+        "max": 2414.178,
+        "mean": 2332.55725,
+        "stdev": 55.742926614803125
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 2316.968,
+        "p95": 2891.5596,
+        "min": 2288.661,
+        "max": 3010.905,
+        "mean": 2468.2268,
+        "stdev": 307.18331560600757
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 4,
+          "p50": 0.004,
+          "p95": 0.06094999999999996,
+          "min": 0.001,
+          "max": 0.071,
+          "mean": 0.019999999999999997,
+          "stdev": 0.034029399054347105
+        },
+        "prepare_ms": {
+          "n": 4,
+          "p50": 0.403,
+          "p95": 1.6656499999999994,
+          "min": 0.325,
+          "max": 1.886,
+          "mean": 0.75425,
+          "stdev": 0.7554819102180188
+        },
+        "execute_ms": {
+          "n": 4,
+          "p50": 2240.316,
+          "p95": 2332.8602,
+          "min": 2214.478,
+          "max": 2348.321,
+          "mean": 2260.85775,
+          "stdev": 59.70342612935485
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 4,
+          "p50": 69.2135,
+          "p95": 79.97725,
+          "min": 63.41,
+          "max": 81.07,
+          "mean": 70.72675,
+          "stdev": 8.304511359295418
+        }
+      },
+      "workload_ms": {
+        "n": 4,
+        "p50": 204.15,
+        "p95": 218.43999999999997,
+        "min": 180.9,
+        "max": 220.29999999999998,
+        "mean": 202.375,
+        "stdev": 16.501590832401575
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/blaxel_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "blaxel",
+          "run_id": "bench-2b5c7f7f04a4",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 26
+        },
+        {
+          "provider": "blaxel",
+          "run_id": "bench-76a497a2353f",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 37
+        },
+        {
+          "provider": "blaxel",
+          "run_id": "bench-8eba4c73f6c7",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 42
+        },
+        {
+          "provider": "blaxel",
+          "run_id": "bench-0234cb02293f",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 43
+        },
+        {
+          "provider": "blaxel",
+          "run_id": "bench-3d63b19e00a7",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 50
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:37:24.405196+00:00"
+    },
+    {
+      "provider": "blaxel",
+      "suite": "output_fidelity",
+      "workload_sha256": "3e21aadb8da374a746d81965de0833af8a8b43df75f8b67b9eec767f4c29b7f0",
+      "config_id": "ed833ceba657",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "image": "blaxel/py-app:latest",
+          "memory": 4096,
+          "memory_unit": "MB API field",
+          "cpu": "memory-coupled",
+          "region": "us-pdx-1",
+          "ttl": "1h",
+          "gpu": null,
+          "network_policy": "default; no restriction requested"
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "f1238f8bfe20e7b0dff541cd4b001d49c898cf5ebcfa599284573aa1f4a2e1e2",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "1d71f3be8c2a3381d7ba2d908504459f105f54f8edde72e15bb9c875ecd1743c",
+      "attempts": 5,
+      "outcomes": {
+        "fail": 5
+      },
+      "n": 5,
+      "pass_rate": 0.0,
+      "success_ci95": [
+        0,
+        0.43448246478317476
+      ],
+      "latency_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 1826.706,
+        "p95": 2247.1982,
+        "min": 1642.089,
+        "max": 2339.045,
+        "mean": 1881.3672,
+        "stdev": 272.03692770872124
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "prepare_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "execute_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        }
+      },
+      "workload_ms": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null,
+        "mean": null,
+        "stdev": null
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/blaxel_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "blaxel",
+          "run_id": "bench-669d65307129",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 28
+        },
+        {
+          "provider": "blaxel",
+          "run_id": "bench-87242b04c256",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 30
+        },
+        {
+          "provider": "blaxel",
+          "run_id": "bench-f1ddd0aded1a",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 40
+        },
+        {
+          "provider": "blaxel",
+          "run_id": "bench-934f158d49fc",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 47
+        },
+        {
+          "provider": "blaxel",
+          "run_id": "bench-000287e28032",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "report_index": 48
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:37:21.464132+00:00"
+    },
+    {
+      "provider": "databricks",
+      "suite": "cpu_stress",
+      "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+      "config_id": "629df7809d28",
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "SQL system.ai.python_exec",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "concurrency": 1,
+      "runtime_kind": "remote_runtime",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "adapter_sha256": "ff6ebfad7dbf4e41fad2fda299834274db33125c381d488215278f0605e38ea1",
+      "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+      "stack_sha256": "e8a6874856cd9b3ee5143e80ea1f71b1fbbc78f81d2c2013074c70a0194aea67",
+      "attempts": 5,
+      "outcomes": {
+        "pass": 5
+      },
+      "n": 5,
+      "pass_rate": 1.0,
+      "success_ci95": [
+        0.5655175352168251,
+        1
+      ],
+      "latency_ms": {
+        "n": 5,
+        "p50": 3106.952,
+        "p95": 3688.3296,
+        "min": 2937.105,
+        "max": 3815.386,
+        "mean": 3218.28,
+        "stdev": 345.37813796981993
+      },
+      "attempt_latency_ms": {
+        "n": 5,
+        "p50": 3106.952,
+        "p95": 3688.3296,
+        "min": 2937.105,
+        "max": 3815.386,
+        "mean": 3218.28,
+        "stdev": 345.37813796981993
+      },
+      "phases_ms": {
+        "initialize_ms": {
+          "n": 5,
+          "p50": 1974.547,
+          "p95": 2228.2491999999997,
+          "min": 1817.052,
+          "max": 2264.281,
+          "mean": 2009.3378,
+          "stdev": 172.70649031145297
+        },
+        "prepare_ms": {
+          "n": 5,
+          "p50": 0.011,
+          "p95": 0.015,
+          "min": 0.006,
+          "max": 0.015,
+          "mean": 0.0114,
+          "stdev": 0.0037815340802378073
+        },
+        "execute_ms": {
+          "n": 5,
+          "p50": 1119.834,
+          "p95": 1495.3654,
+          "min": 1022.565,
+          "max": 1550.891,
+          "mean": 1208.7312,
+          "stdev": 212.79346275955
+        },
+        "collect_ms": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "min": null,
+          "max": null,
+          "mean": null,
+          "stdev": null
+        },
+        "cleanup_ms": {
+          "n": 5,
+          "p50": 0.003,
+          "p95": 0.0038,
+          "min": 0.001,
+          "max": 0.004,
+          "mean": 0.0028,
+          "stdev": 0.0010954451150103322
+        }
+      },
+      "workload_ms": {
+        "n": 5,
+        "p50": 166.3,
+        "p95": 211.64,
+        "min": 159.39999999999998,
+        "max": 220.29999999999998,
+        "mean": 176.79999999999998,
+        "stdev": 25.27320715698741
+      },
+      "eligible": true,
+      "reports": [
+        "data/attempts/databricks_evaluation.json"
+      ],
+      "run_refs": [
+        {
+          "provider": "databricks",
+          "run_id": "bench-21d776e03fe5",
+          "report_path": "data/attempts/databricks_evaluation.json",
+          "report_index": 3
+        },
+        {
+          "provider": "databricks",
+          "run_id": "bench-01b7332e8719",
+          "report_path": "data/attempts/databricks_evaluation.json",
+          "report_index": 4
+        },
+        {
+          "provider": "databricks",
+          "run_id": "bench-7b40f97cd177",
+          "report_path": "data/attempts/databricks_evaluation.json",
+          "report_index": 12
+        },
+        {
+          "provider": "databricks",
+          "run_id": "bench-061deb19e512",
+          "report_path": "data/attempts/databricks_evaluation.json",
+          "report_index": 15
+        },
+        {
+          "provider": "databricks",
+          "run_id": "bench-13153cff843d",
+          "report_path": "data/attempts/databricks_evaluation.json",
+          "report_index": 16
+        }
+      ],
+      "last_measured_at": "2026-10-13T07:43:03.590806+00:00"
+    }
+  ],
+  "model_budget_assumption_usd": 0.003,
+  "compute_scenario_rate_usd_per_second": 4.6e-05
+}

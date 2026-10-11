@@ -1,0 +1,477 @@
+[
+  {
+    "run_id": "bench-0f0a89008bf7",
+    "suite": "cold_start",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SANDBOX_READY\nPYTHON_VERSION:3.13.16\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.537,
+      "execute_ms": 1115.03,
+      "collect_ms": 0.0,
+      "cleanup_ms": 175.844,
+      "total_wall_clock_ms": 1291.506
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 5.17e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 5.17e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 1.2915,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-5981020a6831",
+    "suite": "cpu_stress",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.2617\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.367,
+      "execute_ms": 2043.128,
+      "collect_ms": 0.0,
+      "cleanup_ms": 181.326,
+      "total_wall_clock_ms": 2224.861
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 8.9e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 8.9e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 2.2249,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-266e5857b2a7",
+    "suite": "mem_stress",
+    "provider": "e2b",
+    "status": "failed",
+    "preparation": "success",
+    "execution": "failed",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "Context was restarted",
+    "exit_code": 1,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.4,
+      "execute_ms": 2420.992,
+      "collect_ms": 0.0,
+      "cleanup_ms": 178.926,
+      "total_wall_clock_ms": 2600.358
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.000104,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.000104,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 2.6004,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-42ba096dc50a",
+    "suite": "disk_io",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SMALL_FILES_WRITE_SEC:0.0137\nLARGE_FILE_WRITE_SEC:0.0297\nLARGE_FILE_READ_SEC:0.0250\nINTEGRITY_MATCH:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.361,
+      "execute_ms": 673.672,
+      "collect_ms": 0.0,
+      "cleanup_ms": 177.953,
+      "total_wall_clock_ms": 852.022
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.41e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.41e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 0.852,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-a3e359ba87bf",
+    "suite": "net_isolation",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "DNS_STATUS:ALLOWED:104.20.23.154\n\nHTTP_EGRESS:ALLOWED:200\nMETADATA_ACCESS:BLOCKED_SECURE:HTTPError\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.365,
+      "execute_ms": 857.643,
+      "collect_ms": 0.0,
+      "cleanup_ms": 179.112,
+      "total_wall_clock_ms": 1037.194
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.15e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.15e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 1.0372,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-462b0e1731c0",
+    "suite": "env_security",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "USER_ID:0:0\nIS_ROOT:True\nOS_SYSTEM:Linux:x86_64\nCONTAINER_FLAG:False\nPASSWORDLESS_SUDO:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.355,
+      "execute_ms": 995.061,
+      "collect_ms": 0.0,
+      "cleanup_ms": 178.415,
+      "total_wall_clock_ms": 1173.869
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.7e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.7e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 1.1739,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-8c38b606d6f5",
+    "suite": "timeout_handling",
+    "provider": "e2b",
+    "status": "timed_out",
+    "preparation": "success",
+    "execution": "timed_out",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "Execution timed out \u2014 the 'timeout' option can be used to increase this timeout",
+    "exit_code": null,
+    "artifacts": [],
+    "warnings": [
+      "e2b_timeout"
+    ],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.429,
+      "execute_ms": 8256.488,
+      "collect_ms": 0.0,
+      "cleanup_ms": 182.701,
+      "total_wall_clock_ms": 8439.83
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0003376,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0003376,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 8.4398,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-1a01eef036bb",
+    "suite": "artifact_roundtrip",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "success",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "INPUT_BYTES_READ:6000\nOUTPUT_BYTES_WRITTEN:6000\nOUTPUT_SHA:3eac135e18c2c6274506531a4e554ec13fe99d90ff1bc7dd8b21065f00dc1fa0\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [
+      {
+        "artifact_id": "bench-1a01eef036bb-0",
+        "filename": "transformed_output.txt",
+        "relative_path": "transformed_output.txt",
+        "mime_type": "application/octet-stream",
+        "size_bytes": 6000,
+        "sha256": "3eac135e18c2c6274506531a4e554ec13fe99d90ff1bc7dd8b21065f00dc1fa0",
+        "status": "saved",
+        "error": null
+      }
+    ],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.699,
+      "execute_ms": 783.151,
+      "collect_ms": 178.029,
+      "cleanup_ms": 177.915,
+      "total_wall_clock_ms": 1139.885
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.56e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.56e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 1.1399,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-c9ff5ca3b6a5",
+    "suite": "agent_multiturn",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "MULTITURN_ITERATIONS:5\nTURN_1_INIT_MS:4.78\nTURN_2_INGEST_MS:2.09\nTURN_3_ANALYSIS_MS:1.17\nTURN_4_DECISION_MS:0.34\nTURN_5_VERIFY_MS:0.30\nTOTAL_MULTITURN_MS:8.79\nSTATE_CONTINUITY_SUCCESS:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.441,
+      "execute_ms": 499.199,
+      "collect_ms": 0.0,
+      "cleanup_ms": 176.751,
+      "total_wall_clock_ms": 676.441
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 2.71e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 2.71e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 0.6764,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-a4d676d27046",
+    "suite": "parallel_throughput",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PARALLEL_WORKERS:8\nBATCH_TASKS:200\nSERIAL_PROJECTED_SEC:0.2150\nPARALLEL_WALL_SEC:0.1594\nSPEEDUP_RATIO:1.35\nTHROUGHPUT_TASKS_PER_SEC:1254.9\nCONCURRENCY_TEST_PASSED:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.391,
+      "execute_ms": 695.032,
+      "collect_ms": 0.0,
+      "cleanup_ms": 178.054,
+      "total_wall_clock_ms": 873.519
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.49e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.49e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 0.8735,
+        "rate_per_sec": 4e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-e06068d843a2",
+    "suite": "package_ecosystem",
+    "provider": "e2b",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "CORE_STDLIB_COUNT:9/9\nPREINSTALLED_EXT_PACKAGES:['numpy', 'pandas', 'requests', 'yaml', 'pydantic', 'scipy', 'matplotlib']\nPIP_AVAILABLE:True\nPIP_STATUS:pip 26.2.1 from /usr/local/lib/python3.13/site-packages/pip (python 3.13)\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.389,
+      "execute_ms": 2165.359,
+      "collect_ms": 0.0,
+      "cleanup_ms": 176.924,
+      "total_wall_clock_ms": 2342.708
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 9.37e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 9.37e-05,
+      "billing_unit": "per-second Firecracker microVM",
+      "details": {
+        "duration_seconds": 2.3427,
+        "rate_per_sec": 4e-05
+      }
+    }
+  }
+]

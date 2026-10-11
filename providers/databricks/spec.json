@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "provider": "databricks",
+  "reviewed_at": "2026-10-13",
+  "deployment": "managed_tool",
+  "customization": {"level": "fixed_runtime", "summary": "Legacy system.ai.python_exec via SQL in the current adapter; not dedicated Sandbox or the new system.ai.sandbox MCP. Warehouse capacity is separately configurable, but built-in-function image/resources/dependencies are not requested."},
+  "features": [
+    {"id": "custom_image", "support": "unsupported", "evidence": "documented", "notes": "No image selector in the built-in-function invocation; general cluster image support is outside scope.", "source_ids": ["D1", "A1"]},
+    {"id": "runtime_packages", "support": "unknown", "evidence": "unverified", "notes": "Historical report lists packages and pip --version, not installation. Custom dependency ENVIRONMENT clauses for separately defined UDFs do not prove python_exec customization.", "source_ids": ["D3", "A1", "R1"]},
+    {"id": "cpu_sizing", "support": "conditional", "evidence": "documented", "notes": "SQL warehouse cluster size/concurrency configurable externally; no per-function vCPU allocation. Actual warehouse size absent from report.", "source_ids": ["D4", "A1"]},
+    {"id": "memory_sizing", "support": "conditional", "evidence": "documented", "notes": "Warehouse capacity can be sized; independent interpreter RAM selection unavailable in inspected request. PENDING after 50 seconds is not a measured RAM ceiling.", "source_ids": ["D4", "A1", "R1"]},
+    {"id": "gpu", "support": "unsupported", "evidence": "documented", "notes": "No selectable GPU in this SQL/function interface; other Databricks GPU services are not this provider.", "source_ids": ["D1", "A1"]},
+    {"id": "network_policy", "support": "unknown", "evidence": "unverified", "notes": "No adapter policy control. Historical DNS allowed, HTTP/metadata probes blocked. New sandbox MCP explicitly has no egress; general UDF networking exists, so neither establishes a universal legacy configurable policy.", "source_ids": ["D1", "D2", "D3", "A1", "R1"]},
+    {"id": "persistent_storage", "support": "unsupported", "evidence": "documented", "notes": "No durable disk/mount interface in adapter. Historical scratch disk writes succeeded, contradicting README's all-I/O-forbidden claim, but not proving persistence.", "source_ids": ["A1", "R1", "L1"]},
+    {"id": "session_reuse", "support": "unsupported", "evidence": "documented", "notes": "Independent statement submissions without interpreter session handle. Historical five-turn workload runs inside a single program.", "source_ids": ["A1", "R1"]},
+    {"id": "shell", "support": "unsupported", "evidence": "documented", "notes": "Python-code function, no first-class command or SSH interface. New system.ai.sandbox shell capability is outside this adapter.", "source_ids": ["D1", "A1"]},
+    {"id": "file_transfer", "support": "unsupported", "evidence": "documented", "notes": "Adapter embeds lossy UTF-8 INPUT_FILES and returns no artifacts; it does not implement native file transport.", "source_ids": ["A1"]},
+    {"id": "ports_preview", "support": "unsupported", "evidence": "documented", "notes": "No preview or port interface in this built-in function invocation.", "source_ids": ["D1", "A1"]},
+    {"id": "self_hosting", "support": "unsupported", "evidence": "documented", "notes": "Managed Databricks-provided execution; open client libraries do not self-host the service.", "source_ids": ["D1", "D2"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "No function-specific key guarantee verified. Adapter capability false is not a documented platform prohibition.", "source_ids": ["A1"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Applicable SQL warehouse/serverless compute SKU billed in DBUs; legacy functions MCP documented as serverless general compute. Model inference separate and absent from adapter.",
+    "rates": [
+      {"resource": "Applicable warehouse/serverless compute SKU", "unit": "DBU", "amount": null, "source_ids": ["D2", "D5", "D6"]},
+      {"resource": "External model inference if separately used", "unit": "model-specific token billing unit", "amount": null, "source_ids": ["A1"]}
+    ],
+    "limitations": "No universal rate extracted: official numeric pricing table rendered Loading; actual SKU/cloud/configuration and effective price period missing. list_prices documents exact usage units and effective dates. Report's $0.000025/second is an assumption, not current official pricing or invoice evidence. No comparable dated price-increase evidence."
+  },
+  "tested_configuration": {"adapter": "src/core/providers/databricks.py", "requested": "Profile/warehouse selection; parameterized SELECT system.ai.python_exec(:code); no per-function resource/image/network config.", "historical_reports": ["reports/data/legacy/databricks_live.json"], "evaluation_report": "reports/data/attempts/databricks_evaluation.json", "limitations": "Five current readiness/CPU/inventory trials pass after unconditional inventory output fix. Guest-visible 8 CPUs, Python3.12.3 and300MiB memory do not attest allocated warehouse resources. Reference MCP adapter differs. See tested-configurations.json; no billing export."},
+  "sources": [
+    {"id": "D1", "url": "https://docs.databricks.com/aws/en/agents/custom-agents/code-interpreter-tools", "title": "Let agents run code and legacy python_exec MCP", "accessed_at": "2026-10-13"},
+    {"id": "D2", "url": "https://docs.databricks.com/aws/en/agents/mcp-tools/built-in-mcp-services", "title": "Databricks-provided MCPs and legacy endpoint pricing", "accessed_at": "2026-10-13"},
+    {"id": "D3", "url": "https://docs.databricks.com/aws/en/udf/unity-catalog", "title": "Unity Catalog UDF customization and networking scope", "accessed_at": "2026-10-13"},
+    {"id": "D4", "url": "https://docs.databricks.com/aws/en/compute/sql-warehouse/warehouse-behavior", "title": "SQL warehouse sizing and scaling", "accessed_at": "2026-10-13"},
+    {"id": "D5", "url": "https://www.databricks.com/product/pricing/datascience-ml", "title": "Serverless general compute pricing (numeric table not retrieved)", "accessed_at": "2026-10-13"},
+    {"id": "D6", "url": "https://docs.databricks.com/aws/en/admin/system-tables/pricing", "title": "Pricing system table reference", "accessed_at": "2026-10-13"},
+    {"id": "A1", "url": "repo:src/core/providers/databricks.py", "title": "Inspected current SQL adapter", "accessed_at": "2026-10-13"},
+    {"id": "R1", "url": "repo:reports/data/legacy/databricks_live.json", "title": "Historical raw report, not rerun", "accessed_at": "2026-10-13"},
+    {"id": "L1", "url": "repo:providers/databricks/README.md", "title": "Existing README, non-authoritative historical claims", "accessed_at": "2026-10-13"}
+  ]
+}

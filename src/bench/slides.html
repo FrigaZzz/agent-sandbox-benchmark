@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AI Agent Sandboxes: The Executive Field Guide</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --surface-alt: #334155;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --success: #34d399;
+            --warn: #fbbf24;
+            --danger: #f87171;
+            --border: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.45;
+            padding: 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .deck-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 675px;
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px 52px;
+            height: calc(100% - 60px);
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+            background: var(--surface);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1.18;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface-alt);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+        }
+
+        .card.highlight {
+            border-color: var(--accent);
+            background: linear-gradient(180deg, var(--accent-glow) 0%, var(--surface-alt) 100%);
+        }
+
+        .card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .badge.success {
+            background: rgba(52, 211, 153, 0.2);
+            color: var(--success);
+        }
+
+        .badge.warn {
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--warn);
+        }
+
+        .badge.danger {
+            background: rgba(248, 113, 113, 0.2);
+            color: var(--danger);
+        }
+
+        .badge.info {
+            background: var(--accent-glow);
+            color: var(--accent);
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .stat-val {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        th {
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .takeaway-banner {
+            background: var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .takeaway-banner strong {
+            color: var(--accent);
+        }
+
+        .bar-row {
+            display: grid;
+            grid-template-columns: 170px 1fr 150px;
+            gap: 14px;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .bar-track {
+            background: rgba(0, 0, 0, 0.35);
+            height: 18px;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 6px;
+        }
+
+        .deck-footer {
+            height: 60px;
+            border-top: 1px solid var(--border);
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+        }
+
+        .footer-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: var(--border);
+            border-color: var(--accent);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .nav-btn.print-btn {
+            background: var(--accent-glow);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .nav-btn.print-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .slide-indicator {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* 16:9 Multi-Page PDF Print Engine */
+        @page {
+            size: 1200px 675px;
+            margin: 0;
+        }
+
+        @media print {
+
+            html,
+            body {
+                background: var(--surface) !important;
+                width: 1200px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .deck-container {
+                width: 1200px !important;
+                max-width: none !important;
+                height: auto !important;
+                border: none !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                overflow: visible !important;
+            }
+
+            .deck-footer {
+                display: none !important;
+            }
+
+            .slide,
+            .slide.active {
+                display: flex !important;
+                width: 1200px !important;
+                height: 675px !important;
+                min-height: 675px !important;
+                max-height: 675px !important;
+                padding: 44px 56px !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                break-inside: avoid !important;
+                overflow: hidden !important;
+                background: var(--surface) !important;
+            }
+
+            .slide:last-of-type {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="deck-container">
+
+        <!-- SLIDE 1: COVER -->
+        <div class="slide active">
+            <div>
+                <span class="eyebrow">Executive Architecture Briefing · Empirical Field Guide</span>
+                <h2 style="font-size: 42px; margin-top: 12px;">AI Agent Sandboxes:<br><span
+                        style="color: var(--accent);">Who Wins on Cost, Speed &amp; Reliability?</span></h2>
+                <p class="subtitle" style="font-size: 17px; margin-top: 12px; max-width: 820px;">
+                    Cheaper intelligence buys more expensive machine jobs. An empirical benchmark across 975 recorded
+                    attempts comparing commercial agent sandboxes, cloud interpreters, and self-hosted fleets.
+                </p>
+            </div>
+            <div class="grid-3">
+                <div class="stat-box">
+                    <div class="stat-val">975</div>
+                    <div class="stat-label">Recorded Benchmark Attempts</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-val">5x – 10x</div>
+                    <div class="stat-label">Machine Bill vs. Token Bill (Long Jobs)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-val">5 Tiers</div>
+                    <div class="stat-label">Execution Ownership Models</div>
+                </div>
+            </div>
+            <div class="takeaway-banner">
+                <strong>The Bottom Line:</strong> When agents graduate from autocomplete to editing files, running
+                tests, and keeping workspaces alive, your sandbox architecture dictates unit economics, data privacy,
+                and task completion.
+            </div>
+        </div>
+
+        <!-- SLIDE 2: THE 5 SANDBOX TIERS -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">01 / Market Taxonomy</span>
+                <h2>The 5 Agent Sandboxing Archetypes</h2>
+                <p class="subtitle">Execution environments are not interchangeable VMs. Group them by who controls the
+                    runtime and files:</p>
+            </div>
+            <div class="grid-5">
+                <div class="card">
+                    <span class="badge info">Tier 1</span>
+                    <h3>Model-Native</h3>
+                    <p style="font-size: 11px; color: var(--accent); margin-bottom: 6px;">Gemini</p>
+                    <p>Code runs inside the LLM prompt turn. Zero app orchestration, fixed libraries, no OS lifecycle
+                        control.</p>
+                </div>
+                <div class="card">
+                    <span class="badge info">Tier 2</span>
+                    <h3>Databricks SQL</h3>
+                    <p style="font-size: 11px; color: var(--accent); margin-bottom: 6px;">Unity Catalog MCP python_exec — measured</p>
+                    <p>Stateless Python over serverless SQL warehouses via MCP JSON-RPC, inside strict
+                        lakehouse data boundaries. Sandbox Beta surfaces exist but were not measurable here.</p>
+                </div>
+                <div class="card highlight">
+                    <span class="badge success">Tier 3</span>
+                    <h3>Agent Workspace APIs</h3>
+                    <p style="font-size: 11px; color: var(--accent); margin-bottom: 6px;">E2B / Modal / Blaxel / Daytona
+                    </p>
+                    <p>Dedicated microVMs &amp; containers with native binary file I/O, custom images, shell, and state
+                        persistence.</p>
+                </div>
+                <div class="card">
+                    <span class="badge info">Tier 4</span>
+                    <h3>Cloud Interpreters</h3>
+                    <p style="font-size: 11px; color: var(--accent); margin-bottom: 6px;">Google Vertex / AWS AgentCore
+                    </p>
+                    <p>Managed cloud tools integrated with enterprise IAM, VPC networking, S3/EFS mounts, and CMEK.</p>
+                </div>
+                <div class="card">
+                    <span class="badge info">Tier 5</span>
+                    <h3>Self-Operated Fleet</h3>
+                    <p style="font-size: 11px; color: var(--accent); margin-bottom: 6px;">Kubernetes / OpenSandbox / VMs
+                    </p>
+                    <p>Apache-2.0 or K8s CRD controllers on your own nodes. Full policy ownership; you pay for idle warm
+                        pools &amp; ops.</p>
+                </div>
+            </div>
+            <div class="takeaway-banner">
+                <strong>Product Selection Rule:</strong> Compare the exact execution surface—not the cloud brand logo.
+                Databricks SQL <code>python_exec</code>, Dedicated Sandbox Beta, and Unity Catalog MCP are three
+                completely different products.
+            </div>
+        </div>
+
+        <!-- SLIDE 3: REAL-WORLD USE CASES -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">02 / Practical Scenarios</span>
+                <h2>Matching Real Product Workflows to Sandbox Tiers</h2>
+                <p class="subtitle">How Product Managers and Architects should map user features to infrastructure:</p>
+            </div>
+            <div class="grid-2">
+                <div class="card highlight">
+                    <span class="badge success">Scenario A: Autonomous Coding &amp; QA Agent</span>
+                    <h3>"Clone repo, fix CSV parser bug, run pytest"</h3>
+                    <p style="margin-bottom: 8px;"><strong>Needs:</strong> Multi-call file persistence, offline/custom
+                        packages, exception recovery, byte-exact diff output.</p>
+                    <p style="color: var(--accent); font-weight: 700;">Shortlist: E2B, Modal (Tier 3)</p>
+                    <p style="font-size: 12px; margin-top: 4px;">Both passed 5/5 on repository test-fixing, cross-call
+                        filesystem state, and error recovery.</p>
+                </div>
+                <div class="card">
+                    <span class="badge info">Scenario B: Enterprise Financial Data Analyst</span>
+                    <h3>"Upload 26.9 KB binary + 10k-row CSV, return summary"</h3>
+                    <p style="margin-bottom: 8px;"><strong>Needs:</strong> Strict air-gapped network (no data
+                        exfiltration), binary file integrity, cloud IAM governance.</p>
+                    <p style="color: var(--accent); font-weight: 700;">Shortlist: Google Default Code Sandbox, E2B,
+                        Modal</p>
+                    <p style="font-size: 12px; margin-top: 4px;">Google's default code sandbox blocks outbound internet
+                        by default and passed 5/5 binary &amp; CSV pipeline checks.</p>
+                </div>
+                <div class="card">
+                    <span class="badge warn">Scenario C: Interactive Web App Builder</span>
+                    <h3>"Spin up dev server, expose live preview URL, pause overnight"</h3>
+                    <p style="margin-bottom: 8px;"><strong>Needs:</strong> Port forwarding / preview tokens, standby
+                        snapshots, persistent volumes across restarts.</p>
+                    <p style="color: var(--accent); font-weight: 700;">Shortlist: Blaxel, E2B, Daytona, Modal</p>
+                    <p style="font-size: 12px; margin-top: 4px;">Blaxel and Daytona document rich preview/standby
+                        features, though Blaxel's stdout adapter path needs repair first.</p>
+                </div>
+                <div class="card">
+                    <span class="badge danger">Scenario D: GPU Workload / Heavy Compute</span>
+                    <h3>"Run CUDA embeddings or local model evaluation"</h3>
+                    <p style="margin-bottom: 8px;"><strong>Needs:</strong> Explicit GPU reservation (T4/L4/A100/H100),
+                        custom container images, preemption handling.</p>
+                    <p style="color: var(--accent); font-weight: 700;">Shortlist: Modal, Daytona, GKE / Compute Engine
+                        VMs</p>
+                    <p style="font-size: 12px; margin-top: 4px;">E2B is strictly CPU-only. Modal requires
+                        <code>gvisor</code> for GPUs; Daytona deletes GPU sandboxes on stop.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: FINOPS & ECONOMICS -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">03 / FinOps &amp; Unit Economics</span>
+                <h2>Why Duration Flips the Bill: Model vs. Machine Cost</h2>
+                <p class="subtitle">When agents iterate or wait on tool calls, sandbox uptime overtakes LLM token spend:
+                </p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <span class="badge info">Worked Cost Illustration (10k Input / 2k Output Tokens)</span>
+                    <h3>10-Second Task vs. 300-Second Session</h3>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 14px; border-radius: 8px; margin-top: 10px; font-size: 13px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+                            <span>Fast Small Model Token Bill:</span>
+                            <strong style="color: var(--accent);">$0.00270</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+                            <span>E2B Default (2 vCPU + 4 GiB @ $0.000046/s) × <strong>10s</strong>:</span>
+                            <strong style="color: var(--success);">$0.00046 (Model is 6x higher)</strong>
+                        </div>
+                        <div
+                            style="display:flex; justify-content:space-between; padding-top: 8px; border-top: 1px solid var(--border);">
+                            <span>E2B Default (2 vCPU + 4 GiB @ $0.000046/s) × <strong>300s</strong>:</span>
+                            <strong style="color: var(--danger);">$0.01380 (Machine is 5x higher)</strong>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 10px;">
+                        <strong>Hardware Tailwinds Are Reversing:</strong> Hetzner raised cloud server prices
+                        <strong>33.4%–37.6%</strong> citing procurement costs, while TrendForce forecasts
+                        <strong>10%–15% QoQ server DRAM hikes</strong> driven by agentic AI server demand.
+                    </p>
+                </div>
+                <div class="card highlight">
+                    <span class="badge warn">Incompatible Billing Units (Published List Rates)</span>
+                    <h3>You Cannot Compare List Rates Without Context</h3>
+                    <table style="margin-top: 6px; font-size: 12px;">
+                        <thead>
+                            <tr>
+                                <th>Provider</th>
+                                <th>Compute Rate</th>
+                                <th>Memory Rate</th>
+                                <th>Billing Trap / Nuance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>E2B</strong></td>
+                                <td>$0.000014 / vCPU-s</td>
+                                <td>$0.0000045 / GiB-s</td>
+                                <td>Provisioned resources; paused is $0.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Modal</strong></td>
+                                <td>$0.00003942 / core-s</td>
+                                <td>$0.00000667 / GiB-s</td>
+                                <td>Prices <strong>physical cores</strong> (2 vCPU equiv).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Blaxel</strong></td>
+                                <td>$0.0000115 / GB-s</td>
+                                <td>CPU included</td>
+                                <td>CPU bundled in RAM; snapshots bill idle.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AWS</strong></td>
+                                <td>$0.0895 / vCPU-h</td>
+                                <td>$0.00945 / GB-h</td>
+                                <td>Consumed CPU + peak RAM/s (128MB min).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Google</strong></td>
+                                <td>$0.0850 / vCPU-h</td>
+                                <td>$0.00900 / GiB-h</td>
+                                <td>Billed while alive; 50 vCPU-h free tier.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="takeaway-banner">
+                <strong>FinOps Takeaway:</strong> Always calculate <strong>Gross Cost per Verified Completion</strong>
+                (including failed retries, setup overhead, and idle storage) and track promotional credits separately.
+            </div>
+        </div>
+
+        <!-- SLIDE 5: WORKFLOW LEADERBOARD -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">04 / Empirical Results</span>
+                <h2>Who Won? The Multi-Step Workflow Leaderboard</h2>
+                <p class="subtitle">5-trial pilot cohorts verified by independent host oracles (SHA-256 byte checks, row
+                    totals, test assertions):</p>
+            </div>
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tested Integration</th>
+                            <th>Binary Round-Trip<br><small>(26,900 Bytes SHA-256)</small></th>
+                            <th>CSV Data Pipeline<br><small>(10k Rows + Summary)</small></th>
+                            <th>Offline Wheel<br><small>(pip --no-index)</small></th>
+                            <th>Repo Bug Fix<br><small>(Red → Green Tests)</small></th>
+                            <th>Cross-Call State<br><small>(3 Calls + Recovery)</small></th>
+                            <th>SQLite 20k Rows<br><small>(Query + Rollback)</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Modal</strong> <small style="color:var(--muted);">(`c6eceedf16a1`)</small></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>E2B</strong> <small style="color:var(--muted);">(`b8b64fa8b3ea`)</small></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Code</strong> <small style="color:var(--muted);">(`5a61c94c9323`)</small>
+                            </td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge success">5 / 5 Pass*</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge info">One-Shot CLI</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>AWS AgentCore</strong> <small
+                                    style="color:var(--muted);">(`a017dc2faa1b`)</small></td>
+                            <td><span class="badge warn">Text-Only Adapter</span></td>
+                            <td><span class="badge warn">Text-Only Adapter</span></td>
+                            <td><span class="badge info">Not Exercised</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge info">Fresh Session</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Blaxel</strong> <small style="color:var(--muted);">(`ed833ceba657`)</small></td>
+                            <td><span class="badge warn">Text-Only Adapter</span></td>
+                            <td><span class="badge warn">Text-Only Adapter</span></td>
+                            <td><span class="badge info">Not Exercised</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                            <td><span class="badge info">Fresh Sandbox</span></td>
+                            <td><span class="badge success">5 / 5 Pass</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="takeaway-banner">
+                <strong>Why This Matters:</strong> <strong>E2B</strong> and <strong>Modal</strong> passed every single
+                stateful and file-intensive workflow. <strong>Google's default code sandbox</strong> passed all
+                single-run data/file suites (*its offline wheel pass is a narrow exception to docs prohibiting custom
+                libraries).
+            </div>
+        </div>
+
+        <!-- SLIDE 6: THE OUTPUT FIDELITY TRAP -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">05 / Reliability Deep Dive</span>
+                <h2>Why "HTTP 200 OK" Still Breaks Your Agent</h2>
+                <p class="subtitle">We printed exactly 131,072 UTF-8 bytes of ordered Unicode text (`café`, `λ`). Every
+                    API reported `status: success`:</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Measured Stdout Payload Integrity (5 Trials Each)</h3>
+                    <div style="margin: 18px 0;">
+                        <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;">
+                            <span><strong>E2B, Modal, Google Code</strong> (5/5 Passed)</span>
+                            <span style="color: var(--success); font-weight:700;">131,072 / 131,072 Bytes (Exact)</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width:100%; background: var(--success);"></div>
+                        </div>
+                    </div>
+                    <div style="margin: 18px 0;">
+                        <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;">
+                            <span><strong>AWS AgentCore Interpreter</strong> (0/5 Passed)</span>
+                            <span style="color: var(--warn); font-weight:700;">131,071 Bytes (Missing Final \n)</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width:99.5%; background: var(--warn);"></div>
+                        </div>
+                    </div>
+                    <div style="margin: 18px 0;">
+                        <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;">
+                            <span><strong>Blaxel</strong> (0/5 Passed)</span>
+                            <span style="color: var(--danger); font-weight:700;">65,602 Bytes (~50% Truncated)</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width:50.05%; background: var(--danger);"></div>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 12px;">
+                        <em>Note: Reflects the tested SDK stdout paths, not provider-wide native file limits.</em>
+                    </p>
+                </div>
+                <div class="card highlight">
+                    <h3>Real-World Impact on Product Features</h3>
+                    <ul
+                        style="padding-left: 18px; font-size: 13px; color: var(--muted); display:flex; flex-direction:column; gap:12px; margin-top:10px;">
+                        <li>
+                            <strong style="color:#fff;">1 Missing Byte Breaks Git Patches (AWS):</strong><br>
+                            If a coding agent prints a unified diff or hash-verified payload over stdout and the
+                            transport strips the final newline (`131,071` vs `131,072` bytes), strict consumers and
+                            parsers fail.
+                        </li>
+                        <li>
+                            <strong style="color:#fff;">65 KB Log Truncation Breaks JSON Tooling (Blaxel):</strong><br>
+                            Blaxel's process log inserted a truncation banner halfway through the stream (`65,602`
+                            bytes). Any agent returning large JSON/CSV data over stdout will crash.
+                        </li>
+                        <li>
+                            <strong style="color:#fff;">Architectural Fix:</strong><br>
+                            Never use stdout or UTF-8 string decoding (`errors="ignore"`) to transport large artifacts.
+                            Always use native binary file APIs (`read_bytes` / `write_bytes`).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="takeaway-banner">
+                <strong>Benchmarking Lesson:</strong> Checking `exit_code == 0` is not an evaluation. Always validate
+                the exact returned bytes and SHA-256 hashes at the host.
+            </div>
+        </div>
+
+        <!-- SLIDE 7: THE LATENCY TAX -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">06 / Performance &amp; Latency</span>
+                <h2>Fast CPU Calculation ≠ Fast Agent Completion</h2>
+                <p class="subtitle">Deterministic Prime Sieve (148,933 primes below 2,000,000) — Inner Guest CPU Time
+                    vs. Total Client Wait:</p>
+            </div>
+            <div class="card">
+                <div
+                    style="display:flex; justify-content:space-between; font-size:12px; color:var(--muted); border-bottom:1px solid var(--border); padding-bottom:8px; margin-bottom:10px;">
+                    <span>TESTED INTEGRATION (5 TRIALS)</span>
+                    <span>VISUAL COMPARISON (PROPORTIONAL TO CLIENT LIFECYCLE WAIT)</span>
+                    <span>GUEST CPU / CLIENT WAIT</span>
+                </div>
+                <div class="bar-row">
+                    <div><strong>AWS AgentCore</strong><br><small style="color:var(--muted);">5/5 Passed ·
+                            Stockholm</small></div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:22.5%; background:var(--success);"></div>
+                    </div>
+                    <div style="text-align:right;"><strong style="color:var(--accent);">139.6 ms</strong> /
+                        <strong>1,358 ms</strong></div>
+                </div>
+                <div class="bar-row">
+                    <div><strong>E2B</strong><br><small style="color:var(--muted);">5/5 Passed · Default</small></div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:24.1%; background:var(--success);"></div>
+                    </div>
+                    <div style="text-align:right;"><strong style="color:var(--accent);">165.1 ms</strong> /
+                        <strong>1,454 ms</strong></div>
+                </div>
+                <div class="bar-row">
+                    <div><strong>Modal</strong><br><small style="color:var(--muted);">5/5 Passed · 2 Physical
+                            Cores</small></div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:30.1%; background:var(--success);"></div>
+                    </div>
+                    <div style="text-align:right;"><strong style="color:var(--success);">74.8 ms</strong> /
+                        <strong>1,821 ms</strong></div>
+                </div>
+                <div class="bar-row">
+                    <div><strong>Blaxel</strong><br><small style="color:var(--muted);">4/5 Passed (1
+                            ConnectError)</small></div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:38.3%; background:var(--warn);"></div>
+                    </div>
+                    <div style="text-align:right;"><strong style="color:var(--accent);">204.2 ms</strong> /
+                        <strong>2,314 ms</strong></div>
+                </div>
+                <div class="bar-row">
+                    <div><strong>Databricks SQL</strong><br><small style="color:var(--muted);">5/5 Passed · SQL
+                            Warehouse</small></div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:51.4%; background:var(--accent);"></div>
+                    </div>
+                    <div style="text-align:right;"><strong style="color:var(--accent);">166.3 ms</strong> /
+                        <strong>3,107 ms</strong></div>
+                </div>
+                <div class="bar-row">
+                    <div><strong>Google Code Sandbox</strong><br><small style="color:var(--muted);">5/5 Passed ·
+                            One-Shot CLI</small></div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width:100%; background:var(--danger);"></div>
+                    </div>
+                    <div style="text-align:right;"><strong style="color:var(--warn);">393.5 ms</strong> / <strong>6,040
+                            ms</strong></div>
+                </div>
+            </div>
+            <div class="takeaway-banner">
+                <strong>The Lifecycle Tax:</strong> Modal ran the Python math in <strong>74.8 ms</strong>, yet the
+                caller waited <strong>1,821.3 ms</strong> (24x longer) for initialization, file staging, and cleanup.
+                Keep sessions warm across tool calls!
+            </div>
+        </div>
+
+        <!-- SLIDE 8: THE EU DATA RESIDENCY TRAP -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">07 / Privacy &amp; Governance</span>
+                <h2>The "EU Region" Data Residency Trap</h2>
+                <p class="subtitle">Pinning compute to Europe only solves 1 of 6 data surfaces. Where do logs,
+                    snapshots, and control-plane calls go?</p>
+            </div>
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>1. Compute Region</th>
+                            <th>2. Stdout / Stderr Logs</th>
+                            <th>3. Snapshots &amp; Volumes</th>
+                            <th>4. Critical Compliance &amp; Architectural Qualification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Modal</strong></td>
+                            <td><span class="badge success">Strict EEA Pinning</span></td>
+                            <td><span class="badge danger">US-Resident</span></td>
+                            <td><span class="badge danger">US-Resident</span></td>
+                            <td><code>eu</code> = EEA (broader than EU-27). Logs, snapshots, managed Volumes &amp;
+                                control plane sit in the <strong>US</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E2B</strong></td>
+                            <td><span class="badge warn">Belgium (Pro+ Only)</span></td>
+                            <td><span class="badge warn">Unverified Scope</span></td>
+                            <td><span class="badge success">VPC in Ent. BYOC</span></td>
+                            <td>Defaults to <code>us-west1</code>. Shared Belgium cluster requires Pro plan + support;
+                                Enterprise BYOC keeps logs/snapshots in customer VPC.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Daytona</strong></td>
+                            <td><span class="badge success">Shared `eu` Target</span></td>
+                            <td><span class="badge warn">Unverified Scope</span></td>
+                            <td><span class="badge danger">GPU = `earth` Pool</span></td>
+                            <td><strong>Shared GPU sandboxes &amp; snapshots use logical `earth` placement</strong>,
+                                ignoring your EU region preference!</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Sandbox</strong></td>
+                            <td><span class="badge success">5 Named EU Regions</span></td>
+                            <td><span class="badge info">Cloud Logging</span></td>
+                            <td><span class="badge success">EU Data-at-Rest</span></td>
+                            <td>Belgium, Frankfurt, Netherlands, Milan, Madrid + <code>eu</code> endpoint. Single-region
+                                CMEK does not compose with multi-region Runtime.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AWS AgentCore</strong></td>
+                            <td><span class="badge success">6 EU Regions</span></td>
+                            <td><span class="badge info">Customer Scoped</span></td>
+                            <td><span class="badge warn">30-Day Retention</span></td>
+                            <td>Stockholm, Frankfurt, Ireland, Paris, Milan, Spain. Session docs note a <strong>30-day
+                                    session-data retention policy</strong> alongside termination cleanup.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Blaxel</strong></td>
+                            <td><span class="badge success">Frankfurt (`eu-fra-1`)</span></td>
+                            <td><span class="badge warn">Unverified Scope</span></td>
+                            <td><span class="badge success">Regional Volumes</span></td>
+                            <td>Watch out for <code>eu-lon-1</code> (London, UK — outside EU). Standby snapshot &amp;
+                                control-plane geography require verification.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="takeaway-banner">
+                <strong>Regulatory Reality:</strong> GDPR Articles 44–46 govern international transfers. If EU compute
+                prints customer PII to US-resident stdout logs or third-country support staff access it, "EU compute" is
+                not enough.
+            </div>
+        </div>
+
+        <!-- SLIDE 9: LIFECYCLE, STATE & TIMEOUTS -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">08 / State &amp; Failure Recovery</span>
+                <h2>Three State Contracts &amp; The Runaway Timeout Problem</h2>
+                <p class="subtitle">Don't confuse file persistence during a call with disk persistence after stop or
+                    process cancellation:</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="badge success">Contract 1: Tested (E2B / Modal)</span>
+                    <h3>Live Files Across Calls</h3>
+                    <p style="margin-bottom: 8px;">Agent writes a file in Call 1, modifies it in Call 2, and recovers it
+                        after an unhandled exception in Call 3.</p>
+                    <p style="color: var(--success); font-weight: 700;">Proven in 5/5 trials (E2B &amp; Modal)</p>
+                    <p style="font-size: 12px; margin-top: 6px;">Note: Each <code>exec</code> starts a new
+                        process—Python in-memory globals do not persist unless using a stateful kernel.</p>
+                </div>
+                <div class="card">
+                    <span class="badge warn">Contract 2: Documented Only</span>
+                    <h3>Stopped Disk vs. RAM Resume</h3>
+                    <p style="margin-bottom: 8px;">What survives when you stop or pause a sandbox to stop compute
+                        billing?</p>
+                    <p style="color: var(--warn); font-weight: 700;">Class &amp; Product Dependent</p>
+                    <p style="font-size: 12px; margin-top: 6px;">Databricks Dedicated keeps 100 GB <code>/home</code>
+                        but wipes <code>/tmp</code>. E2B &amp; Google document pause/resume. <strong>Daytona GPU
+                            sandboxes are deleted on stop!</strong></p>
+                </div>
+                <div class="card highlight">
+                    <span class="badge danger">Contract 3: Deadline Recovery</span>
+                    <h3>Does Timeout Kill the Process?</h3>
+                    <p style="margin-bottom: 8px;">4s execution deadline with a 9s caller response budget:</p>
+                    <p style="color: var(--accent); font-weight: 700;">Modal: 4.21–4.22s (5/5 Pass)<br>E2B: 8.78–10.88s
+                        (4/5 Pass)</p>
+                    <p style="font-size: 12px; margin-top: 6px;">A client timeout response only proves the
+                        <em>caller</em> stopped waiting—always poll or kill the remote PID to prevent late side effects.
+                    </p>
+                </div>
+            </div>
+            <div class="takeaway-banner">
+                <strong>Concurrency Burst Check:</strong> Under a 3-worker independent burst (12 prime tasks), both
+                <strong>Modal (8.41s wall time, 12/12)</strong> and <strong>E2B (8.76s wall time, 12/12)</strong>
+                completed cleanly without cross-worker state leakage.
+            </div>
+        </div>
+
+        <!-- SLIDE 10: DECISION FRAMEWORK & REPRODUCTION -->
+        <div class="slide">
+            <div>
+                <span class="eyebrow">09 / Actionable Playbook</span>
+                <h2>How to Choose &amp; Reproduce This Benchmark</h2>
+                <p class="subtitle">Run your workload through 5 gating questions, measure gross campaign cost, and
+                    inspect the raw evidence:</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <span class="badge info">The 5 Architecture Gating Questions</span>
+                    <h3>Filter Your Shortlist Before Benchmarking</h3>
+                    <ol
+                        style="padding-left: 18px; font-size: 13px; color: var(--muted); display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+                        <li><strong style="color:#fff;">State Contract:</strong> Do you need live files across calls,
+                            durable disk after stop, or full memory resume?</li>
+                        <li><strong style="color:#fff;">Hardware &amp; GPUs:</strong> Do you need CPU-only (E2B/Google)
+                            or preemptible/dedicated GPUs (Modal/Daytona)?</li>
+                        <li><strong style="color:#fff;">Data Boundary:</strong> Have you audited all 6 surfaces
+                            (compute, logs, snapshots, volumes, control plane, LLM)?</li>
+                        <li><strong style="color:#fff;">Failure &amp; Cancellation:</strong> Does the adapter preserve
+                            exact bytes and kill timed-out remote processes?</li>
+                        <li><strong style="color:#fff;">Gross Cost per Verified Completion:</strong><br>
+                            <code
+                                style="color:var(--accent); font-size:11px;">(Active/Idle Compute + Storage + Egress + Tokens + Retries) ÷ Verified Completions</code>
+                        </li>
+                    </ol>
+                </div>
+                <div class="card highlight" style="display:flex; flex-direction:column; justify-content:space-between;">
+                    <div>
+                        <span class="badge success">Open-Source Evidence &amp; CLI Harness</span>
+                        <h3>Reproduce on Your Own Cloud Accounts</h3>
+                        <p style="margin-top: 6px;">Every attempt retains its `workload_sha256`,
+                            `evaluation_contract_sha256`, and `adapter_sha256` in `reports/index.html`.</p>
+                        <div
+                            style="background: rgba(0,0,0,0.45); padding: 14px; border-radius: 8px; font-family: ui-monospace, monospace; font-size: 12px; color: #e2e8f0; margin-top: 12px; line-height: 1.6;">
+                            # Run 5-trial realistic &amp; inventory suites<br>
+                            python3 -m src.cli run --backend modal \<br>
+                            &nbsp;&nbsp;--suite realistic,runtime_inventory --repeats 5<br><br>
+                            # Rebuild specs, dashboards &amp; validate hashes<br>
+                            python3 -m src.cli specs &amp;&amp; python3 -m src.cli dashboard<br>
+                            python3 scripts/validate_evidence.py
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: var(--accent); font-weight: 700; margin-top: 12px;">
+                        Companion Resources: Interactive Evidence Explorer (`reports/index.html`) · EU Residency Guide
+                        (`eu-data-residency.md`) · Provider Specs (`providers/*/SPEC.md`)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE FOOTER (HIDDEN AUTOMATICALLY IN PDF PRINT) -->
+        <div class="deck-footer">
+            <div class="footer-controls">
+                <button class="nav-btn" id="prev-btn" onclick="prevSlide()">← Previous</button>
+                <span class="slide-indicator" id="slide-num">1 / 10</span>
+                <button class="nav-btn" id="next-btn" onclick="nextSlide()">Next →</button>
+            </div>
+            <div class="footer-controls">
+                <button class="nav-btn print-btn" onclick="window.print()">🖨️ Save as 16:9 PDF</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicator = document.getElementById('slide-num');
+
+        function updateSlide(index) {
+            slides.forEach((s, i) => s.classList.toggle('active', i === index));
+            indicator.textContent = `${index + 1} / ${slides.length}`;
+            document.getElementById('prev-btn').disabled = index === 0;
+            document.getElementById('next-btn').disabled = index === slides.length - 1;
+        }
+
+        function nextSlide() {
+            if (current < slides.length - 1) {
+                current++;
+                updateSlide(current);
+            }
+        }
+
+        function prevSlide() {
+            if (current > 0) {
+                current--;
+                updateSlide(current);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        updateSlide(0);
+    </script>
+</body>
+
+</html>

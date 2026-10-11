@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "provider": "alibaba",
+  "configurations": [
+    {
+      "schema_version": 1,
+      "provider": "alibaba",
+      "config_id": "001504324c5f",
+      "adapter_sha256": "6c4185a419981bfafc07a5d0d6ce6e17c1d4a337489fea13bc357eded43e9bcd",
+      "stack_sha256": "578cdc6d53b412d165fd2041d05bca1d3856b11c644df0b657b659dadb29dc7f",
+      "concurrency": 1,
+      "requested": {
+        "label": "live-rerun",
+        "requested": {
+          "product": "Alibaba OpenSandbox / AgentRun",
+          "image": "opensandbox/code-interpreter:v1.0.2",
+          "cpu": "1",
+          "memory": "2Gi",
+          "gpu": null,
+          "session_mode": "stateful_reusable"
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": null,
+          "version": "unrecorded CLI/SDK"
+        }
+      },
+      "runtime_kind": "unattested_endpoint",
+      "attempt_ids": [
+        "bench-1d470f1440a3",
+        "bench-ac7776396a48",
+        "bench-82a07d2b6e11",
+        "bench-1bdfdd71c246",
+        "bench-3a97a9d4e2dd",
+        "bench-2cff01e9e120",
+        "bench-62a06823ce6d",
+        "bench-2fcb43570cb9",
+        "bench-b404b3f8c849",
+        "bench-9e128d42be7c",
+        "bench-d4751feab858",
+        "bench-7e17f684f468",
+        "bench-d0babba31cfb",
+        "bench-1e7095c959ee",
+        "bench-e01925965d33",
+        "bench-a13b20233962",
+        "bench-de0f6c5781f4",
+        "bench-d61f25dd7742",
+        "bench-63664aa91cca",
+        "bench-e5f482f753ae",
+        "bench-538507a669ad",
+        "bench-a7775ceb2273",
+        "bench-803caecd3a2a",
+        "bench-04e6c3c3744a",
+        "bench-92f1a00070ad",
+        "bench-1e9831e42fcb",
+        "bench-2196d4a58a17",
+        "bench-51ff2d62bb76",
+        "bench-bc862049d8dd",
+        "bench-2c1c519b66de",
+        "bench-9529a3078191"
+      ],
+      "suites": [
+        "agent_multiturn",
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "disk_io",
+        "env_security",
+        "error_recovery",
+        "mem_stress",
+        "net_isolation",
+        "output_fidelity",
+        "package_ecosystem",
+        "parallel_throughput",
+        "repository_task",
+        "runtime_inventory",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-7e17f684f468",
+          "observed_at": "2026-10-13T16:19:59.767439+00:00",
+          "report_path": "data/attempts/alibaba_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": null,
+              "model": null,
+              "visible_logical_cpus": 10
+            },
+            "disk": {
+              "filesystem_free_bytes": 36998909952,
+              "filesystem_total_bytes": 494384795648
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 502
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 17179869184
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": "2.5.2",
+              "pandas": "3.0.5",
+              "pip": "26.1.1",
+              "requests": "2.33.1",
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "arm64",
+              "implementation": "CPython",
+              "kernel": "27.0.0",
+              "os": "Darwin",
+              "python": "3.13.13"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-2196d4a58a17",
+          "observed_at": "2026-10-13T16:26:13.768432+00:00",
+          "report_path": "data/attempts/alibaba_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": null,
+              "model": null,
+              "visible_logical_cpus": 10
+            },
+            "disk": {
+              "filesystem_free_bytes": 33554636800,
+              "filesystem_total_bytes": 494384795648
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 502
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 17179869184
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": "2.5.2",
+              "pandas": "3.0.5",
+              "pip": "26.1.1",
+              "requests": "2.33.1",
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "arm64",
+              "implementation": "CPython",
+              "kernel": "27.0.0",
+              "os": "Darwin",
+              "python": "3.13.13"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/alibaba_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T16:26:13.981726+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "alibaba",
+      "config_id": "dd9b844d07e4",
+      "adapter_sha256": "6c4185a419981bfafc07a5d0d6ce6e17c1d4a337489fea13bc357eded43e9bcd",
+      "stack_sha256": "578cdc6d53b412d165fd2041d05bca1d3856b11c644df0b657b659dadb29dc7f",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "Alibaba OpenSandbox / AgentRun",
+          "image": "opensandbox/code-interpreter:v1.0.2",
+          "cpu": "1",
+          "memory": "2Gi",
+          "gpu": null,
+          "session_mode": "stateful_reusable"
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": null,
+          "version": "unrecorded CLI/SDK"
+        }
+      },
+      "runtime_kind": "unattested_endpoint",
+      "attempt_ids": [
+        "bench-ea426df0c77d",
+        "bench-4dd58e982e3b",
+        "bench-072ff4f9fdd3",
+        "bench-973de59da69c",
+        "bench-a3e52e849f1c",
+        "bench-4dba8fc0c8bc",
+        "bench-e4d537f6c87f",
+        "bench-2a185026f2bd",
+        "bench-e3b92beb6760",
+        "bench-2f7ca4c66efa",
+        "bench-8417ccd6a245",
+        "bench-9d47aed52046",
+        "bench-76dfd62d1b69",
+        "bench-fc233b8bd945",
+        "bench-ebeef4a186de",
+        "bench-beea0845c2f4",
+        "bench-40b5784fa89b",
+        "bench-a93e012a986a",
+        "bench-6450262e5fd5",
+        "bench-0bc391becd1c",
+        "bench-5ca85f4f21b6",
+        "bench-7f51084816c7",
+        "bench-cd7c8bc61076",
+        "bench-f9c0cc8c8f06",
+        "bench-490942c82ca5"
+      ],
+      "suites": [
+        "agent_multiturn",
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "error_recovery",
+        "output_fidelity",
+        "parallel_throughput",
+        "repository_task",
+        "runtime_inventory",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-cd7c8bc61076",
+          "observed_at": "2026-10-13T10:45:17.172408+00:00",
+          "report_path": "data/attempts/alibaba_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": null,
+              "model": null,
+              "visible_logical_cpus": 10
+            },
+            "disk": {
+              "filesystem_free_bytes": 39304806400,
+              "filesystem_total_bytes": 494384795648
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 502
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 17179869184
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": "2.5.2",
+              "pandas": "3.0.5",
+              "pip": "26.1.1",
+              "requests": "2.33.1",
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "arm64",
+              "implementation": "CPython",
+              "kernel": "27.0.0",
+              "os": "Darwin",
+              "python": "3.13.13"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/alibaba_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T10:45:22.642506+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    }
+  ]
+}

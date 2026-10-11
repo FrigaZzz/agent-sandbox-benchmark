@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check-publication
+        name: Publication hygiene and credential scan
+        entry: python3 scripts/check_publication.py
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: validate-evidence
+        name: Evidence schemas and local links
+        entry: python3 scripts/validate_evidence.py
+        language: system
+        pass_filenames: false
+        always_run: true

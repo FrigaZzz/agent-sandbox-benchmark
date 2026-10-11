@@ -1,0 +1,31 @@
+{
+  "total_anomalies_detected": 17,
+  "sample_anomalies": [
+    {
+      "tx_id": "tx_23",
+      "amount": "402.5",
+      "flag": "True"
+    },
+    {
+      "tx_id": "tx_46",
+      "amount": "805.0",
+      "flag": "True"
+    },
+    {
+      "tx_id": "tx_69",
+      "amount": "207.5",
+      "flag": "True"
+    },
+    {
+      "tx_id": "tx_92",
+      "amount": "610.0",
+      "flag": "True"
+    },
+    {
+      "tx_id": "tx_138",
+      "amount": "415.0",
+      "flag": "True"
+    }
+  ],
+  "requires_human_review": true
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "provider": "openai_tool",
+  "reviewed_at": "2026-10-13",
+  "deployment": "model_mediated",
+  "customization": {"level": "packages_and_files", "summary": "Current Responses containers have files, 1/4/16/64 GB memory, expiry and network policy options; package/shell workflows require separately documented Hosted Shell. Inspected adapter uses fresh text-only Assistants gpt-4o Code Interpreter and requests none of these options."},
+  "features": [
+    {"id": "custom_image", "support": "unsupported", "evidence": "documented", "notes": "No custom base-image selector in hosted container create contract. Image media processing and skills are not container image customization.", "source_ids": ["O1", "O2"]},
+    {"id": "runtime_packages", "support": "conditional", "evidence": "documented", "notes": "Official Hosted Shell example pip-installs with org/request network allowlist. Separate Responses tool; no verified package installation in inspected Assistants Code Interpreter adapter or offline-wheel workflow.", "source_ids": ["O3", "A1"]},
+    {"id": "cpu_sizing", "support": "unsupported", "evidence": "documented", "notes": "Managed container create contract exposes no vCPU selector.", "source_ids": ["O2"]},
+    {"id": "memory_sizing", "support": "supported", "evidence": "documented", "notes": "Current Responses Code Interpreter containers expose 1g default, 4g, 16g, 64g, fixed over container life. No memory setting requested by legacy adapter.", "source_ids": ["O1", "O2", "A1"]},
+    {"id": "gpu", "support": "unsupported", "evidence": "documented", "notes": "No selectable GPU in inspected hosted container create contract.", "source_ids": ["O2"]},
+    {"id": "network_policy", "support": "conditional", "evidence": "documented", "notes": "Shared container create contract exposes disabled or domain allowlist; Hosted Shell documents default-disabled egress plus admin org and request allowlists. Legacy adapter requests no policy; no network execution tested.", "source_ids": ["O2", "O3", "A1"]},
+    {"id": "persistent_storage", "support": "conditional", "evidence": "documented", "notes": "Files/state persist only in active reused container; expired/deleted data unrecoverable, no durable volume. Code Interpreter guide specifies 20-minute inactivity expiry; create API exposes expires_after without verified arbitrary range.", "source_ids": ["O1", "O2", "O3"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "documented", "notes": "Responses auto context reuse or explicit container ID supported. Adapter creates new assistant/thread for each execute and does not exercise reuse.", "source_ids": ["O1", "A1"]},
+    {"id": "shell", "support": "conditional", "evidence": "documented", "notes": "Separate Hosted Shell Responses tool, not first-class execution in inspected Assistants code_interpreter-only call. No interactive TTY/sudo promised by Hosted Shell.", "source_ids": ["O1", "O3", "A1"]},
+    {"id": "file_transfer", "support": "supported", "evidence": "documented", "notes": "Current container upload/list/download APIs and file/image citations documented. Adapter flags true but uploads nothing and collector returns [].", "source_ids": ["O1", "O2", "A1"]},
+    {"id": "ports_preview", "support": "unknown", "evidence": "unverified", "notes": "Hosted Shell can run services, but no publicly exposed port/preview URL interface verified in inspected docs.", "source_ids": ["O2", "O3"]},
+    {"id": "self_hosting", "support": "unsupported", "evidence": "documented", "notes": "Hosted Code Interpreter backend not self-hostable; application-owned local shell executor is a different tool mode.", "source_ids": ["O1", "O3"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "No container-runtime CMEK setting or key coverage verified. Adapter capability false is not an authoritative prohibition.", "source_ids": ["O1", "O2", "A1"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Current listed Hosted Shell/Code Interpreter container session fees plus separately billed selected-model tokens. Quoted gpt-4o token rates Standard; not Azure or a measured Assistants invoice.",
+    "rates": [
+      {"resource": "1 GB Hosted Shell/Code Interpreter container", "unit": "20-minute session per container", "amount": 0.03, "source_ids": ["O4"]},
+      {"resource": "4 GB Hosted Shell/Code Interpreter container", "unit": "20-minute session per container", "amount": 0.12, "source_ids": ["O4"]},
+      {"resource": "16 GB Hosted Shell/Code Interpreter container", "unit": "20-minute session per container", "amount": 0.48, "source_ids": ["O4"]},
+      {"resource": "64 GB Hosted Shell/Code Interpreter container", "unit": "20-minute session per container", "amount": 1.92, "source_ids": ["O4"]},
+      {"resource": "gpt-4o Standard input", "unit": "1,000,000 input tokens", "amount": 2.50, "source_ids": ["O4"]},
+      {"resource": "gpt-4o cached input", "unit": "1,000,000 cached input tokens", "amount": 1.25, "source_ids": ["O4"]},
+      {"resource": "gpt-4o Standard output", "unit": "1,000,000 output tokens", "amount": 10.00, "source_ids": ["O4"]}
+    ],
+    "limitations": "Pricing page also says eligible sessions billed by minute with five-minute minimum; eligibility unresolved, so listed 20-minute units retained. GB is binary GiB. Inactivity expiry separate from billing unit. Legacy README $0.03/thread/day not authoritative. No old comparable dated billing evidence or price-increase claim; model versions/service tiers differ."
+  },
+  "tested_configuration": {"adapter": "src/core/providers/openai_tool.py", "requested": "Fresh Assistants assistant/thread, default gpt-4o, code_interpreter only, text prompt and create_and_poll; no files, memory, container reuse, network policy, expiry or hosted shell.", "historical_reports": [], "evaluation_report": null, "limitations": "No new execution or provider-specific reports found. Success checks run completion, not tool invocation/source identity/runtime outcome; stdout is assistant prose. Positive native file flags not implemented. Empty artifact collector, no thread deletion and exception cleanup not guaranteed."},
+  "sources": [
+    {"id": "O1", "url": "https://developers.openai.com/api/docs/guides/tools-code-interpreter", "title": "Official Code Interpreter guide", "accessed_at": "2026-10-13"},
+    {"id": "O2", "url": "https://developers.openai.com/api/reference/resources/containers/methods/create", "title": "Official create container contract", "accessed_at": "2026-10-13"},
+    {"id": "O3", "url": "https://developers.openai.com/api/docs/guides/tools-shell", "title": "Official Hosted Shell network/package and local-shell scope", "accessed_at": "2026-10-13"},
+    {"id": "O4", "url": "https://developers.openai.com/api/docs/pricing", "title": "Official API container and model pricing", "accessed_at": "2026-10-13"},
+    {"id": "A1", "url": "repo:src/core/providers/openai_tool.py", "title": "Inspected Assistants adapter", "accessed_at": "2026-10-13"},
+    {"id": "L1", "url": "repo:providers/openai_tool/README.md", "title": "Existing README with historical unverified claims", "accessed_at": "2026-10-13"}
+  ]
+}

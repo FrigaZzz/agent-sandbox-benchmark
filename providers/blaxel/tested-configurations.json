@@ -1,0 +1,605 @@
+{
+  "schema_version": 1,
+  "provider": "blaxel",
+  "configurations": [
+    {
+      "schema_version": 1,
+      "provider": "blaxel",
+      "config_id": "98d5f84fa22b",
+      "adapter_sha256": "f1238f8bfe20e7b0dff541cd4b001d49c898cf5ebcfa599284573aa1f4a2e1e2",
+      "stack_sha256": "1d71f3be8c2a3381d7ba2d908504459f105f54f8edde72e15bb9c875ecd1743c",
+      "concurrency": 1,
+      "requested": {
+        "label": "live-rerun",
+        "requested": {
+          "image": "blaxel/py-app:latest",
+          "memory": 4096,
+          "memory_unit": "MB API field",
+          "cpu": "memory-coupled",
+          "region": "us-pdx-1",
+          "ttl": "1h",
+          "gpu": null,
+          "network_policy": "default; no restriction requested"
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "blaxel",
+          "version": "0.4.13"
+        }
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-af3938725ea1",
+        "bench-20cd7ba35975",
+        "bench-fd24c07b5c0b",
+        "bench-5cc50f97bc10",
+        "bench-8c4a80e15302",
+        "bench-5ce0d453e1d0",
+        "bench-dd43336c4391",
+        "bench-ce23f9375d3f",
+        "bench-8c4a34113358",
+        "bench-df9ddcb5bcb1",
+        "bench-ede1a3db9c9a",
+        "bench-5edcfc57c2ef"
+      ],
+      "suites": [
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "error_recovery",
+        "output_fidelity",
+        "repository_task",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [],
+      "reports": [
+        "data/attempts/blaxel_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T16:28:58.560153+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "blaxel",
+      "config_id": "ed833ceba657",
+      "adapter_sha256": "f1238f8bfe20e7b0dff541cd4b001d49c898cf5ebcfa599284573aa1f4a2e1e2",
+      "stack_sha256": "1d71f3be8c2a3381d7ba2d908504459f105f54f8edde72e15bb9c875ecd1743c",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults",
+        "requested": {
+          "image": "blaxel/py-app:latest",
+          "memory": 4096,
+          "memory_unit": "MB API field",
+          "cpu": "memory-coupled",
+          "region": "us-pdx-1",
+          "ttl": "1h",
+          "gpu": null,
+          "network_policy": "default; no restriction requested"
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "blaxel",
+          "version": "0.4.13"
+        }
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-2b5c7f7f04a4",
+        "bench-d2d21472f377",
+        "bench-669d65307129",
+        "bench-75732cd65073",
+        "bench-87242b04c256",
+        "bench-09e432381c60",
+        "bench-de95f5fad206",
+        "bench-66c5a7a5fd1a",
+        "bench-d3ac667557ac",
+        "bench-b230bf5fd8e4",
+        "bench-1afe04a4570f",
+        "bench-76a497a2353f",
+        "bench-399189f1c914",
+        "bench-ca23119f9454",
+        "bench-f1ddd0aded1a",
+        "bench-def50eb0b288",
+        "bench-8eba4c73f6c7",
+        "bench-0234cb02293f",
+        "bench-59dd39ef25e7",
+        "bench-629657e3155e",
+        "bench-ce7d71d07a22",
+        "bench-934f158d49fc",
+        "bench-000287e28032",
+        "bench-3465a6ec011b",
+        "bench-3d63b19e00a7",
+        "bench-867e03ca685f",
+        "bench-565167211b04",
+        "bench-824a6820bcfc",
+        "bench-163002ae89a1",
+        "bench-cf7d405da696"
+      ],
+      "suites": [
+        "cold_start",
+        "cpu_stress",
+        "output_fidelity",
+        "repository_task",
+        "runtime_inventory",
+        "sqlite_analytics"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-de95f5fad206",
+          "observed_at": "2026-10-13T07:36:47.014453+00:00",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 3296747520,
+              "filesystem_total_bytes": 3299184640
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 4123979776
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": "25.0.1",
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.12.75+",
+              "os": "Linux",
+              "python": "3.12.15"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": false,
+              "git": true,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-d3ac667557ac",
+          "observed_at": "2026-10-13T07:36:53.262734+00:00",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 3296747520,
+              "filesystem_total_bytes": 3299184640
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 4123979776
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": "25.0.1",
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.12.75+",
+              "os": "Linux",
+              "python": "3.12.15"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": false,
+              "git": true,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-399189f1c914",
+          "observed_at": "2026-10-13T07:37:02.716113+00:00",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 3296747520,
+              "filesystem_total_bytes": 3299184640
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 4123979776
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": "25.0.1",
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.12.75+",
+              "os": "Linux",
+              "python": "3.12.15"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": false,
+              "git": true,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-ce7d71d07a22",
+          "observed_at": "2026-10-13T07:37:17.241142+00:00",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 3296747520,
+              "filesystem_total_bytes": 3299184640
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 4123979776
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": "25.0.1",
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.12.75+",
+              "os": "Linux",
+              "python": "3.12.15"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": false,
+              "git": true,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-565167211b04",
+          "observed_at": "2026-10-13T07:37:28.842412+00:00",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 3296747520,
+              "filesystem_total_bytes": 3299184640
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 4123979776
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": "25.0.1",
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.12.75+",
+              "os": "Linux",
+              "python": "3.12.15"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": false,
+              "git": true,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/blaxel_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:37:33.846829+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "blaxel",
+      "config_id": "39ed10c5d0c2",
+      "adapter_sha256": "39db71c3764888ee5ea29c0f21d9f3081b4d9e286d5ad49eaf5322aec4368ee2",
+      "stack_sha256": "unrecorded",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults"
+      },
+      "request_recording_complete": false,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0"
+        },
+        "execution_stack": null
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-6f8c3ee8ee03",
+        "bench-e1074e5f854e",
+        "bench-9b9acb64adfc",
+        "bench-473abc8ef6f1",
+        "bench-8485fb0b7a42",
+        "bench-908e25de94ba",
+        "bench-bd1c3126b1a7",
+        "bench-9d1d218872ce",
+        "bench-c3da12ac7fcc",
+        "bench-77f6bced0edb",
+        "bench-e9d1e41599bc",
+        "bench-8ebf156c1cdd",
+        "bench-2203dd9f3e1a",
+        "bench-4f876510f18a",
+        "bench-eadd44290312",
+        "bench-3aae0a1bf17a",
+        "bench-9e28fe7e4f85",
+        "bench-3d657fb7fb82",
+        "bench-e33ed7d2072a",
+        "bench-b7362a69a17a",
+        "bench-e7f554269468",
+        "bench-f10a64bbb5ea",
+        "bench-a06a5863cf93",
+        "bench-8fbd6f353c3e",
+        "bench-22aa22b8c985",
+        "bench-50c11db099aa"
+      ],
+      "suites": [
+        "cold_start",
+        "cpu_stress",
+        "output_fidelity",
+        "repository_task",
+        "runtime_inventory",
+        "sqlite_analytics"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-6f8c3ee8ee03",
+          "observed_at": "2026-10-13T07:13:22.552337+00:00",
+          "report_path": "data/attempts/blaxel_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 3296747520,
+              "filesystem_total_bytes": 3299184640
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 4123979776
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": "25.0.1",
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.12.75+",
+              "os": "Linux",
+              "python": "3.12.15"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": false,
+              "git": true,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/blaxel_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:16:02.248650+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    }
+  ]
+}

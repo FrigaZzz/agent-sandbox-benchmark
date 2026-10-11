@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "provider": "gemini_tool",
+  "reviewed_at": "2026-10-13",
+  "deployment": "model_mediated",
+  "customization": {"level": "fixed_runtime", "summary": "Model-mediated Python execution with fixed libraries and 30-second maximum runtime. Model/prompt/thinking/tool combinations and media inputs can vary; no container image/resource customization. Adapter defaults to gemini-2.5-flash text-only GenerateContent."},
+  "features": [
+    {"id": "custom_image", "support": "unsupported", "evidence": "documented", "notes": "No hosted container image selector. Gemini 3 Flash image inspection/output refers to media, not OS images; not tested by text-only 2.5 Flash adapter.", "source_ids": ["G1", "G2", "A1"]},
+    {"id": "runtime_packages", "support": "unsupported", "evidence": "documented", "notes": "Official guides explicitly prohibit own library installation; fixed preinstalled libraries.", "source_ids": ["G1", "G2"]},
+    {"id": "cpu_sizing", "support": "unsupported", "evidence": "documented", "notes": "Tool contract exposes no vCPU selector; model selection is not resource sizing.", "source_ids": ["G1", "A1"]},
+    {"id": "memory_sizing", "support": "unsupported", "evidence": "documented", "notes": "No RAM selector. README's approximate 1 GB/50 KB stdout numbers not verified in current official guides or report.", "source_ids": ["G1", "G2", "L1", "R1"]},
+    {"id": "gpu", "support": "unsupported", "evidence": "documented", "notes": "No selectable sandbox GPU; preinstalled TensorFlow does not establish accelerator access.", "source_ids": ["G1", "G2"]},
+    {"id": "network_policy", "support": "unsupported", "evidence": "unverified", "notes": "No configurable network control in inspected tool request; historical model-mediated output reports blocked DNS/HTTP/metadata without retained tool trace. Search/custom tools do not grant Python network access.", "source_ids": ["G1", "A1", "R1"]},
+    {"id": "persistent_storage", "support": "unsupported", "evidence": "documented", "notes": "No durable sandbox storage/mount interface in documented tool. Files API/model context and scratch writes are not persistent interpreter disk.", "source_ids": ["G1", "G2", "A1", "R1"]},
+    {"id": "session_reuse", "support": "unknown", "evidence": "unverified", "notes": "Current multi-turn conversations/previous_interaction_id documented but persistent Python kernel memory/files not established. Adapter creates independent GenerateContent calls; reported five turns occur inside one program.", "source_ids": ["G1", "A1", "R1"]},
+    {"id": "shell", "support": "unsupported", "evidence": "documented", "notes": "Python-only first-class tool; no SSH/command/shell endpoint. Subprocess probes do not establish a supported shell service.", "source_ids": ["G1", "G2"]},
+    {"id": "file_transfer", "support": "conditional", "evidence": "documented", "notes": "Developer API inline/Files API input, inline graph/image output with model-dependent behavior. Vertex guide excludes file URI I/O and documents inline bytes. Adapter does not submit files or retrieve inline artifacts.", "source_ids": ["G1", "G2", "A1"]},
+    {"id": "ports_preview", "support": "unsupported", "evidence": "documented", "notes": "No port forwarding/service preview contract in built-in tool.", "source_ids": ["G1", "A1"]},
+    {"id": "self_hosting", "support": "unsupported", "evidence": "documented", "notes": "Google-hosted built-in execution. External function-calling runtimes are separate products/deployments.", "source_ids": ["G1", "G2"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "No tool-runtime CMEK selector or coverage verified. Separate Google Cloud sandbox CMEK must not be inherited.", "source_ids": ["G2", "A1"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "No separate Code Execution runtime/session charge; token billing for selected model, including code/results and iterative context. Quoted rates are Developer API Standard paid gemini-2.5-flash only.",
+    "rates": [
+      {"resource": "gemini-2.5-flash Standard paid text/image/video input", "unit": "1,000,000 input tokens", "amount": 0.30, "source_ids": ["G3"]},
+      {"resource": "gemini-2.5-flash Standard paid audio input", "unit": "1,000,000 input tokens", "amount": 1.00, "source_ids": ["G3"]},
+      {"resource": "gemini-2.5-flash Standard paid output including thinking", "unit": "1,000,000 output tokens", "amount": 2.50, "source_ids": ["G3"]},
+      {"resource": "Separate Code Execution enablement/runtime/session charge", "unit": "Code Execution tool enablement/runtime charge", "amount": 0, "source_ids": ["G1", "G3"]}
+    ],
+    "limitations": "Developer rates do not establish a Vertex regional quote, or Batch/Flex/Priority rates. Adapter sends text only. Generated code/results are output when created and can be input in iterative reasoning; actual usage metadata required. Fixed 500/250 report tokens and $0.0001125 costs are estimates. No supported dated price-increase comparison."
+  },
+  "tested_configuration": {"adapter": "src/core/providers/gemini_tool.py", "requested": "Default gemini-2.5-flash, text prompt, ToolCodeExecution() through async GenerateContent; default resource environment. See tested-configurations.json for versioned requests.", "historical_reports": ["reports/data/legacy/gemini_tool_live.json"], "evaluation_report": "reports/data/attempts/gemini_tool_evaluation.json", "limitations": "New trials require exact source plus successful tool outcome; prose fallback rejected. Runtime observations are not allocations. No artifact collection, cross-request kernel proof, newer media workflow or metered token bill."},
+  "sources": [
+    {"id": "G1", "url": "https://ai.google.dev/gemini-api/docs/code-execution", "title": "Official Developer Code Execution guide, retrieved through Jina Reader", "accessed_at": "2026-10-13"},
+    {"id": "G2", "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/code-execution", "title": "Official Google Cloud Code Execution guide and inline I/O restrictions", "accessed_at": "2026-10-13"},
+    {"id": "G3", "url": "https://ai.google.dev/gemini-api/docs/pricing", "title": "Official Gemini Developer pricing, retrieved through Jina Reader", "accessed_at": "2026-10-13"},
+    {"id": "A1", "url": "repo:src/core/providers/gemini_tool.py", "title": "Inspected current Gemini adapter", "accessed_at": "2026-10-13"},
+    {"id": "R1", "url": "repo:reports/data/legacy/gemini_tool_live.json", "title": "Historical model-mediated report without raw tool trace", "accessed_at": "2026-10-13"},
+    {"id": "L1", "url": "repo:providers/gemini_tool/README.md", "title": "Existing README with unverified resource ceilings", "accessed_at": "2026-10-13"}
+  ]
+}

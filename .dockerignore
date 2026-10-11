@@ -1,0 +1,17 @@
+.git
+.env
+.env.*
+.venv*
+refs
+tasks
+**/__pycache__
+**/*.pyc
+**/*.lock
+**/*.tmp
+dist
+build
+*.egg-info
+snapshots
+.pages
+reports/downloads
+reports/checks

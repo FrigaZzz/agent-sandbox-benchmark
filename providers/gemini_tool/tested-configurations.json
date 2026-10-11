@@ -1,0 +1,561 @@
+{
+  "schema_version": 1,
+  "provider": "gemini_tool",
+  "configurations": [
+    {
+      "schema_version": 1,
+      "provider": "gemini_tool",
+      "config_id": "ae1077b5e6a4",
+      "adapter_sha256": "cf31d20528a9cafdb1073c9ae15ffff3b41be914b98be0400be0605aae722baa",
+      "stack_sha256": "c26a42c190e7d5b041a5fbb849a90801093cd5a99a5c29c57f7218f753ecb98c",
+      "concurrency": 1,
+      "requested": {
+        "label": "live-rerun",
+        "requested": {
+          "product": "Gemini code_execution",
+          "model": "gemini-2.5-flash",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "google-genai",
+          "version": "2.22.0"
+        }
+      },
+      "runtime_kind": "model_mediated",
+      "attempt_ids": [
+        "bench-7b06a107d535",
+        "bench-736635819fbb",
+        "bench-48f59271b0bd",
+        "bench-0cc363f42220",
+        "bench-6598931a5929",
+        "bench-3e661eabf599",
+        "bench-92190ac0d07c",
+        "bench-2e1b6859e71b",
+        "bench-126eb3abe15c",
+        "bench-b866f4fbe29d",
+        "bench-543ee548703c",
+        "bench-e6e8171e9326"
+      ],
+      "suites": [
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "error_recovery",
+        "output_fidelity",
+        "repository_task",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [],
+      "reports": [
+        "data/attempts/gemini_tool_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T16:33:10.410077+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "gemini_tool",
+      "config_id": "1cf72ddce422",
+      "adapter_sha256": "cf31d20528a9cafdb1073c9ae15ffff3b41be914b98be0400be0605aae722baa",
+      "stack_sha256": "c26a42c190e7d5b041a5fbb849a90801093cd5a99a5c29c57f7218f753ecb98c",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults",
+        "requested": {
+          "product": "Gemini code_execution",
+          "model": "gemini-2.5-flash",
+          "image": "provider-default",
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "google-genai",
+          "version": "2.22.0"
+        }
+      },
+      "runtime_kind": "model_mediated",
+      "attempt_ids": [
+        "bench-e7d2c6931dbf",
+        "bench-71e5c313cf4a",
+        "bench-be434bdd6151",
+        "bench-f0aa410d66ae",
+        "bench-3a2863f2dcd0",
+        "bench-3dcbe78fe69e",
+        "bench-2d72cdb9274c",
+        "bench-955a8688a892",
+        "bench-95be4860a08a",
+        "bench-e7edfaca1fa5",
+        "bench-be31ea16f374",
+        "bench-1cfe85a261e5",
+        "bench-263cf717a627",
+        "bench-b8f383a1f326",
+        "bench-e3d554aa24db",
+        "bench-5502fdb14d60",
+        "bench-9690b50009fa",
+        "bench-532a96031a7a",
+        "bench-fdbe55f61109",
+        "bench-a030f41b6789"
+      ],
+      "suites": [
+        "cold_start",
+        "cpu_stress",
+        "runtime_inventory",
+        "sqlite_analytics"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-e7d2c6931dbf",
+          "observed_at": "2026-10-13T07:41:59.384572+00:00",
+          "report_path": "data/attempts/gemini_tool_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 8,
+              "model": "unknown",
+              "visible_logical_cpus": 8
+            },
+            "disk": {
+              "filesystem_free_bytes": 0,
+              "filesystem_total_bytes": 0
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 369346771
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2147483648
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": null,
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "4.19.0-gvisor",
+              "os": "Linux",
+              "python": "3.11.8"
+            },
+            "tools": {
+              "bash": false,
+              "gcc": false,
+              "git": false,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": false
+            }
+          }
+        },
+        {
+          "run_id": "bench-2d72cdb9274c",
+          "observed_at": "2026-10-13T07:42:22.996971+00:00",
+          "report_path": "data/attempts/gemini_tool_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 8,
+              "model": "unknown",
+              "visible_logical_cpus": 8
+            },
+            "disk": {
+              "filesystem_free_bytes": 0,
+              "filesystem_total_bytes": 0
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 369346771
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2147483648
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": null,
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "4.19.0-gvisor",
+              "os": "Linux",
+              "python": "3.11.8"
+            },
+            "tools": {
+              "bash": false,
+              "gcc": false,
+              "git": false,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": false
+            }
+          }
+        },
+        {
+          "run_id": "bench-b8f383a1f326",
+          "observed_at": "2026-10-13T07:43:17.606632+00:00",
+          "report_path": "data/attempts/gemini_tool_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 8,
+              "model": "unknown",
+              "visible_logical_cpus": 8
+            },
+            "disk": {
+              "filesystem_free_bytes": 0,
+              "filesystem_total_bytes": 0
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 369346771
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2147483648
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": null,
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "4.19.0-gvisor",
+              "os": "Linux",
+              "python": "3.11.8"
+            },
+            "tools": {
+              "bash": false,
+              "gcc": false,
+              "git": false,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": false
+            }
+          }
+        },
+        {
+          "run_id": "bench-9690b50009fa",
+          "observed_at": "2026-10-13T07:43:36.216659+00:00",
+          "report_path": "data/attempts/gemini_tool_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 8,
+              "model": "unknown",
+              "visible_logical_cpus": 8
+            },
+            "disk": {
+              "filesystem_free_bytes": 0,
+              "filesystem_total_bytes": 0
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 369346771
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2147483648
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": null,
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "4.19.0-gvisor",
+              "os": "Linux",
+              "python": "3.11.8"
+            },
+            "tools": {
+              "bash": false,
+              "gcc": false,
+              "git": false,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": false
+            }
+          }
+        },
+        {
+          "run_id": "bench-a030f41b6789",
+          "observed_at": "2026-10-13T07:43:49.697427+00:00",
+          "report_path": "data/attempts/gemini_tool_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 8,
+              "model": "unknown",
+              "visible_logical_cpus": 8
+            },
+            "disk": {
+              "filesystem_free_bytes": 0,
+              "filesystem_total_bytes": 0
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 369346771
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2147483648
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": null,
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "4.19.0-gvisor",
+              "os": "Linux",
+              "python": "3.11.8"
+            },
+            "tools": {
+              "bash": false,
+              "gcc": false,
+              "git": false,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": false
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/gemini_tool_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:43:49.697427+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "gemini_tool",
+      "config_id": "39ed10c5d0c2",
+      "adapter_sha256": "cf31d20528a9cafdb1073c9ae15ffff3b41be914b98be0400be0605aae722baa",
+      "stack_sha256": "unrecorded",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults"
+      },
+      "request_recording_complete": false,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0"
+        },
+        "execution_stack": null
+      },
+      "runtime_kind": "model_mediated",
+      "attempt_ids": [
+        "bench-d7539e1b2901",
+        "bench-b0dc4f94c082"
+      ],
+      "suites": [
+        "cold_start",
+        "runtime_inventory"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-d7539e1b2901",
+          "observed_at": "2026-10-13T07:15:13.907896+00:00",
+          "report_path": "data/attempts/gemini_tool_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": null,
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 8,
+              "model": "unknown",
+              "visible_logical_cpus": 8
+            },
+            "disk": {
+              "filesystem_free_bytes": 0,
+              "filesystem_total_bytes": 0
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 369346771
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2147483648
+            },
+            "packages": {
+              "matplotlib": null,
+              "numpy": null,
+              "pandas": null,
+              "pip": null,
+              "requests": null,
+              "scipy": null,
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "4.19.0-gvisor",
+              "os": "Linux",
+              "python": "3.11.8"
+            },
+            "tools": {
+              "bash": false,
+              "gcc": false,
+              "git": false,
+              "node": false,
+              "nvidia-smi": false,
+              "pip": false
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/gemini_tool_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:15:22.493494+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    }
+  ]
+}

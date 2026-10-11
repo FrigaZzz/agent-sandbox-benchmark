@@ -1,0 +1,475 @@
+[
+  {
+    "run_id": "bench-2e85b2c176a3",
+    "suite": "cold_start",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SANDBOX_READY\nPYTHON_VERSION:3.12.13",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.353,
+      "execute_ms": 2374.599,
+      "collect_ms": 0.0,
+      "cleanup_ms": 144.229,
+      "total_wall_clock_ms": 2519.252
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 7.56e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 7.56e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 2.5193,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-9a1d9dbe3967",
+    "suite": "cpu_stress",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1393",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.58,
+      "execute_ms": 1119.006,
+      "collect_ms": 0.0,
+      "cleanup_ms": 139.726,
+      "total_wall_clock_ms": 1259.377
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.78e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.78e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 1.2594,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-69f852eac0ca",
+    "suite": "mem_stress",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "ALLOCATED_MB:50\nALLOCATED_MB:100\nALLOCATED_MB:250\nALLOCATED_MB:500\n\nALLOCATED_MB:1000\nALLOCATED_MB:2000\nMAX_ALLOCATION_REACHED:2000MB",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.493,
+      "execute_ms": 1416.869,
+      "collect_ms": 0.0,
+      "cleanup_ms": 142.742,
+      "total_wall_clock_ms": 1560.161
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.68e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.68e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 1.5602,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-516f68a2b330",
+    "suite": "disk_io",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SMALL_FILES_WRITE_SEC:0.0035\nLARGE_FILE_WRITE_SEC:0.0150\nLARGE_FILE_READ_SEC:0.0089\nINTEGRITY_MATCH:True",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.459,
+      "execute_ms": 1154.712,
+      "collect_ms": 0.0,
+      "cleanup_ms": 138.362,
+      "total_wall_clock_ms": 1293.587
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.88e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.88e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 1.2936,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-bee19a1c360f",
+    "suite": "net_isolation",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "DNS_STATUS:BLOCKED:gaierror\nHTTP_EGRESS:BLOCKED:URLError\nMETADATA_ACCESS:BLOCKED_SECURE:HTTPError",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.84,
+      "execute_ms": 989.326,
+      "collect_ms": 0.0,
+      "cleanup_ms": 128.148,
+      "total_wall_clock_ms": 1118.394
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.36e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.36e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 1.1184,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-bf2c0f298e19",
+    "suite": "env_security",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "USER_ID:991:991\nIS_ROOT:False\nOS_SYSTEM:Linux:aarch64\nCONTAINER_FLAG:False\nPASSWORDLESS_SUDO:False",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.543,
+      "execute_ms": 992.339,
+      "collect_ms": 0.0,
+      "cleanup_ms": 129.304,
+      "total_wall_clock_ms": 1122.225
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.37e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.37e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 1.1222,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-e406a5c047da",
+    "suite": "timeout_handling",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SLEEP_STARTING\n\nSLEEP_FINISHED_UNEXPECTEDLY",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.472,
+      "execute_ms": 30980.193,
+      "collect_ms": 0.0,
+      "cleanup_ms": 161.362,
+      "total_wall_clock_ms": 31142.143
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0009343,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0009343,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 31.1421,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-f032d688095c",
+    "suite": "artifact_roundtrip",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "success",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "INPUT_BYTES_READ:20\nOUTPUT_BYTES_WRITTEN:20\nOUTPUT_SHA:03f8b5a6985317bb443711cf59982832808ed02a2a2b2c2e7c07bd702ac081e9",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [
+      {
+        "artifact_id": "bench-f032d688095c-0",
+        "filename": "transformed_output.txt",
+        "relative_path": "transformed_output.txt",
+        "mime_type": "application/octet-stream",
+        "size_bytes": 70,
+        "sha256": "2c979fac80d0b0a67fbf0bf8b88b646b0ee5422ae7e19eb652199aa919350c04",
+        "status": "saved",
+        "error": null
+      }
+    ],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 3.509,
+      "execute_ms": 1144.491,
+      "collect_ms": 100.204,
+      "cleanup_ms": 131.472,
+      "total_wall_clock_ms": 1380.031
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.14e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.14e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 1.38,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-378d90a46859",
+    "suite": "agent_multiturn",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "MULTITURN_ITERATIONS:5\nTURN_1_INIT_MS:0.46\nTURN_2_INGEST_MS:1.88\nTURN_3_ANALYSIS_MS:1.42\nTURN_4_DECISION_MS:0.50\nTURN_5_VERIFY_MS:0.25\nTOTAL_MULTITURN_MS:4.63\nSTATE_CONTINUITY_SUCCESS:True",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1.047,
+      "execute_ms": 982.378,
+      "collect_ms": 0.0,
+      "cleanup_ms": 135.753,
+      "total_wall_clock_ms": 1119.287
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.36e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.36e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 1.1193,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-266479878f56",
+    "suite": "parallel_throughput",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PARALLEL_WORKERS:8\nBATCH_TASKS:200\nSERIAL_PROJECTED_SEC:0.1138\nPARALLEL_WALL_SEC:0.1094\nSPEEDUP_RATIO:1.04\nTHROUGHPUT_TASKS_PER_SEC:1827.4\nCONCURRENCY_TEST_PASSED:True",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1.133,
+      "execute_ms": 1098.69,
+      "collect_ms": 0.0,
+      "cleanup_ms": 139.573,
+      "total_wall_clock_ms": 1239.457
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.72e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.72e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 1.2395,
+        "rate_per_sec": 3e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-3286662cb643",
+    "suite": "package_ecosystem",
+    "provider": "aws",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "CORE_STDLIB_COUNT:9/9\nPREINSTALLED_EXT_PACKAGES:['numpy', 'pandas', 'requests', 'yaml', 'pydantic', 'scipy', 'matplotlib']\nPIP_AVAILABLE:True\nPIP_STATUS:pip 26.1.2 from /opt/amazon/genesis1p-tools/venv/lib64/python3.12/site-packages/pip (python 3.12)",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.582,
+      "execute_ms": 2429.094,
+      "collect_ms": 0.0,
+      "cleanup_ms": 133.567,
+      "total_wall_clock_ms": 2563.358
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 7.69e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 7.69e-05,
+      "billing_unit": "AWS Bedrock / Firecracker compute",
+      "details": {
+        "duration_seconds": 2.5634,
+        "rate_per_sec": 3e-05
+      }
+    }
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "provider": "databricks_sandbox",
+  "reviewed_at": "2026-10-13",
+  "deployment": "managed_runtime",
+  "customization": {"level": "packages_and_files", "summary": "Beta dedicated Sandbox: fixed 4 vCPU/8 GB, packages/configuration reusable in persistent home. Official SDK image_uri exists, but product guide prohibits startup customization; image deployability unresolved."},
+  "features": [
+    {"id": "custom_image", "support": "unknown", "evidence": "documented", "notes": "Official EnvironmentSpec.image_uri accepts a Unity Catalog container artifact in schema; current product guide says startup customization unavailable. Field existence is not verified workspace acceptance or arbitrary registry-image support.", "source_ids": ["D1", "D4", "D5"]},
+    {"id": "runtime_packages", "support": "supported", "evidence": "documented", "notes": "Product guide explicitly allows packages/configuration stored in home for cross-session reuse; system-image/root customization not promised.", "source_ids": ["D1"]},
+    {"id": "cpu_sizing", "support": "unsupported", "evidence": "documented", "notes": "Fixed 4 vCPU, not configurable. ComputeSpec exposes inactivity timeout, not vCPU selection.", "source_ids": ["D1", "D4"]},
+    {"id": "memory_sizing", "support": "unsupported", "evidence": "documented", "notes": "Fixed 8 GB RAM, not configurable.", "source_ids": ["D1"]},
+    {"id": "gpu", "support": "unsupported", "evidence": "documented", "notes": "No selectable accelerator in current fixed CPU Sandbox offering or inspected SDK compute contract.", "source_ids": ["D1", "D4"]},
+    {"id": "network_policy", "support": "unsupported", "evidence": "documented", "notes": "Unrestricted outbound egress is explicitly non-configurable; default ingress closed and non-configurable. New system.ai.sandbox MCP has different no-egress posture.", "source_ids": ["D1", "D6"]},
+    {"id": "persistent_storage", "support": "supported", "evidence": "documented", "notes": "100 GB /home/sandbox-agent persists across stop/start until delete; up to 10 GB outside home lost on stop, including adapter /tmp staging. Possible Beta-end purge.", "source_ids": ["D1", "D2", "A1"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "documented", "notes": "Named sandbox reuse and stop/start documented. Not a memory/process checkpoint guarantee; adapter creates per execution and deletes, so reuse untested.", "source_ids": ["D1", "D2", "A1"]},
+    {"id": "shell", "support": "supported", "evidence": "documented", "notes": "Direct exec via SDK name/cmd; /bin/bash -c plus SSH. Adapter keywords corrected and Duration execution timeout forwarded; configured workspace reports API unavailable, so shell not freshly verified.", "source_ids": ["D2", "D3", "D4", "A1"]},
+    {"id": "file_transfer", "support": "conditional", "evidence": "documented", "notes": "Command/stdin/stdout or SSH-based transfer; no native file endpoint in inspected SDK. Adapter base64-stages inputs but collector returns []; historical artifact result unresolved.", "source_ids": ["D3", "D4", "A1", "R1"]},
+    {"id": "ports_preview", "support": "conditional", "evidence": "documented", "notes": "Documented SSH -L local forwarding; not public preview URLs. Public ingress closed/non-configurable.", "source_ids": ["D1", "D3"]},
+    {"id": "self_hosting", "support": "unsupported", "evidence": "documented", "notes": "Managed serverless execution; SDK/CLI are clients, not self-hosted backend.", "source_ids": ["D1"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "No dedicated Sandbox key configuration or encryption-key coverage verified. Adapter false is not authoritative exclusion.", "source_ids": ["D1", "A1"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Current Beta Sandbox feature usage is not charged. Future compute/storage/data-transfer billing anticipated; external model inference separate.",
+    "rates": [
+      {"resource": "Dedicated Sandbox feature usage during current no-charge Beta", "unit": "Sandbox feature usage while Beta no-charge policy applies", "amount": 0, "source_ids": ["D1", "D2"]},
+      {"resource": "Anticipated future running Sandbox compute", "unit": "running-sandbox hour", "amount": null, "source_ids": ["D1", "D7"]},
+      {"resource": "Anticipated future persistent home storage", "unit": "stored home data over resource lifetime; exact price unit not verified", "amount": null, "source_ids": ["D1", "D7"]},
+      {"resource": "External model inference and applicable data-transfer services", "unit": "separate service-specific billing unit", "amount": null, "source_ids": ["D1"]}
+    ],
+    "limitations": "No-charge policy is temporary and product-specific, not free model inference. Future numeric rates/DBU conversions not verified; Beta pricing table rendered Loading. Historical report assumes $0.000036/second and is not an invoice. No supported dated price-increase comparison."
+  },
+  "tested_configuration": {"adapter": "src/core/providers/databricks_sandbox.py", "requested": "Sandbox() defaults, profile, fresh resource per execute; /bin/bash /tmp staging and Duration execution timeout; no image/resource/network selection.", "historical_reports": ["reports/data/legacy/databricks_sandbox_live.json"], "evaluation_report": "reports/data/attempts/databricks_sandbox_evaluation.json", "limitations": "Fresh request failed because API unavailable in configured workspace; no dedicated runtime inventory. Name/cmd signatures corrected. Collector remains empty; historical artifact evidence unresolved. See tested-configurations.json."},
+  "sources": [
+    {"id": "D1", "url": "https://docs.databricks.com/aws/en/compute/serverless/sandbox", "title": "Databricks Sandbox product guide", "accessed_at": "2026-10-13"},
+    {"id": "D2", "url": "https://docs.databricks.com/aws/en/compute/serverless/sandbox-usage-guide", "title": "Sandbox SDK usage guide", "accessed_at": "2026-10-13"},
+    {"id": "D3", "url": "https://docs.databricks.com/aws/en/dev-tools/cli/reference/sandbox-commands", "title": "Sandbox CLI command group", "accessed_at": "2026-10-13"},
+    {"id": "D4", "url": "https://databricks-sdk-py.readthedocs.io/en/latest/dbdataclasses/sandbox.html", "title": "Official Sandbox dataclasses, including EnvironmentSpec", "accessed_at": "2026-10-13"},
+    {"id": "D5", "url": "https://github.com/databricks/databricks-sdk-py/blob/main/databricks/sdk/service/sandbox.py", "title": "Official generated SDK REST paths and signatures", "accessed_at": "2026-10-13"},
+    {"id": "D6", "url": "https://docs.databricks.com/aws/en/agents/custom-agents/code-interpreter-tools", "title": "Distinct new and legacy MCP execution surfaces", "accessed_at": "2026-10-13"},
+    {"id": "D7", "url": "https://www.databricks.com/product/pricing/beta-products", "title": "Beta products pricing (numeric table not retrieved)", "accessed_at": "2026-10-13"},
+    {"id": "D8", "url": "https://databricks-sdk-py.readthedocs.io/en/latest/workspace/sandbox/sandbox.html", "title": "Official Sandbox SDK execution and streaming API", "accessed_at": "2026-10-13"},
+    {"id": "A1", "url": "repo:src/core/providers/databricks_sandbox.py", "title": "Inspected dedicated Sandbox adapter", "accessed_at": "2026-10-13"},
+    {"id": "T1", "url": "repo:tests/test_databricks_providers.py", "title": "Inspected mock tests, not live SDK verification", "accessed_at": "2026-10-13"},
+    {"id": "R1", "url": "repo:reports/data/legacy/databricks_sandbox_live.json", "title": "Historical report with unresolved adapter contradictions", "accessed_at": "2026-10-13"},
+    {"id": "L1", "url": "repo:providers/databricks/README.md", "title": "Existing shared Databricks README citing third-party article", "accessed_at": "2026-10-13"}
+  ]
+}

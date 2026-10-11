@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-e9dcd7432580",
+  "report_path": "local_evaluation.json",
+  "wall_seconds_including_warmups": 26.437761624983978,
+  "attempts": 55,
+  "warmup_attempts": 0,
+  "passes": 55,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 2.080357663412185
+}

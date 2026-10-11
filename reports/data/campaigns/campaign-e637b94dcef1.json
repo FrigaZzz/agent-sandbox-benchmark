@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-e637b94dcef1",
+  "report_path": "gcp_vertex_evaluation.json",
+  "wall_seconds_including_warmups": 5.951232291001361,
+  "attempts": 1,
+  "warmup_attempts": 0,
+  "passes": 1,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.16803242607620328
+}

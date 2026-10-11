@@ -1,0 +1,900 @@
+{
+  "schema_version": 1,
+  "provider": "e2b",
+  "configurations": [
+    {
+      "schema_version": 1,
+      "provider": "e2b",
+      "config_id": "1c8788fe1d12",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "concurrency": 1,
+      "requested": {
+        "label": "live-rerun",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "e2b-code-interpreter",
+          "version": "2.10.5"
+        }
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-268c19358790",
+        "bench-be0800012d2b",
+        "bench-94ed05b9a4c7",
+        "bench-3fdf3456dd8c",
+        "bench-6b83c8842f88",
+        "bench-0336d53ca1df",
+        "bench-e91bef9d686c",
+        "bench-5b39f2f0ba81",
+        "bench-cf25eaf1520f",
+        "bench-d17299f616ce",
+        "bench-148872f78226",
+        "bench-b3f4d06caa91"
+      ],
+      "suites": [
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "error_recovery",
+        "output_fidelity",
+        "repository_task",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [],
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T16:28:30.167215+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "e2b",
+      "config_id": "b8b64fa8b3ea",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "concurrency": 3,
+      "requested": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "e2b-code-interpreter",
+          "version": "2.10.5"
+        }
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-faffe7491ab4",
+        "bench-911f98d91cb1",
+        "bench-085eac791d54",
+        "bench-381ed01cd942",
+        "bench-ab7961f55a81",
+        "bench-a950b8ababa5",
+        "bench-0af8fc71bc59",
+        "bench-14c758762a25",
+        "bench-860a56ad5bac",
+        "bench-36668b35541a",
+        "bench-10b20ff80242",
+        "bench-6ffbdaef3765"
+      ],
+      "suites": [
+        "cpu_stress"
+      ],
+      "observations": [],
+      "reports": [
+        "data/attempts/e2b_burst_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:46:06.220267+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "e2b",
+      "config_id": "b8b64fa8b3ea",
+      "adapter_sha256": "44055e4ac0808ce2b2dc04c6d782128a6d2838fd45fa764a6b23e425d09f63f9",
+      "stack_sha256": "7e13445a554e83c7718d0c568c8a63f759ffe14382422ea89f6e6984540de0d9",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults",
+        "requested": {
+          "template": null,
+          "allow_internet_access": true,
+          "session_ttl_seconds": 180,
+          "cpu": null,
+          "memory": null,
+          "gpu": null
+        }
+      },
+      "request_recording_complete": true,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0",
+          "daytona-sdk": "0.224.0",
+          "openai": "3.29.0"
+        },
+        "execution_stack": {
+          "python": "3.13.13",
+          "sdk": "e2b-code-interpreter",
+          "version": "2.10.5"
+        }
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-33d31916a325",
+        "bench-700e8fa525e4",
+        "bench-9ae331d74a89",
+        "bench-92738672b3bf",
+        "bench-a3f6ae2c4c4f",
+        "bench-6421dab0ac23",
+        "bench-af421b509902",
+        "bench-8fb2e58cc949",
+        "bench-0d860e6c9323",
+        "bench-0b42db3e8711",
+        "bench-f3b4450d5c49",
+        "bench-338d3fd5bf4e",
+        "bench-bc283e99ee8b",
+        "bench-1ee49b715272",
+        "bench-03709663c529",
+        "bench-513b613d7595",
+        "bench-54a769a78ca5",
+        "bench-1851e774f261",
+        "bench-86dfc29ac97a",
+        "bench-6393abf72bad",
+        "bench-857b600981bd",
+        "bench-5d32ac3b1766",
+        "bench-8d37029291d3",
+        "bench-845f253cb8da",
+        "bench-c3f5a4311057",
+        "bench-370e8121b40e",
+        "bench-8f4f79e0b82c",
+        "bench-709c92ade37a",
+        "bench-c67e34455f79",
+        "bench-a7428af10ae6",
+        "bench-27bd6e3078ed",
+        "bench-be877aafe4cf",
+        "bench-1685bbd3a866",
+        "bench-ff9d2883d7e6",
+        "bench-cfcfda2ca85d",
+        "bench-9c062788d9b6",
+        "bench-191e71516a70",
+        "bench-b935ec69dba2",
+        "bench-b4251964f0d7",
+        "bench-c10b1ae4a021",
+        "bench-67306aa3d594",
+        "bench-1d7fb60e66f0",
+        "bench-0772c1c612bd",
+        "bench-84934a2d8096",
+        "bench-3398fe3d188d",
+        "bench-8617044db674",
+        "bench-dfb1c7ebfd38",
+        "bench-c688f973415c",
+        "bench-71b2571685d9",
+        "bench-90eb0ac8d49b",
+        "bench-96df0ac15639",
+        "bench-e0ae120374cd",
+        "bench-ea2f202172b6",
+        "bench-5fccc7873d88",
+        "bench-6deabde06e86",
+        "bench-6e0b3a5c51d9",
+        "bench-b7ec5b5dcbd3",
+        "bench-c6a36f3c539b",
+        "bench-691b4c67c3c2",
+        "bench-fb61369d1248"
+      ],
+      "suites": [
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "error_recovery",
+        "output_fidelity",
+        "repository_task",
+        "runtime_inventory",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-700e8fa525e4",
+          "observed_at": "2026-10-13T07:42:10.468416+00:00",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-1",
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.60GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 1039572992,
+              "filesystem_total_bytes": 1039572992
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2079141888
+            },
+            "packages": {
+              "matplotlib": "3.10.9",
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "pip": "26.2.1",
+              "requests": "2.33.0",
+              "scipy": "1.17.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.1.158+",
+              "os": "Linux",
+              "python": "3.13.16"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-92738672b3bf",
+          "observed_at": "2026-10-13T07:42:14.481971+00:00",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-1",
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.60GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 1039572992,
+              "filesystem_total_bytes": 1039572992
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2079141888
+            },
+            "packages": {
+              "matplotlib": "3.10.9",
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "pip": "26.2.1",
+              "requests": "2.33.0",
+              "scipy": "1.17.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.1.158+",
+              "os": "Linux",
+              "python": "3.13.16"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-8d37029291d3",
+          "observed_at": "2026-10-13T07:43:00.741015+00:00",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-1",
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.60GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 1039572992,
+              "filesystem_total_bytes": 1039572992
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2079141888
+            },
+            "packages": {
+              "matplotlib": "3.10.9",
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "pip": "26.2.1",
+              "requests": "2.33.0",
+              "scipy": "1.17.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.1.158+",
+              "os": "Linux",
+              "python": "3.13.16"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-191e71516a70",
+          "observed_at": "2026-10-13T07:43:31.308740+00:00",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-1",
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.60GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 1039572992,
+              "filesystem_total_bytes": 1039572992
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2079141888
+            },
+            "packages": {
+              "matplotlib": "3.10.9",
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "pip": "26.2.1",
+              "requests": "2.33.0",
+              "scipy": "1.17.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.1.158+",
+              "os": "Linux",
+              "python": "3.13.16"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-b7ec5b5dcbd3",
+          "observed_at": "2026-10-13T07:44:26.487097+00:00",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-1",
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.60GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 1039572992,
+              "filesystem_total_bytes": 1039572992
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2079141888
+            },
+            "packages": {
+              "matplotlib": "3.10.9",
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "pip": "26.2.1",
+              "requests": "2.33.0",
+              "scipy": "1.17.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.1.158+",
+              "os": "Linux",
+              "python": "3.13.16"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:44:30.898398+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "e2b",
+      "config_id": "39ed10c5d0c2",
+      "adapter_sha256": "4bb2a61a8daba990eee22aaeb48e28863fe23d04b9c7a8c65951f89ab288d373",
+      "stack_sha256": "unrecorded",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults"
+      },
+      "request_recording_complete": false,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0"
+        },
+        "execution_stack": null
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-1650fd65b551",
+        "bench-3e10db933e0a",
+        "bench-43412619a6c1"
+      ],
+      "suites": [
+        "runtime_inventory"
+      ],
+      "observations": [
+        {
+          "run_id": "bench-1650fd65b551",
+          "observed_at": "2026-10-13T07:13:22.555687+00:00",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-1",
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.60GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 1039572992,
+              "filesystem_total_bytes": 1039572992
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2079141888
+            },
+            "packages": {
+              "matplotlib": "3.10.9",
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "pip": "26.2.1",
+              "requests": "2.33.0",
+              "scipy": "1.17.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.1.158+",
+              "os": "Linux",
+              "python": "3.13.16"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-3e10db933e0a",
+          "observed_at": "2026-10-13T07:13:25.782001+00:00",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-1",
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.60GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 1039572992,
+              "filesystem_total_bytes": 1039572992
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2079141888
+            },
+            "packages": {
+              "matplotlib": "3.10.9",
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "pip": "26.2.1",
+              "requests": "2.33.0",
+              "scipy": "1.17.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.1.158+",
+              "os": "Linux",
+              "python": "3.13.16"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        },
+        {
+          "run_id": "bench-43412619a6c1",
+          "observed_at": "2026-10-13T07:13:27.520010+00:00",
+          "report_path": "data/attempts/e2b_evaluation.json",
+          "metrics": {
+            "cgroup": {
+              "cpu_max": null,
+              "cpu_period_v1": null,
+              "cpu_quota_v1": null,
+              "cpuset_effective": "0-1",
+              "memory_limit_v1": null,
+              "memory_max": null
+            },
+            "cpu": {
+              "affinity_count": 2,
+              "model": "Intel(R) Xeon(R) Processor @ 2.60GHz",
+              "visible_logical_cpus": 2
+            },
+            "disk": {
+              "filesystem_free_bytes": 1039572992,
+              "filesystem_total_bytes": 1039572992
+            },
+            "gpu": {
+              "devices": [],
+              "probe": "nvidia-smi_unavailable"
+            },
+            "identity": {
+              "uid": 0
+            },
+            "inventory_schema_version": 1,
+            "limitations": "Visible CPUs, physical memory and filesystem capacity can be shared host values. cgroup files can be hidden or report shared limits. This probe cannot attest reserved resources, image digest, cloud network policy, GPU eligibility, or isolation technology.",
+            "memory": {
+              "sysconf_physical_bytes": 2079141888
+            },
+            "packages": {
+              "matplotlib": "3.10.9",
+              "numpy": "2.3.5",
+              "pandas": "2.2.3",
+              "pip": "26.2.1",
+              "requests": "2.33.0",
+              "scipy": "1.17.1",
+              "torch": null
+            },
+            "runtime": {
+              "architecture": "x86_64",
+              "implementation": "CPython",
+              "kernel": "6.1.158+",
+              "os": "Linux",
+              "python": "3.13.16"
+            },
+            "tools": {
+              "bash": true,
+              "gcc": true,
+              "git": true,
+              "node": true,
+              "nvidia-smi": false,
+              "pip": true
+            }
+          }
+        }
+      ],
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T07:13:27.520010+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    },
+    {
+      "schema_version": 1,
+      "provider": "e2b",
+      "config_id": "39ed10c5d0c2",
+      "adapter_sha256": "unrecorded",
+      "stack_sha256": "unrecorded",
+      "concurrency": 1,
+      "requested": {
+        "label": "adapter-defaults"
+      },
+      "request_recording_complete": false,
+      "client": {
+        "client_python": "3.13.13",
+        "client_os": "Darwin",
+        "client_arch": "arm64",
+        "sdk_versions": {
+          "pydantic": "2.13.5",
+          "modal": "1.6.1",
+          "e2b-code-interpreter": "2.10.5",
+          "blaxel": "0.4.13",
+          "boto3": "1.43.112",
+          "databricks-sdk": "0.151.0",
+          "google-genai": "2.22.0"
+        },
+        "execution_stack": null
+      },
+      "runtime_kind": "remote_runtime",
+      "attempt_ids": [
+        "bench-3daade047bcb",
+        "bench-c6673f8738a3",
+        "bench-93dcfb74df1d",
+        "bench-49b9ebfd14c0",
+        "bench-a29cea408706",
+        "bench-17b0e08c0339",
+        "bench-57ce0d4ad2c0",
+        "bench-fd6a2be1e6f6",
+        "bench-8cb60a726518",
+        "bench-3bca0fd3fc98",
+        "bench-651df75c1672",
+        "bench-e92bb3852595",
+        "bench-fda5b64ef914",
+        "bench-dd5cc4026510",
+        "bench-bef1f3b08bd6",
+        "bench-256231af859f",
+        "bench-c581d0f48798",
+        "bench-d9b697f3c1a3",
+        "bench-12424d2ddd3c",
+        "bench-1d9c57b8519e",
+        "bench-ff6c0ef7afcb",
+        "bench-3a046f48d740",
+        "bench-2adada0be839",
+        "bench-76a7a540e8a9",
+        "bench-a48d0c47f16d",
+        "bench-2bc844e9074e",
+        "bench-13e37d44d230",
+        "bench-202446bd06eb",
+        "bench-c0358e9ddbab",
+        "bench-82c4b7011f2e",
+        "bench-57330f686f52",
+        "bench-7f5eb06e403f",
+        "bench-fa2c29a8f909",
+        "bench-b5c87b679d4c",
+        "bench-ee6da66788e0",
+        "bench-90e45c1678e9",
+        "bench-7fb865700055",
+        "bench-cc33db64fc7b",
+        "bench-a3bb250c9a9d",
+        "bench-b15922e988e0",
+        "bench-4d7fbf153c59",
+        "bench-f50a36860ff0",
+        "bench-a28efc0c3b85",
+        "bench-7b6406805223",
+        "bench-281c8e1c430c",
+        "bench-bb7b5374cd81",
+        "bench-75891dbed852",
+        "bench-9cc840ef3a2c",
+        "bench-b79944dde106",
+        "bench-4c49f807f8f5",
+        "bench-2c8b6c48716c",
+        "bench-f1016dbf2995",
+        "bench-1bbb2a8cda26",
+        "bench-ba62a78c0471",
+        "bench-ca0143e7379e",
+        "bench-4f237131178b",
+        "bench-076e43180b1b"
+      ],
+      "suites": [
+        "artifact_roundtrip",
+        "cold_start",
+        "cpu_stress",
+        "data_pipeline",
+        "dependency_install",
+        "error_recovery",
+        "output_fidelity",
+        "repository_task",
+        "session_state",
+        "sqlite_analytics",
+        "timeout_handling"
+      ],
+      "observations": [],
+      "reports": [
+        "data/attempts/e2b_evaluation.json"
+      ],
+      "last_measured_at": "2026-10-13T06:45:06.512845+00:00",
+      "limitations": "Recorded requests and guest-visible observations are distinct; guest observations are not reserved-resource, image, GPU-eligibility or isolation attestation. Early attempts without requested settings remain incomplete."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "provider": "modal",
+  "reviewed_at": "2026-10-13",
+  "deployment": "managed_runtime",
+  "customization": {
+    "level": "custom_image_and_resources",
+    "summary": "Managed Sandbox API with custom built/registry images, fractional physical CPU requests and limits, memory requests and limits in MiB, optional GPUs on gVisor, network controls, volumes and snapshots. The inspected adapter requests debian_slim, 2 physical cores and 2048 MiB, not a hard 2-vCPU/4-GB machine; observed reports do not inventory the allocation."
+  },
+  "features": [
+    {"id": "custom_image", "support": "supported", "evidence": "documented", "notes": "Sandbox.create accepts modal.Image; method-chained, external registry and published named images are documented. Cached external tags are treated as immutable after pull; pin versions for reproducibility. Adapter uses Image.debian_slim without a pinned Python version or image digest.", "source_ids": ["sandbox", "api", "adapter"]},
+    {"id": "runtime_packages", "support": "supported", "evidence": "measured", "notes": "Arbitrary exec supports runtime package installation subject to permissions and egress. Existing dependency_install evaluations pass an uploaded offline wheel installed with --no-index/--no-deps into a private target; this does not measure PyPI availability or system-package installation.", "source_ids": ["sandbox", "evaluation", "fixtures"]},
+    {"id": "cpu_sizing", "support": "supported", "evidence": "documented", "notes": "cpu is fractional physical cores (1 physical core = 2 vCPU equivalent); a scalar is a request, (request, limit) adds throttling. Default request is 0.125 physical cores. Current docs enforce a scheduling maximum without publishing its number on the cited pages. Adapter cpu=2 is a request for 2 physical cores, not 2 vCPUs; allocation/burst usage is not measured.", "source_ids": ["resources", "sandbox-resources", "api", "adapter"]},
+    {"id": "memory_sizing", "support": "supported", "evidence": "documented", "notes": "memory uses MiB; a scalar is a guaranteed request, (request, limit) adds a hard OOM ceiling. Default is 128 MiB. Adapter memory=2048 requests 2 GiB and supplies no hard limit. Report cost.details.ram_gb=4 is an unverified estimator input, not measured RAM.", "source_ids": ["resources", "sandbox-resources", "adapter", "evaluation"]},
+    {"id": "gpu", "support": "conditional", "evidence": "documented", "notes": "Explicit Sandbox GPU reservation exists; GPU sandboxes require runtime=gvisor and are subject to preemption. GPU Function/model-hosting support is not the evidence used here. Adapter requests no GPU; GPU access and availability were not benchmarked.", "source_ids": ["sandbox", "sandbox-resources", "api", "adapter"]},
+    {"id": "network_policy", "support": "supported", "evidence": "documented", "notes": "Public outbound IP access by default; block_network, outbound CIDR allowlists, beta domain allowlists and inbound CIDR allowlists are available. Domain filtering uses TLS SNI on 443, does not inspect Host/path, permits unrestricted DNS unless fully blocked, and has domain-fronting limitations. Dynamic updates are experimental and require allowlist types at creation. Adapter sets none of these controls.", "source_ids": ["network", "api", "adapter"]},
+    {"id": "persistent_storage", "support": "supported", "evidence": "documented", "notes": "Mount named Volumes/NetworkFileSystems or snapshot filesystem/directory state for later Sandboxes. Root filesystem persistence during an active sandbox is distinct from storage surviving termination. Adapter mounts no durable storage and terminates on cleanup. Sandbox disk cannot be enlarged; VM root disk is fixed at 512 GiB.", "source_ids": ["sandbox", "api", "sandbox-resources", "adapter"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "measured", "notes": "from_id/from_name can reconnect to running sandboxes. Current adapter retains its handle across calls; existing session_state evaluations pass three filesystem-state API calls. Each exec starts a new process, so Python globals are not the measured continuity. Documented lifetime defaults to 300 seconds, maximum 24 hours; adapter uses 180 seconds and terminates at cleanup.", "source_ids": ["sandbox", "api", "adapter", "evaluation", "fixtures"]},
+    {"id": "shell", "support": "supported", "evidence": "documented", "notes": "Sandbox.exec supports arbitrary command argv and PTYs. Adapter selects python -c for Python and bash -c otherwise. Existing evaluated workloads primarily exercise Python and its subprocesses, not a separately evaluated shell-language request.", "source_ids": ["api", "adapter", "evaluation"]},
+    {"id": "file_transfer", "support": "supported", "evidence": "measured", "notes": "Native filesystem write_bytes/read_bytes and local copy APIs are documented. Adapter stages input bytes and lists output directory entries; existing artifact_roundtrip reports pass byte/hash validation for a 26900-byte artifact. Nested-directory export and large-file API limits are not established by that result.", "source_ids": ["api", "adapter", "evaluation"]},
+    {"id": "ports_preview", "support": "supported", "evidence": "documented", "notes": "Authenticated HTTP/WebSocket connect tokens and explicit TLS/plain TCP or HTTP/2 tunnels exist. Default sandbox has no public inbound listener. Tunnel custom domains require Team/Enterprise and manual onboarding. Adapter does not expose ports or generate previews.", "source_ids": ["network", "api", "adapter"]},
+    {"id": "self_hosting", "support": "unknown", "evidence": "unverified", "notes": "Inspected official Sandbox/security docs describe Modal-operated compute. No full customer-operated Sandbox control/data-plane distribution was verified. An open-source client, runtime=vm or underlying cloud selection does not establish self-hosting.", "source_ids": ["sandbox", "security"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "Provider-managed encryption at rest is documented. Alpha customer-supplied encryption keys (CSEK) are explicitly supported for directory snapshots only; customer passes raw key material on create/mount and Modal does not persist it. This is not verified KMS-backed CMEK for the whole sandbox, volumes, images or logs. Adapter configures neither CSEK nor CMEK.", "source_ids": ["security", "csek", "adapter"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Sandbox/Notebook-specific per-second CPU and memory usage, charged at max(request, actual); GPU rates use standard GPU schedule; storage/egress and plan fees separate.",
+    "rates": [
+      {"resource": "Sandbox CPU", "unit": "physical-core-second (2 vCPU equivalent)", "amount": 0.00003942, "source_ids": ["pricing"]},
+      {"resource": "Sandbox memory", "unit": "GiB-second", "amount": 0.00000667, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA B300", "unit": "GPU-second", "amount": 0.001972, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA B200", "unit": "GPU-second", "amount": 0.001736, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA H200 SXM", "unit": "GPU-second", "amount": 0.001261, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA H100 SXM5", "unit": "GPU-second", "amount": 0.001097, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA RTX PRO 6000", "unit": "GPU-second", "amount": 0.000842, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA A100 80 GB", "unit": "GPU-second", "amount": 0.000694, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA A100 40 GB", "unit": "GPU-second", "amount": 0.000583, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA L40S", "unit": "GPU-second", "amount": 0.000542, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA A10", "unit": "GPU-second", "amount": 0.000306, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA L4", "unit": "GPU-second", "amount": 0.000222, "source_ids": ["pricing"]},
+      {"resource": "NVIDIA T4", "unit": "GPU-second", "amount": 0.000164, "source_ids": ["pricing"]},
+      {"resource": "Volumes", "unit": "GiB-month", "amount": 0.09, "source_ids": ["pricing"]},
+      {"resource": "Network egress", "unit": "GiB", "amount": 0.04, "source_ids": ["pricing"]},
+      {"resource": "Starter plan base fee", "unit": "workspace-month, plus usage", "amount": 0, "source_ids": ["pricing"]},
+      {"resource": "Team plan base fee", "unit": "workspace-month, plus usage", "amount": 250, "source_ids": ["pricing"]},
+      {"resource": "Enterprise plan", "unit": "contract", "amount": null, "source_ids": ["pricing"]}
+    ],
+    "limitations": "Public list rates retrieved 2026-10-13, not invoice verification. Sandbox CPU/RAM rates must not be replaced with lower Function rates. Minimum request 0.125 physical cores/128 MiB; bursting can increase billing. Pricing lists region premiums 1.15-1.75x and non-preemptible execution 3x, subject to applicable product/configuration. Starter includes $30/month compute, Team $100/month; Volumes include 1 TiB/month free and egress allowances are plan-dependent (1/10/100 TiB). GPU prices are listed rates, not confirmed capacity for every type. Report costs explicitly use unverified rates/client wall time and inconsistent resource assumptions. No historical price-change conclusion is supported by this retrieval."
+  },
+  "sources": [
+    {"id": "sandbox", "url": "https://modal.com/docs/guide/sandboxes", "title": "Modal Sandboxes guide", "accessed_at": "2026-10-13"},
+    {"id": "api", "url": "https://modal.com/docs/sdk/py/latest/Sandbox", "title": "modal.Sandbox Python reference", "accessed_at": "2026-10-13"},
+    {"id": "resources", "url": "https://modal.com/docs/guide/resources", "title": "Configuring CPU, memory, and disk", "accessed_at": "2026-10-13"},
+    {"id": "sandbox-resources", "url": "https://modal.com/docs/guide/sandbox-resources", "title": "Sandbox resources and pricing", "accessed_at": "2026-10-13"},
+    {"id": "network", "url": "https://modal.com/docs/guide/sandbox-networking", "title": "Sandbox networking and security", "accessed_at": "2026-10-13"},
+    {"id": "pricing", "url": "https://modal.com/pricing", "title": "Modal pricing, including Sandbox + Notebooks section", "accessed_at": "2026-10-13"},
+    {"id": "security", "url": "https://modal.com/docs/guide/security", "title": "Security and privacy at Modal", "accessed_at": "2026-10-13"},
+    {"id": "csek", "url": "https://modal.com/docs/guide/customer-supplied-encryption-keys", "title": "Customer Supplied Encryption Keys (alpha)", "accessed_at": "2026-10-13"},
+    {"id": "adapter", "url": "../../src/core/providers/modal.py", "title": "Inspected working-tree Modal adapter", "accessed_at": "2026-10-13"},
+    {"id": "evaluation", "url": "../../reports/data/attempts/modal_evaluation.json", "title": "Existing Modal evaluations (schema version 2)", "accessed_at": "2026-10-13"},
+    {"id": "fixtures", "url": "../../src/bench/suites/workflows.py", "title": "Offline dependency and cross-call filesystem fixtures", "accessed_at": "2026-10-13"}
+  ]
+}

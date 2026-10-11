@@ -1,0 +1,27 @@
+{
+  "session_id": "agent-sess-994",
+  "agent_model": "bench-agent-v1",
+  "turns": [
+    {
+      "turn": 1,
+      "action": "init_session",
+      "ts": 1791856488.7608798
+    },
+    {
+      "turn": 2,
+      "action": "ingest_csv",
+      "count": 500
+    },
+    {
+      "turn": 3,
+      "action": "filter_anomalies",
+      "flagged": 17
+    },
+    {
+      "turn": 4,
+      "action": "generate_report",
+      "bytes": 183
+    }
+  ],
+  "scratchpad": "Session initialized. Ready for transaction pipeline."
+}

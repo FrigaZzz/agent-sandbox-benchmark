@@ -1,0 +1,1610 @@
+[
+  {
+    "run_id": "bench-1c5b7d11d568",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1443\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.006,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1993.486,
+      "execute_ms": 427.72,
+      "collect_ms": 0.0,
+      "cleanup_ms": 107.704,
+      "total_wall_clock_ms": 2529.145
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001821,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001821,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 2.5291,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:45:59.681270+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.1443
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 5,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1443\n",
+        "stderr": "",
+        "wall_ms": 427.675
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-6fbc443533a0",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0737\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 254.998,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1983.16,
+      "execute_ms": 438.439,
+      "collect_ms": 0.0,
+      "cleanup_ms": 119.135,
+      "total_wall_clock_ms": 2796.275
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0002013,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0002013,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 2.7963,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:45:59.423611+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.0737
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 7,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0737\n",
+        "stderr": "",
+        "wall_ms": 438.428
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-24a08d9b16d7",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0773\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.002,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1968.784,
+      "execute_ms": 447.044,
+      "collect_ms": 0.0,
+      "cleanup_ms": 124.737,
+      "total_wall_clock_ms": 2540.9
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001829,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001829,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 2.5409,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:45:59.682348+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.0773
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 2,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0773\n",
+        "stderr": "",
+        "wall_ms": 446.677
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-9788dca8d8d4",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1540\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.028,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1333.828,
+      "execute_ms": 425.25,
+      "collect_ms": 0.0,
+      "cleanup_ms": 108.459,
+      "total_wall_clock_ms": 1868.084
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001345,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001345,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.8681,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:02.222033+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.154
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 8,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1540\n",
+        "stderr": "",
+        "wall_ms": 425.222
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-847f724a3199",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1479\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.001,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1392.752,
+      "execute_ms": 411.686,
+      "collect_ms": 0.0,
+      "cleanup_ms": 121.301,
+      "total_wall_clock_ms": 1925.818
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001387,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001387,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.9258,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:02.222816+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.1479
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 9,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1479\n",
+        "stderr": "",
+        "wall_ms": 411.663
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-8a5ad83cf6ee",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1430\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.005,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1399.914,
+      "execute_ms": 409.642,
+      "collect_ms": 0.0,
+      "cleanup_ms": 122.062,
+      "total_wall_clock_ms": 1931.778
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001391,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001391,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.9318,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:02.226119+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.143
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 6,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1430\n",
+        "stderr": "",
+        "wall_ms": 409.626
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-2ef561feb9a7",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0743\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.007,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1350.087,
+      "execute_ms": 317.905,
+      "collect_ms": 0.0,
+      "cleanup_ms": 113.273,
+      "total_wall_clock_ms": 1781.489
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001283,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001283,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.7815,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:04.156843+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.0743
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 3,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0743\n",
+        "stderr": "",
+        "wall_ms": 317.882
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-f811350e94fa",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1310\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.016,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1412.75,
+      "execute_ms": 394.236,
+      "collect_ms": 0.0,
+      "cleanup_ms": 104.102,
+      "total_wall_clock_ms": 1911.324
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001376,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001376,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.9113,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:04.095479+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.131
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 11,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1310\n",
+        "stderr": "",
+        "wall_ms": 394.207
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-2807e8afb0fe",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0744\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.007,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1424.179,
+      "execute_ms": 322.871,
+      "collect_ms": 0.0,
+      "cleanup_ms": 105.223,
+      "total_wall_clock_ms": 1852.463
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001334,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001334,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.8525,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:04.175568+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.0744
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 4,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0744\n",
+        "stderr": "",
+        "wall_ms": 322.855
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-61208365fbd7",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1347\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.005,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1306.268,
+      "execute_ms": 393.438,
+      "collect_ms": 0.0,
+      "cleanup_ms": 107.368,
+      "total_wall_clock_ms": 1807.268
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001301,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001301,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.8073,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:05.941498+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.1347
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 0,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1347\n",
+        "stderr": "",
+        "wall_ms": 393.408
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-bbaf6d157ea6",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0740\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.003,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1340.696,
+      "execute_ms": 325.368,
+      "collect_ms": 0.0,
+      "cleanup_ms": 109.811,
+      "total_wall_clock_ms": 1775.984
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001279,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001279,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.776,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:06.008595+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.074
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 1,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.0740\n",
+        "stderr": "",
+        "wall_ms": 325.356
+      }
+    ],
+    "teardown": "success"
+  },
+  {
+    "run_id": "bench-353d3b7191e2",
+    "suite": "cpu_stress",
+    "provider": "modal",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1305\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "initialize_ms": 0.002,
+      "cold_start_ms": 0.0,
+      "prepare_ms": 1309.311,
+      "execute_ms": 383.277,
+      "collect_ms": 0.0,
+      "cleanup_ms": 104.184,
+      "total_wall_clock_ms": 1796.906
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001294,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001294,
+      "billing_unit": "per-second (vCPU + RAM)",
+      "details": {
+        "duration_seconds": 1.7969,
+        "vcpu": 2,
+        "ram_gb": 4,
+        "rate_per_sec": 7.2e-05,
+        "evidence": "estimate_unverified_rates",
+        "billing_verified": false,
+        "limitations": "Client wall time is not billable uptime; token counts and billing minima not verified."
+      }
+    },
+    "schema_version": 2,
+    "started_at": "2026-10-13T07:46:06.033036+00:00",
+    "workload_sha256": "b317fc74db8456ba34c9e4b8515d266e7556af30ba2ee1b8386df24756abff40",
+    "evaluation_contract_sha256": "f95a8211397485ae04c5a2b5c2224e53659004c6a600a6cdb577e66de942898a",
+    "evaluation": "pass",
+    "checks": {
+      "prime_count": true,
+      "execution_status": true,
+      "cleanup": true
+    },
+    "metrics": {
+      "PRIMES_FOUND": 148933,
+      "COMPUTE_TIME_SEC": 0.1305
+    },
+    "provenance": {
+      "client_python": "3.13.13",
+      "client_os": "Darwin",
+      "client_arch": "arm64",
+      "sdk_versions": {
+        "pydantic": "2.13.5",
+        "modal": "1.6.1",
+        "e2b-code-interpreter": "2.10.5",
+        "blaxel": "0.4.13",
+        "boto3": "1.43.112",
+        "databricks-sdk": "0.151.0",
+        "google-genai": "2.22.0",
+        "daytona-sdk": "0.224.0",
+        "openai": "3.29.0"
+      },
+      "git_revision": "b0f88c987be176d2aacc20f023b631b6617a1400",
+      "working_tree_dirty": true,
+      "campaign_id": "campaign-b0412f75238a",
+      "attempt": 10,
+      "warmup": false,
+      "concurrency": 3,
+      "seed": 42,
+      "configuration": {
+        "label": "adapter-defaults",
+        "requested": {
+          "cpu": 2,
+          "cpu_unit": "physical-core request",
+          "memory": 2048,
+          "memory_unit": "MiB request",
+          "image": "debian_slim",
+          "python_version": null,
+          "gpu": null,
+          "runtime": null,
+          "region": null,
+          "block_network": false,
+          "session_ttl_seconds": 180
+        }
+      },
+      "config_id": "c6eceedf16a1",
+      "runtime_kind": "remote_runtime",
+      "adapter_sha256": "71538074cc692e549a31af48693e15687f6cc5a39ff4d9b5e834f58d0635ee0f",
+      "execution_stack": {
+        "python": "3.13.13",
+        "sdk": "modal",
+        "version": "1.6.1"
+      },
+      "stack_sha256": "761a2e0e7f7efb87adf3e3003152a7e69036a9fcf1686a9e5d41ceece7fb73ba",
+      "capabilities_declared": {
+        "native_input_files": true,
+        "native_output_files": true,
+        "persistent_filesystem": true,
+        "shell_execution": true,
+        "supports_multiple_files": true,
+        "supports_direct_binary_transfer": true,
+        "has_internet_access": true,
+        "has_custom_packages": true,
+        "model_managed": false,
+        "cmek_supported": false
+      },
+      "timing_scope": "initialize + prepare + execute + collect + cleanup; teardown separate",
+      "lifecycle": "fresh_adapter_per_attempt; image cache state uncontrolled"
+    },
+    "steps": [
+      {
+        "index": 0,
+        "status": "success",
+        "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1305\n",
+        "stderr": "",
+        "wall_ms": 383.256
+      }
+    ],
+    "teardown": "success"
+  }
+]

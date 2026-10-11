@@ -1,0 +1,466 @@
+[
+  {
+    "run_id": "bench-f92cf105cbdb",
+    "suite": "cold_start",
+    "provider": "databricks",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SANDBOX_READY\nPYTHON_VERSION:3.12.3\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.011,
+      "execute_ms": 7162.018,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.004,
+      "total_wall_clock_ms": 7162.135
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001791,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001791,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 7.1621,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-143a47b29d5a",
+    "suite": "cpu_stress",
+    "provider": "databricks",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1766\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.002,
+      "execute_ms": 1247.23,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 1247.272
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.12e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.12e-05,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 1.2473,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-6a2672dab5e1",
+    "suite": "mem_stress",
+    "provider": "databricks",
+    "status": "failed",
+    "preparation": "success",
+    "execution": "failed",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "Statement execution status: StatementState.PENDING",
+    "exit_code": 1,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.002,
+      "execute_ms": 50182.689,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.003,
+      "total_wall_clock_ms": 50182.767
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0012546,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0012546,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 50.1828,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-804a81717e36",
+    "suite": "disk_io",
+    "provider": "databricks",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SMALL_FILES_WRITE_SEC:0.0049\nLARGE_FILE_WRITE_SEC:0.0092\nLARGE_FILE_READ_SEC:0.0132\nINTEGRITY_MATCH:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.004,
+      "execute_ms": 1240.331,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 1240.394
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.1e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.1e-05,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 1.2404,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-c17be81fe5de",
+    "suite": "net_isolation",
+    "provider": "databricks",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "DNS_STATUS:ALLOWED:104.20.23.154\nHTTP_EGRESS:BLOCKED:URLError\nMETADATA_ACCESS:BLOCKED_SECURE:URLError\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.002,
+      "execute_ms": 3347.826,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 3347.916
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 8.37e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 8.37e-05,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 3.3479,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-cdbe0072cf25",
+    "suite": "env_security",
+    "provider": "databricks",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "USER_ID:1000:1000\nIS_ROOT:False\nOS_SYSTEM:Linux:aarch64\nCONTAINER_FLAG:False\nPASSWORDLESS_SUDO:False\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.004,
+      "execute_ms": 925.469,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 925.642
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 2.31e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 2.31e-05,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 0.9256,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-6bacc0400aab",
+    "suite": "timeout_handling",
+    "provider": "databricks",
+    "status": "timed_out",
+    "preparation": "success",
+    "execution": "timed_out",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "Databricks execution cancelled after timeout threshold.",
+    "exit_code": null,
+    "artifacts": [],
+    "warnings": [
+      "databricks_timeout"
+    ],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 5537.492,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 5537.528
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001384,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001384,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 5.5375,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-4e780dd097b6",
+    "suite": "artifact_roundtrip",
+    "provider": "databricks",
+    "status": "failed",
+    "preparation": "success",
+    "execution": "failed",
+    "collection": "empty",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "[UDF_ERROR.INTERNAL] Execution of function system.ai.python_exec failed with an internal error: INTERNAL: http2 exception\n== Stacktrace ==\n SQLSTATE: 39000",
+    "exit_code": 1,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 6656.603,
+      "collect_ms": 0.087,
+      "cleanup_ms": 0.004,
+      "total_wall_clock_ms": 6656.792
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001664,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001664,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 6.6568,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-996a5d699343",
+    "suite": "agent_multiturn",
+    "provider": "databricks",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "MULTITURN_ITERATIONS:5\nTURN_1_INIT_MS:0.21\nTURN_2_INGEST_MS:1.59\nTURN_3_ANALYSIS_MS:1.15\nTURN_4_DECISION_MS:0.18\nTURN_5_VERIFY_MS:0.13\nTOTAL_MULTITURN_MS:3.26\nSTATE_CONTINUITY_SUCCESS:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 923.486,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 923.549
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 2.31e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 2.31e-05,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 0.9235,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-84e1760d8b81",
+    "suite": "parallel_throughput",
+    "provider": "databricks",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PARALLEL_WORKERS:8\nBATCH_TASKS:200\nSERIAL_PROJECTED_SEC:0.0801\nPARALLEL_WALL_SEC:0.0958\nSPEEDUP_RATIO:0.84\nTHROUGHPUT_TASKS_PER_SEC:2086.7\nCONCURRENCY_TEST_PASSED:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.002,
+      "execute_ms": 1481.427,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 1481.479
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.7e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.7e-05,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 1.4815,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-86e03cc59c19",
+    "suite": "package_ecosystem",
+    "provider": "databricks",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "CORE_STDLIB_COUNT:9/9\nPREINSTALLED_EXT_PACKAGES:['numpy', 'pandas', 'requests', 'yaml', 'pydantic', 'scipy', 'matplotlib']\nPIP_AVAILABLE:True\nPIP_STATUS:pip 25.3 from /databricks/python3/lib/python3.12/site-packages/pip (python 3.12)\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.001,
+      "execute_ms": 1513.378,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 1513.414
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.78e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.78e-05,
+      "billing_unit": "DBU (Databricks Units) Serverless",
+      "details": {
+        "duration_seconds": 1.5134,
+        "rate_per_sec": 2.5e-05
+      }
+    }
+  }
+]

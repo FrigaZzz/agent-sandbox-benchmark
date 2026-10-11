@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "provider": "aws",
+  "reviewed_at": "2026-10-13",
+  "deployment": "managed_tool",
+  "customization": {
+    "level": "packages_and_files",
+    "summary": "Amazon Bedrock AgentCore Code Interpreter, directly invoked using boto3; not classic Bedrock model-mediated code interpretation, AgentCore Runtime BYOC, or a self-managed EC2/Firecracker VM. The adapter selects a pre-existing tool and region and requests only a session name and timeout. Package customization remains unverified; file operations are documented but this adapter is text-only and collects one hard-coded output."
+  },
+  "features": [
+    {"id": "custom_image", "support": "unsupported", "evidence": "documented", "notes": "Reviewed CreateCodeInterpreter and StartCodeInterpreterSession APIs expose no custom image input. A custom interpreter means network/role/certificate/filesystem configuration, not BYOC. AgentCore Runtime container deployment is a different product path.", "source_ids": ["aws_create", "aws_start", "aws_pricing"]},
+    {"id": "runtime_packages", "support": "unknown", "evidence": "unverified", "notes": "Prebuilt runtimes and terminal commands are documented; current readiness/CPU/SQLite/repository/output/inventory trials do not install a package or prove arbitrary dependencies. Acquisition depends on networking and permissions.", "source_ids": ["aws_overview", "aws_tools", "aws_network", "report"]},
+    {"id": "cpu_sizing", "support": "unsupported", "evidence": "documented", "notes": "No CPU sizing field in reviewed create/start APIs. Guest inventory shows two visible/affinity CPUs; this is not a configurable reservation or consumed CPU billing measurement.", "source_ids": ["aws_create", "aws_start", "aws_pricing", "adapter", "report"]},
+    {"id": "memory_sizing", "support": "unsupported", "evidence": "documented", "notes": "No RAM sizing field in reviewed create/start APIs. Guest inventory reports about 7.83 GiB physical memory; consumed/billable memory and reservation remain unattested.", "source_ids": ["aws_create", "aws_start", "aws_pricing", "report"]},
+    {"id": "gpu", "support": "unknown", "evidence": "unverified", "notes": "No accelerator selection in reviewed Code Interpreter APIs. New guest inventory has no nvidia-smi device output, which cannot establish platform-wide GPU eligibility. Runtime Instances/EC2 GPU pricing is a separate product.", "source_ids": ["aws_create", "aws_start", "aws_pricing", "report"]},
+    {"id": "network_policy", "support": "supported", "evidence": "documented", "notes": "Custom interpreters support PUBLIC, SANDBOX and VPC; VPC specifies subnets/security groups. SANDBOX allows limited AWS-service access such as S3, not general public egress. The adapter comment declares SANDBOX but does not fetch tool configuration or set network mode; effective tested mode remains unattested.", "source_ids": ["aws_network", "aws_resources", "aws_create", "adapter", "report"]},
+    {"id": "persistent_storage", "support": "conditional", "evidence": "documented", "notes": "Default files persist within a session, not a durable cross-session filesystem. Current docs support customer-owned S3 Files/EFS mounts with VPC, IAM, mount targets and security groups, but no managed Code Interpreter session-storage option. Adapter supplies no mounts; persistence untested.", "source_ids": ["aws_sessions", "aws_filesystems", "adapter", "report"]},
+    {"id": "session_reuse", "support": "supported", "evidence": "documented", "notes": "Multiple invocations may share sessionId/state until stop or timeout. Default timeout 900s, maximum 28800s. Adapter starts a fresh session on every execute with max(request.timeout_seconds,60), then stops in cleanup; cross-invocation reuse untested.", "source_ids": ["aws_sessions", "aws_start", "adapter", "report"]},
+    {"id": "shell", "support": "supported", "evidence": "documented", "notes": "Official executeCommand/startCommandExecution terminal APIs exist. Adapter currently calls executeCode with Python; the selected readiness evaluation does not exercise a shell.", "source_ids": ["aws_tools", "adapter", "report"]},
+    {"id": "file_transfer", "support": "conditional", "evidence": "documented", "notes": "Service documents file upload/download and 100MB inline support. Adapter decodes inputs as UTF-8 with errors=ignore and collects only transformed_output.txt as text, so its binary-transfer capability declaration is not implemented byte-faithfully. Selected evaluation contains no artifact check.", "source_ids": ["aws_overview", "aws_tools", "adapter", "report"]},
+    {"id": "ports_preview", "support": "unknown", "evidence": "unverified", "notes": "Reviewed interpreter APIs/docs and adapter do not establish arbitrary inbound ports or public preview URLs. Public outbound network mode is not inbound port exposure.", "source_ids": ["aws_create", "aws_network", "adapter"]},
+    {"id": "self_hosting", "support": "unsupported", "evidence": "documented", "notes": "Fully managed Code Interpreter tool; direct API use without an LLM does not make the runtime self-hosted. Self-managed EC2/container/Firecracker and AgentCore Runtime are separate paths.", "source_ids": ["aws_overview", "aws_resources"]},
+    {"id": "cmek", "support": "unknown", "evidence": "unverified", "notes": "Adapter declares cmek_supported=true, but reviewed create/start schemas expose no customer-managed KMS key input for the interpreter runtime. General AgentCore encryption docs enumerate Memory/Gateway support, not an interpreter guarantee. Customer-owned storage encryption is a separate surface; no key attestation in report.", "source_ids": ["adapter", "aws_create", "aws_start", "aws_encryption", "aws_filesystems", "report"]}
+  ],
+  "pricing": {
+    "currency": "USD",
+    "model": "Code Interpreter actual CPU consumption and peak memory consumed up to each second over session lifetime, including system overhead; per-second increments, 1-second minimum and 128MB minimum memory billing.",
+    "rates": [
+      {"resource": "Code Interpreter CPU", "unit": "vCPU-hour consumed", "amount": 0.0895, "source_ids": ["aws_pricing"]},
+      {"resource": "Code Interpreter memory", "unit": "GB-hour (peak consumed up to each second)", "amount": 0.00945, "source_ids": ["aws_pricing"]},
+      {"resource": "Network and customer-owned persistent storage", "unit": "applicable EC2/S3 Files/EFS SKU", "amount": null, "source_ids": ["aws_pricing", "aws_filesystems"]}
+    ],
+    "limitations": "Official Code Interpreter rates reviewed 2026-10-13; these are not Runtime v2 or GPU instance rates. AWS pricing labels memory GB, not GiB. CPU can be uncharged during zero-CPU I/O wait, but memory is independently billed under the peak-consumption rule. Report's flat $0.00003/second times client wall time is estimate_unverified_rates with billing_verified=false, not resource-metered cost or a bill. Deployment region defaults to eu-north-1 but the saved adapter-defaults configuration does not attest the resolved tool/region or an account-specific price. No historical price increase claimed."
+  },
+  "sources": [
+    {"id": "adapter", "url": "../../src/core/providers/aws_agentcore.py", "title": "Repository AWSAgentCoreBackend", "accessed_at": "2026-10-13"},
+    {"id": "report", "url": "../../reports/data/attempts/aws_evaluation.json", "title": "Repeated AWS readiness/CPU/SQLite/repository/output/inventory evaluations", "accessed_at": "2026-10-13"},
+    {"id": "aws_overview", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html", "title": "AWS: Code Interpreter overview", "accessed_at": "2026-10-13"},
+    {"id": "aws_create", "url": "https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateCodeInterpreter.html", "title": "AWS: CreateCodeInterpreter API", "accessed_at": "2026-10-13"},
+    {"id": "aws_start", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html", "title": "AWS: StartCodeInterpreterSession API", "accessed_at": "2026-10-13"},
+    {"id": "aws_network", "url": "https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CodeInterpreterNetworkConfiguration.html", "title": "AWS: PUBLIC/SANDBOX/VPC network configuration", "accessed_at": "2026-10-13"},
+    {"id": "aws_resources", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-resource-management.html", "title": "AWS: Code Interpreter resources and network semantics", "accessed_at": "2026-10-13"},
+    {"id": "aws_sessions", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-session-characteristics.html", "title": "AWS: Session isolation, lifetime and state", "accessed_at": "2026-10-13"},
+    {"id": "aws_tools", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-api-reference-examples.html", "title": "AWS: Code, terminal and file API examples", "accessed_at": "2026-10-13"},
+    {"id": "aws_filesystems", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-filesystem-configurations.html", "title": "AWS: Customer-owned S3 Files/EFS mounts", "accessed_at": "2026-10-13"},
+    {"id": "aws_encryption", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/data-encryption.html", "title": "AWS: AgentCore data encryption and resource-specific KMS support", "accessed_at": "2026-10-13"},
+    {"id": "aws_pricing", "url": "https://aws.amazon.com/bedrock/agentcore/pricing/", "title": "AWS: AgentCore pricing, Code Interpreter section/table", "accessed_at": "2026-10-13"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "campaign_id": "campaign-2c725e417820",
+  "report_path": "e2b_evaluation.json",
+  "wall_seconds_including_warmups": 153.50978816699353,
+  "attempts": 60,
+  "warmup_attempts": 0,
+  "passes": 59,
+  "concurrency": 1,
+  "verified_completions_per_second_including_warmup_time": 0.3843403127872058
+}

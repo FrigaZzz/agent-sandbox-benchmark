@@ -1,0 +1,495 @@
+[
+  {
+    "run_id": "bench-dbsb-cold-001",
+    "suite": "cold_start",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SANDBOX_READY\nPYTHON_VERSION:3.12.3\nSANDBOX_TYPE:Dedicated_MicroVM_4vCPU_8GB\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 12.5,
+      "execute_ms": 3408.0,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.005,
+      "total_wall_clock_ms": 3420.505
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001231,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001231,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 3.4205,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-cpu-002",
+    "suite": "cpu_stress",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PRIMES_FOUND:148933\nCOMPUTE_TIME_SEC:0.1140\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.005,
+      "execute_ms": 245.795,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.003,
+      "total_wall_clock_ms": 245.803
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 8.85e-06,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 8.85e-06,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 0.2458,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-mem-003",
+    "suite": "mem_stress",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "ALLOCATED_MB:50\nALLOCATED_MB:100\nALLOCATED_MB:250\nALLOCATED_MB:500\nALLOCATED_MB:1000\nALLOCATED_MB:2000\nMAX_ALLOCATION_REACHED:2000MB\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.004,
+      "execute_ms": 2850.396,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 2850.402
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": 2048,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 0.0001026,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 0.0001026,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 2.8504,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-disk-004",
+    "suite": "disk_io",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "SMALL_FILES_WRITE_SEC:0.0084\nLARGE_FILE_WRITE_SEC:0.0165\nLARGE_FILE_READ_SEC:0.0142\nINTEGRITY_MATCH:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.005,
+      "execute_ms": 310.195,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 310.202
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": 33554432
+    },
+    "cost": {
+      "compute_cost_usd": 1.12e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 1.12e-05,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 0.3102,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-net-005",
+    "suite": "net_isolation",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "HTTP_GET_STATUS:200\nCLOUD_METADATA_STATUS:BLOCKED\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.003,
+      "execute_ms": 2149.997,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 2150.002
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 7.74e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 7.74e-05,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 2.15,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-sec-006",
+    "suite": "env_security",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "UID:1000\nIS_ROOT:False\nSUDO_AVAILABLE:False\nSECRET_LEAKS_FOUND:0\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.002,
+      "execute_ms": 45.198,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.001,
+      "total_wall_clock_ms": 45.201
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 1.63e-06,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 1.63e-06,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 0.0452,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-timeout-007",
+    "suite": "timeout_handling",
+    "provider": "databricks_sandbox",
+    "status": "timed_out",
+    "preparation": "success",
+    "execution": "timed_out",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "",
+    "stderr": "Command exceeded timeout limit of 2s",
+    "exit_code": 124,
+    "artifacts": [],
+    "warnings": [
+      "Process aborted due to reaching timeout limit."
+    ],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.002,
+      "execute_ms": 2045.0,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 2045.004
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 7.36e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 7.36e-05,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 2.045,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-art-008",
+    "suite": "artifact_roundtrip",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "success",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "ROUNDTRIP_SUCCESS:True\nCHECKSUM_MATCH:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [
+      {
+        "name": "transformed_output.txt",
+        "relative_path": "transformed_output.txt",
+        "size_bytes": 35,
+        "sha256": "3cb0b7a8a18353b34b1c7cb7fa34bb2f1b402809e25d4be6cf988f01b1fc686b"
+      }
+    ],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 15.2,
+      "execute_ms": 68.4,
+      "collect_ms": 11.4,
+      "cleanup_ms": 0.003,
+      "total_wall_clock_ms": 95.003
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": 35
+    },
+    "cost": {
+      "compute_cost_usd": 3.42e-06,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.42e-06,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 0.095,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-multi-009",
+    "suite": "agent_multiturn",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "MULTITURN_ITERATIONS:5\nTURN_1_INIT_MS:0.42\nTURN_2_INGEST_MS:1.15\nTURN_3_ANALYSIS_MS:0.88\nTURN_4_DECISION_MS:0.35\nTURN_5_VERIFY_MS:0.18\nTOTAL_MULTITURN_MS:2.98\nSTATE_CONTINUITY_SUCCESS:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.002,
+      "execute_ms": 38.498,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 38.502
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 1.39e-06,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 1.39e-06,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 0.0385,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-para-010",
+    "suite": "parallel_throughput",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "PARALLEL_WORKERS:4\nBATCH_TASKS:200\nSERIAL_PROJECTED_SEC:0.0820\nPARALLEL_WALL_SEC:0.0715\nSPEEDUP_RATIO:1.15\nTHROUGHPUT_TASKS_PER_SEC:2797.2\nCONCURRENCY_TEST_PASSED:True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.003,
+      "execute_ms": 122.395,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.003,
+      "total_wall_clock_ms": 122.401
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 4.41e-06,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 4.41e-06,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 0.1224,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  },
+  {
+    "run_id": "bench-dbsb-pkg-011",
+    "suite": "package_ecosystem",
+    "provider": "databricks_sandbox",
+    "status": "success",
+    "preparation": "success",
+    "execution": "success",
+    "collection": "not_requested",
+    "persistence": "not_requested",
+    "cleanup": "success",
+    "stdout": "CORE_STDLIB_COUNT:9/9\nPREINSTALLED_EXT_PACKAGES:['numpy', 'pandas', 'requests', 'pydantic', 'scipy', 'matplotlib']\nPIP_AVAILABLE:True\nPIP_STATUS:pip 25.0.1 from /usr/local/lib/python3.12/site-packages/pip (python 3.12)\n",
+    "stderr": "",
+    "exit_code": 0,
+    "artifacts": [],
+    "warnings": [],
+    "error": null,
+    "timings": {
+      "cold_start_ms": 0.0,
+      "prepare_ms": 0.004,
+      "execute_ms": 949.995,
+      "collect_ms": 0.0,
+      "cleanup_ms": 0.002,
+      "total_wall_clock_ms": 950.001
+    },
+    "resources": {
+      "cpu_time_user_s": null,
+      "cpu_time_system_s": null,
+      "max_memory_mb": null,
+      "disk_written_bytes": null
+    },
+    "cost": {
+      "compute_cost_usd": 3.42e-05,
+      "token_cost_usd": 0.0,
+      "session_fee_usd": 0.0,
+      "total_cost_usd": 3.42e-05,
+      "billing_unit": "Databricks Serverless Compute (4 vCPU / 8 GB MicroVM)",
+      "details": {
+        "duration_seconds": 0.95,
+        "vcpu": 4,
+        "ram_gb": 8,
+        "rate_per_sec": 3.6e-05
+      }
+    }
+  }
+]
